@@ -8,7 +8,7 @@
 
 #import "RMRHexColorParser.h"
 
-#import <RXCollections/RXCollection.h>
+#import "RXCollection.h"
 
 // Model
 #import "RMRHexColor.h"

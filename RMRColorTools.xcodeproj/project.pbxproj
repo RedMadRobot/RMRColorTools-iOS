@@ -13,6 +13,7 @@
 		83C19ACE1AC2E19800288BFE /* NSString+RMRHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C19ACD1AC2E19800288BFE /* NSString+RMRHelpers.m */; };
 		83C19AD11AC2E75100288BFE /* RMRHexColorGenParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C19AD01AC2E75100288BFE /* RMRHexColorGenParameters.m */; };
 		83C19AD41AC2EC9200288BFE /* RMRHexColorGen.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C19AD31AC2EC9200288BFE /* RMRHexColorGen.m */; };
+		83C19AD91AC2F9A700288BFE /* RXCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C19AD81AC2F9A700288BFE /* RXCollection.m */; };
 		83C30F291ABC427D00C425DD /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C30F281ABC427D00C425DD /* AppKit.framework */; };
 		83C30F2B1ABC427E00C425DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C30F2A1ABC427E00C425DD /* Foundation.framework */; };
 		83C30F3B1ABC42B000C425DD /* NSColorPanel+RMRColorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C30F381ABC42B000C425DD /* NSColorPanel+RMRColorList.m */; };
@@ -21,7 +22,6 @@
 		83D118301AB9ECF400D3C7B9 /* RMRStyleSheetReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182A1AB9ECF400D3C7B9 /* RMRStyleSheetReader.m */; };
 		83D118311AB9ECF400D3C7B9 /* RMRHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */; };
 		83D118321AB9ECF400D3C7B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182E1AB9ECF400D3C7B9 /* main.m */; };
-		BEAD06D79F62AE2FE417DFD8 /* libPods-RMRHexColorGen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 636D731D66F418F8F2D91E34 /* libPods-RMRHexColorGen.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,7 +37,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		636D731D66F418F8F2D91E34 /* libPods-RMRHexColorGen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RMRHexColorGen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		830F500B1ABAC7A6004F31CD /* RMRColorCategoryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRColorCategoryBuilder.h; sourceTree = "<group>"; };
 		830F500C1ABAC7A6004F31CD /* RMRColorCategoryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRColorCategoryBuilder.m; sourceTree = "<group>"; };
 		830F50141ABAE168004F31CD /* NSColor+Hexadecimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Hexadecimal.h"; sourceTree = "<group>"; };
@@ -51,6 +50,8 @@
 		83C19AD21AC2EC9200288BFE /* RMRHexColorGen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRHexColorGen.h; sourceTree = "<group>"; };
 		83C19AD31AC2EC9200288BFE /* RMRHexColorGen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRHexColorGen.m; sourceTree = "<group>"; };
 		83C19AD61AC2EDA400288BFE /* RMRHexColorGenPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRHexColorGenPrefixHeader.pch; sourceTree = "<group>"; };
+		83C19AD71AC2F9A700288BFE /* RXCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXCollection.h; sourceTree = "<group>"; };
+		83C19AD81AC2F9A700288BFE /* RXCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXCollection.m; sourceTree = "<group>"; };
 		83C30F271ABC427D00C425DD /* RMRRefreshColorPanelPlugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RMRRefreshColorPanelPlugin.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C30F281ABC427D00C425DD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		83C30F2A1ABC427E00C425DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -67,8 +68,6 @@
 		83D1182C1AB9ECF400D3C7B9 /* RMRHexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRHexColor.h; sourceTree = "<group>"; };
 		83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRHexColor.m; sourceTree = "<group>"; };
 		83D1182E1AB9ECF400D3C7B9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8D47A071F5BC78156CED5922 /* Pods-RMRHexColorGen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RMRHexColorGen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RMRHexColorGen/Pods-RMRHexColorGen.debug.xcconfig"; sourceTree = "<group>"; };
-		A2E8ACE221FAE4B4E41DA49A /* Pods-RMRHexColorGen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RMRHexColorGen.release.xcconfig"; path = "Pods/Target Support Files/Pods-RMRHexColorGen/Pods-RMRHexColorGen.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEAD06D79F62AE2FE417DFD8 /* libPods-RMRHexColorGen.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,20 +93,10 @@
 		73759BFC0E0AC409E9F99B58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				636D731D66F418F8F2D91E34 /* libPods-RMRHexColorGen.a */,
 				83C30F281ABC427D00C425DD /* AppKit.framework */,
 				83C30F2A1ABC427E00C425DD /* Foundation.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		78E8DE8ABCB460FBC9832BCB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8D47A071F5BC78156CED5922 /* Pods-RMRHexColorGen.debug.xcconfig */,
-				A2E8ACE221FAE4B4E41DA49A /* Pods-RMRHexColorGen.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		83C19AD51AC2ECCE00288BFE /* Supporting Files */ = {
@@ -145,7 +133,6 @@
 				83D118241AB9ECF400D3C7B9 /* RMRHexColorGen */,
 				83C30F2C1ABC427E00C425DD /* RMRRefreshColorPanelPlugin */,
 				83D118011AB9D40000D3C7B9 /* Products */,
-				78E8DE8ABCB460FBC9832BCB /* Pods */,
 				73759BFC0E0AC409E9F99B58 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -183,6 +170,8 @@
 		83D118261AB9ECF400D3C7B9 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				83C19AD71AC2F9A700288BFE /* RXCollection.h */,
+				83C19AD81AC2F9A700288BFE /* RXCollection.m */,
 				83C19ACC1AC2E19800288BFE /* NSString+RMRHelpers.h */,
 				83C19ACD1AC2E19800288BFE /* NSString+RMRHelpers.m */,
 				830F50141ABAE168004F31CD /* NSColor+Hexadecimal.h */,
@@ -234,11 +223,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83D118121AB9D45D00D3C7B9 /* Build configuration list for PBXNativeTarget "RMRHexColorGen" */;
 			buildPhases = (
-				B84491D599329EA4486DE31D /* Check Pods Manifest.lock */,
 				83D1180A1AB9D45D00D3C7B9 /* Sources */,
 				83D1180B1AB9D45D00D3C7B9 /* Frameworks */,
 				83D1180C1AB9D45D00D3C7B9 /* CopyFiles */,
-				616D025835DC6CC59AF674A8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,39 +282,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		616D025835DC6CC59AF674A8 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RMRHexColorGen/Pods-RMRHexColorGen-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B84491D599329EA4486DE31D /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		83C30F231ABC427D00C425DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -342,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83C19AD91AC2F9A700288BFE /* RXCollection.m in Sources */,
 				83C19AD11AC2E75100288BFE /* RMRHexColorGenParameters.m in Sources */,
 				83C19ACE1AC2E19800288BFE /* NSString+RMRHelpers.m in Sources */,
 				830F50161ABAE168004F31CD /* NSColor+Hexadecimal.m in Sources */,
@@ -466,7 +421,6 @@
 		};
 		83D118131AB9D45D00D3C7B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D47A071F5BC78156CED5922 /* Pods-RMRHexColorGen.debug.xcconfig */;
 			buildSettings = {
 				GCC_PREFIX_HEADER = "RMRHexColorGen/Supporting Files/RMRHexColorGenPrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -479,7 +433,6 @@
 		};
 		83D118141AB9D45D00D3C7B9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2E8ACE221FAE4B4E41DA49A /* Pods-RMRHexColorGen.release.xcconfig */;
 			buildSettings = {
 				GCC_PREFIX_HEADER = "RMRHexColorGen/Supporting Files/RMRHexColorGenPrefixHeader.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";

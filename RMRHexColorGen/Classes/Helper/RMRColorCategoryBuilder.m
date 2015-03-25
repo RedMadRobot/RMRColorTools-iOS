@@ -8,7 +8,7 @@
 
 #import "RMRColorCategoryBuilder.h"
 
-#import <RXCollections/RXCollection.h>
+#import "RXCollection.h"
 
 // Helper
 #import "NSString+RMRHelpers.h"
