@@ -8,8 +8,6 @@
 
 @import Foundation;
 
-#import "RMRConstants.h"
-
 
 @interface RMRColorCategoryBuilder : NSObject
 
