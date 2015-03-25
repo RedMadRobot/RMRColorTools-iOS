@@ -9,12 +9,11 @@
 /* Begin PBXBuildFile section */
 		830F500D1ABAC7A6004F31CD /* RMRColorCategoryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F500C1ABAC7A6004F31CD /* RMRColorCategoryBuilder.m */; };
 		830F50101ABAD4F7004F31CD /* RMRConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F500F1ABAD4F7004F31CD /* RMRConstants.m */; };
-		830F50131ABADB60004F31CD /* NSString+RMRHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F50121ABADB60004F31CD /* NSString+RMRHelpers.m */; };
 		830F50161ABAE168004F31CD /* NSColor+Hexadecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F50151ABAE168004F31CD /* NSColor+Hexadecimal.m */; };
 		830F50191ABAEB71004F31CD /* NSColorList+RMRHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F50181ABAEB71004F31CD /* NSColorList+RMRHexColor.m */; };
+		83C19ACE1AC2E19800288BFE /* NSString+RMRHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C19ACD1AC2E19800288BFE /* NSString+RMRHelpers.m */; };
 		83C30F291ABC427D00C425DD /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C30F281ABC427D00C425DD /* AppKit.framework */; };
 		83C30F2B1ABC427E00C425DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C30F2A1ABC427E00C425DD /* Foundation.framework */; };
-		83C30F301ABC427E00C425DD /* RMRRefreshColorPanelPlugin.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 83C30F2F1ABC427E00C425DD /* RMRRefreshColorPanelPlugin.xcscheme */; };
 		83C30F3B1ABC42B000C425DD /* NSColorPanel+RMRColorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C30F381ABC42B000C425DD /* NSColorPanel+RMRColorList.m */; };
 		83C30F3C1ABC42B000C425DD /* RMRRefreshColorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C30F3A1ABC42B000C425DD /* RMRRefreshColorPanel.m */; };
 		83D1182F1AB9ECF400D3C7B9 /* RMRHexColorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D118281AB9ECF400D3C7B9 /* RMRHexColorParser.m */; };
@@ -42,17 +41,16 @@
 		830F500C1ABAC7A6004F31CD /* RMRColorCategoryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRColorCategoryBuilder.m; sourceTree = "<group>"; };
 		830F500E1ABAD4F7004F31CD /* RMRConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRConstants.h; sourceTree = "<group>"; };
 		830F500F1ABAD4F7004F31CD /* RMRConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRConstants.m; sourceTree = "<group>"; };
-		830F50111ABADB60004F31CD /* NSString+RMRHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+RMRHelpers.h"; path = "../../../../RMRSwaggerCodeGen/RMRSwaggerCodeGen/Classes/Helper/NSString+RMRHelpers.h"; sourceTree = "<group>"; };
-		830F50121ABADB60004F31CD /* NSString+RMRHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+RMRHelpers.m"; path = "../../../../RMRSwaggerCodeGen/RMRSwaggerCodeGen/Classes/Helper/NSString+RMRHelpers.m"; sourceTree = "<group>"; };
 		830F50141ABAE168004F31CD /* NSColor+Hexadecimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Hexadecimal.h"; sourceTree = "<group>"; };
 		830F50151ABAE168004F31CD /* NSColor+Hexadecimal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Hexadecimal.m"; sourceTree = "<group>"; };
 		830F50171ABAEB71004F31CD /* NSColorList+RMRHexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColorList+RMRHexColor.h"; sourceTree = "<group>"; };
 		830F50181ABAEB71004F31CD /* NSColorList+RMRHexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColorList+RMRHexColor.m"; sourceTree = "<group>"; };
+		83C19ACC1AC2E19800288BFE /* NSString+RMRHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RMRHelpers.h"; sourceTree = "<group>"; };
+		83C19ACD1AC2E19800288BFE /* NSString+RMRHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+RMRHelpers.m"; sourceTree = "<group>"; };
 		83C30F271ABC427D00C425DD /* RMRRefreshColorPanelPlugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RMRRefreshColorPanelPlugin.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C30F281ABC427D00C425DD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		83C30F2A1ABC427E00C425DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		83C30F2E1ABC427E00C425DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83C30F2F1ABC427E00C425DD /* RMRRefreshColorPanelPlugin.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = RMRRefreshColorPanelPlugin.xcscheme; path = RMRRefreshColorPanelPlugin.xcodeproj/xcshareddata/xcschemes/RMRRefreshColorPanelPlugin.xcscheme; sourceTree = SOURCE_ROOT; };
 		83C30F371ABC42B000C425DD /* NSColorPanel+RMRColorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColorPanel+RMRColorList.h"; sourceTree = "<group>"; };
 		83C30F381ABC42B000C425DD /* NSColorPanel+RMRColorList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColorPanel+RMRColorList.m"; sourceTree = "<group>"; };
 		83C30F391ABC42B000C425DD /* RMRRefreshColorPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRRefreshColorPanel.h; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				83C30F2E1ABC427E00C425DD /* Info.plist */,
-				83C30F2F1ABC427E00C425DD /* RMRRefreshColorPanelPlugin.xcscheme */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -173,10 +170,10 @@
 		83D118261AB9ECF400D3C7B9 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				83C19ACC1AC2E19800288BFE /* NSString+RMRHelpers.h */,
+				83C19ACD1AC2E19800288BFE /* NSString+RMRHelpers.m */,
 				830F50141ABAE168004F31CD /* NSColor+Hexadecimal.h */,
 				830F50151ABAE168004F31CD /* NSColor+Hexadecimal.m */,
-				830F50111ABADB60004F31CD /* NSString+RMRHelpers.h */,
-				830F50121ABADB60004F31CD /* NSString+RMRHelpers.m */,
 				830F50171ABAEB71004F31CD /* NSColorList+RMRHexColor.h */,
 				830F50181ABAEB71004F31CD /* NSColorList+RMRHexColor.m */,
 				83D118271AB9ECF400D3C7B9 /* RMRHexColorParser.h */,
@@ -278,7 +275,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83C30F301ABC427E00C425DD /* RMRRefreshColorPanelPlugin.xcscheme in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,13 +327,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83C19ACE1AC2E19800288BFE /* NSString+RMRHelpers.m in Sources */,
 				830F50161ABAE168004F31CD /* NSColor+Hexadecimal.m in Sources */,
 				83D118301AB9ECF400D3C7B9 /* RMRStyleSheetReader.m in Sources */,
 				83D118311AB9ECF400D3C7B9 /* RMRHexColor.m in Sources */,
 				830F50191ABAEB71004F31CD /* NSColorList+RMRHexColor.m in Sources */,
 				830F500D1ABAC7A6004F31CD /* RMRColorCategoryBuilder.m in Sources */,
 				830F50101ABAD4F7004F31CD /* RMRConstants.m in Sources */,
-				830F50131ABADB60004F31CD /* NSString+RMRHelpers.m in Sources */,
 				83D118321AB9ECF400D3C7B9 /* main.m in Sources */,
 				83D1182F1AB9ECF400D3C7B9 /* RMRHexColorParser.m in Sources */,
 			);
@@ -482,6 +478,7 @@
 				83C30F351ABC427E00C425DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83D117FB1AB9D40000D3C7B9 /* Build configuration list for PBXProject "RMRColorTools" */ = {
 			isa = XCConfigurationList;
