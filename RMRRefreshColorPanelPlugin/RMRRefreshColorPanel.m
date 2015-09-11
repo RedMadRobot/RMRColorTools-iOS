@@ -49,7 +49,10 @@ static RMRRefreshColorPanel *sharedPlugin;
     self.bundle = plugin;
 
     [self beginNotificationObservation];
-    [self createPluginMenuItem];
+
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self createPluginMenuItem];
+    }];
 
     return self;
 }
