@@ -69,10 +69,10 @@ static NSString * const kColorCategorySourceTemplate =
 {
     NSError *error = nil;
 
-    [self buildHeaderFileForColors:colorList outputPath:outputPath];
+    error = [self buildHeaderFileForColors:colorList outputPath:outputPath];
     if (error) return error;
 
-    [self buildSourceFileForColors:colorList outputPath:outputPath];
+    error = [self buildSourceFileForColors:colorList outputPath:outputPath];
     if (error) return error;
 
     return nil;

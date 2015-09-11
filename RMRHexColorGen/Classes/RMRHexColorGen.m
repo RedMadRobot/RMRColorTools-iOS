@@ -53,6 +53,13 @@
                 [[[parameters.inputPath stringByDeletingPathExtension] lastPathComponent] RMR_uppercaseFisrtSymbol]];
 
 
+    [[NSFileManager defaultManager] createDirectoryAtPath:parameters.outputPath
+                              withIntermediateDirectories:YES
+                                               attributes:nil
+                                                    error:&error];
+    if ([self checkError:error]) return EXIT_FAILURE;
+
+
     RMRColorCategoryBuilder *colorCategoryBuilder =
         [[RMRColorCategoryBuilder alloc] initWithPrefix:parameters.prefix categoryName:colorListName];
     error = [colorCategoryBuilder generateColorCategoryForColors:colors
