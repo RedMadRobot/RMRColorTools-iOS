@@ -27,6 +27,15 @@
         NSColor *color = [NSColor colorWithHexString:hexColor.colorValue];
         NSString *colorName =
             [prefix stringByAppendingString:[hexColor.colorTitle RMR_uppercaseFisrtSymbol]];
+        
+        CGFloat red = [color redComponent];
+        CGFloat green = [color greenComponent];
+        CGFloat blue = [color blueComponent];
+        CGFloat alpha = [color alphaComponent];
+        color = [NSColor colorWithCalibratedRed:red
+                                          green:green
+                                           blue:blue
+                                          alpha:alpha];
 
         [self setColor:color forKey:colorName];
     }
