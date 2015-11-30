@@ -22,18 +22,17 @@
 
 static NSString * const kTemplateKeyClassName     = @"<*class_name*>";
 static NSString * const kTemplateKeyPathClassName = @"<*path_class_name*>";
-static NSString * const kTemplateKeyCreateDate    = @"<*create_date*>";
 static NSString * const kTemplateKeyMethods       = @"<*methods*>";
 
 static NSString * const kColorCategoryHeaderTemplate =
-    @"//\n//  <*path_class_name*>.h\n//\n//  Created on <*create_date*>.\n//\n"
+    @"//\n//  <*path_class_name*>.h\n//\n"
     @"\n@import UIKit;\n\n"
     @"\n@interface <*class_name*>\n"
     @"\n<*methods*>"
     @"@end\n";
 
 static NSString * const kColorCategorySourceTemplate =
-    @"//\n//  <*path_class_name*>.m\n//\n//  Created on <*create_date*>.\n//\n"
+    @"//\n//  <*path_class_name*>.m\n//\n"
     @"\n#import \"<*path_class_name*>.h\"\n\n"
     @"\n@implementation <*class_name*>\n"
     @"\n<*methods*>"
@@ -82,14 +81,12 @@ static NSString * const kColorCategorySourceTemplate =
 {
     NSString *className     = [self buildClassName];
     NSString *pathClassName = [self buildPathClassName];
-    NSString *createDate    = [self buildCreateDate];
     NSString *methods       = [self buildMethodGroupForHeaderFileWithColorList:colorList];
 
     NSString *headerFile =
-        [[[[kColorCategoryHeaderTemplate
+         [[[kColorCategoryHeaderTemplate
             stringByReplacingOccurrencesOfString:kTemplateKeyClassName     withString:className]
             stringByReplacingOccurrencesOfString:kTemplateKeyPathClassName withString:pathClassName]
-            stringByReplacingOccurrencesOfString:kTemplateKeyCreateDate    withString:createDate]
             stringByReplacingOccurrencesOfString:kTemplateKeyMethods       withString:methods];
 
     NSString *outputFilePath =
@@ -108,14 +105,12 @@ static NSString * const kColorCategorySourceTemplate =
 {
     NSString *className     = [self buildClassName];
     NSString *pathClassName = [self buildPathClassName];
-    NSString *createDate    = [self buildCreateDate];
     NSString *methods       = [self buildMethodGroupForSourceFileWithColorList:colorList];
 
     NSString *headerFile =
-        [[[[kColorCategorySourceTemplate
+         [[[kColorCategorySourceTemplate
             stringByReplacingOccurrencesOfString:kTemplateKeyClassName     withString:className]
             stringByReplacingOccurrencesOfString:kTemplateKeyPathClassName withString:pathClassName]
-            stringByReplacingOccurrencesOfString:kTemplateKeyCreateDate    withString:createDate]
             stringByReplacingOccurrencesOfString:kTemplateKeyMethods       withString:methods];
 
     NSString *outputFilePath =
