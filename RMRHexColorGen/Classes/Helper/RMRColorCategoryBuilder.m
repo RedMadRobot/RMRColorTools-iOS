@@ -84,7 +84,7 @@ static NSString * const kColorCategorySourceTemplate =
     NSString *methods       = [self buildMethodGroupForHeaderFileWithColorList:colorList];
 
     NSString *headerFile =
-         [[[kColorCategoryHeaderTemplate
+        [[[kColorCategoryHeaderTemplate
             stringByReplacingOccurrencesOfString:kTemplateKeyClassName     withString:className]
             stringByReplacingOccurrencesOfString:kTemplateKeyPathClassName withString:pathClassName]
             stringByReplacingOccurrencesOfString:kTemplateKeyMethods       withString:methods];
@@ -108,7 +108,7 @@ static NSString * const kColorCategorySourceTemplate =
     NSString *methods       = [self buildMethodGroupForSourceFileWithColorList:colorList];
 
     NSString *headerFile =
-         [[[kColorCategorySourceTemplate
+        [[[kColorCategorySourceTemplate
             stringByReplacingOccurrencesOfString:kTemplateKeyClassName     withString:className]
             stringByReplacingOccurrencesOfString:kTemplateKeyPathClassName withString:pathClassName]
             stringByReplacingOccurrencesOfString:kTemplateKeyMethods       withString:methods];
