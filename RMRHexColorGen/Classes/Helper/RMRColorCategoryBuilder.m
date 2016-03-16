@@ -16,6 +16,7 @@
 
 // Model
 #import "RMRHexColor.h"
+#import "RMRCheckedFileWriter.h"
 
 
 #pragma mark — Constants
@@ -26,7 +27,7 @@ NSString *const kTemplateKeyMethods = @"<*methods*>";
 
 NSString *const kColorCategoryHeaderTemplate = @""
     @"//\n"
-    @"//  <*path_class_name*>.h\n"
+    @"// <*path_class_name*>.h\n"
     @"//\n"
     @"// Automatically generated file. Please do not edit.\n"
     @"//\n"
@@ -41,7 +42,7 @@ NSString *const kColorCategoryHeaderTemplate = @""
 
 NSString *const kColorCategorySourceTemplate = @""
     @"//\n"
-    @"//  <*path_class_name*>.m\n"
+    @"// <*path_class_name*>.m\n"
     @"//\n"
     @"// Automatically generated file. Please do not edit.\n"
     @"//\n"
@@ -110,7 +111,8 @@ NSString *const kColorCategorySourceTemplate = @""
         [[outputPath stringByAppendingPathComponent:pathClassName] stringByAppendingString:@".h"];
 
     NSError *error = nil;
-    [content writeToFile:outputFilePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    RMRCheckedFileWriter *writer = [RMRCheckedFileWriter new];
+    [writer writeString:content toFile:outputFilePath error:&error];
 
     return error;
 }
@@ -131,7 +133,8 @@ NSString *const kColorCategorySourceTemplate = @""
         [[outputPath stringByAppendingPathComponent:pathClassName] stringByAppendingString:@".m"];
 
     NSError *error = nil;
-    [content writeToFile:outputFilePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    RMRCheckedFileWriter *writer = [RMRCheckedFileWriter new];
+    [writer writeString:content toFile:outputFilePath error:&error];
 
     return error;
 }
