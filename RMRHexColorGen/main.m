@@ -15,7 +15,8 @@
 
 #pragma mark — Helper
 
-void printHelp(char *utilName) {
+void printHelp(char *utilName)
+{
     printf("Usage: %s [-i <path>] [-o <path>] [-p <prefix>] [-clr]\n", utilName);
     printf("       %s -h\n\n", utilName);
     printf("Options:\n");
@@ -29,10 +30,9 @@ void printHelp(char *utilName) {
 
 #pragma mark — Main
 
-int main(int argc, const char * argv[])
+int main(int argc, const char *argv[])
 {
-    @autoreleasepool
-    {
+    @autoreleasepool {
         RMRHexColorGenParameters *parameters = [RMRHexColorGenParameters obtainParameters];
 
         if (parameters.printHelp) {

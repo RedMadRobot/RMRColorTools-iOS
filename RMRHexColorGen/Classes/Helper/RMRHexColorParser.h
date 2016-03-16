@@ -13,7 +13,7 @@
 
 @interface RMRHexColorParser : NSObject
 
-- (NSArray *)parseColors:(id)rawData;
-- (RMRHexColor *)parseColor:(id)rawData;
+- (NSArray *)parseColors:(NSString *)string;
+- (RMRHexColor *)parseColor:(NSString *)string;
 
 @end

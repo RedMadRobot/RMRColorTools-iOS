@@ -11,7 +11,6 @@
 
 @interface NSColorList (RMRHexColor)
 
-- (void)fillWithHexColors:(NSArray *)hexColorList
-                   prefix:(NSString *)prefix;
+- (void)fillWithHexColors:(NSArray *)hexColorList prefix:(NSString *)prefix;
 
 @end

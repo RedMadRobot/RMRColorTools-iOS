@@ -29,10 +29,9 @@
 - (instancetype)initWithParameters:(RMRHexColorGenParameters *)parameters
 {
     self = [super init];
-    if (!self) return nil;
-
-    self.parameters = parameters;
-
+    if (self) {
+        self.parameters = parameters;
+    }
     return self;
 }
 
@@ -44,33 +43,34 @@
 
     RMRStyleSheetReader *styleSheetReader = [[RMRStyleSheetReader alloc] init];
     NSArray *colors = [styleSheetReader obtainColorsFromFileAtPath:parameters.inputPath error:&error];
-    if ([self checkError:error]) return EXIT_FAILURE;
+    if ([self checkError:error]) {
+        return EXIT_FAILURE;
+    }
 
-
-    NSString *colorListName =
-        [[parameters.prefix uppercaseString]?:@""
-            stringByAppendingString:
-                [[[parameters.inputPath stringByDeletingPathExtension] lastPathComponent] RMR_uppercaseFisrtSymbol]];
-
+    NSString *name = [[parameters.inputPath stringByDeletingPathExtension].lastPathComponent RMR_uppercaseFirstSymbol];
+    NSString *colorListName = [parameters.prefix.uppercaseString ?: @"" stringByAppendingString:name];
 
     [[NSFileManager defaultManager] createDirectoryAtPath:parameters.outputPath
                               withIntermediateDirectories:YES
                                                attributes:nil
                                                     error:&error];
-    if ([self checkError:error]) return EXIT_FAILURE;
-
+    if ([self checkError:error]) {
+        return EXIT_FAILURE;
+    }
 
     RMRColorCategoryBuilder *colorCategoryBuilder =
         [[RMRColorCategoryBuilder alloc] initWithPrefix:parameters.prefix categoryName:colorListName];
-    error = [colorCategoryBuilder generateColorCategoryForColors:colors
-                                                      outputPath:parameters.outputPath];
-    if ([self checkError:error]) return EXIT_FAILURE;
+    error = [colorCategoryBuilder generateColorCategoryForColors:colors outputPath:parameters.outputPath];
+    if ([self checkError:error]) {
+        return EXIT_FAILURE;
+    }
 
-
-    if (!parameters.needClr) return EXIT_SUCCESS;
+    if (!parameters.needClr) {
+        return EXIT_SUCCESS;
+    }
 
     NSColorList *colorList = [[NSColorList alloc] initWithName:colorListName];
-    [colorList fillWithHexColors:colors prefix:parameters.prefix?:@""];
+    [colorList fillWithHexColors:colors prefix:parameters.prefix ?: @""];
     [colorList writeToFile:nil];
 
     return EXIT_SUCCESS;
@@ -82,9 +82,10 @@
 - (BOOL)checkError:(NSError *)error
 {
     if (error) {
-        printf("%s\n", [[error localizedDescription] cStringUsingEncoding:NSUTF8StringEncoding]);
+        printf("%s\n", [error.localizedDescription cStringUsingEncoding:NSUTF8StringEncoding]);
         return YES;
-    } return NO;
+    }
+    return NO;
 }
 
 @end

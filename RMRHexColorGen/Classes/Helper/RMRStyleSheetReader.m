@@ -16,10 +16,10 @@
 
 - (NSArray *)obtainColorsFromFileAtPath:(NSString *)path error:(NSError **)error
 {
-    NSString *styleSheet = [NSString stringWithContentsOfFile:path
-                                                     encoding:NSUTF8StringEncoding
-                                                        error:error];
-    if (*error) return nil;
+    NSString *styleSheet = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:error];
+    if (*error) {
+        return nil;
+    }
 
     RMRHexColorParser *parser = [[RMRHexColorParser alloc] init];
 

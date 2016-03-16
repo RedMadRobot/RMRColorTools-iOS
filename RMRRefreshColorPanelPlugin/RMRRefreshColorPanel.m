@@ -14,12 +14,12 @@
 
 #pragma mark — Constants
 
-static NSString * const kBuildOperationDidStop = @"IDEBuildOperationDidStopNotification";
+NSString *const kBuildOperationDidStop = @"IDEBuildOperationDidStopNotification";
 
 static RMRRefreshColorPanel *sharedPlugin;
 
 
-@interface RMRRefreshColorPanel()
+@interface RMRRefreshColorPanel ()
 
 #pragma mark — Properties
 
@@ -33,18 +33,24 @@ static RMRRefreshColorPanel *sharedPlugin;
 + (void)pluginDidLoad:(NSBundle *)plugin
 {
     static dispatch_once_t onceToken;
-    NSString *currentApplicationName = [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
+    NSString *currentApplicationName = [NSBundle mainBundle].infoDictionary[@"CFBundleName"];
     if ([currentApplicationName isEqualToString:@"Xcode"]) {
-        dispatch_once(&onceToken, ^{ sharedPlugin = [[self alloc] initWithBundle:plugin]; });
+        dispatch_once(&onceToken, ^{
+            sharedPlugin = [[self alloc] initWithBundle:plugin];
+        });
     }
 }
 
-+ (instancetype)sharedPlugin { return sharedPlugin; }
++ (instancetype)sharedPlugin
+{
+    return sharedPlugin;
+}
 
 - (instancetype)initWithBundle:(NSBundle *)plugin
 {
     self = [super init];
-    if (!self) return nil;
+    if (!self)
+        return nil;
 
     self.bundle = plugin;
 
@@ -57,7 +63,10 @@ static RMRRefreshColorPanel *sharedPlugin;
     return self;
 }
 
-- (void)dealloc { [[NSNotificationCenter defaultCenter] removeObserver:self]; }
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)beginNotificationObservation
 {
@@ -69,15 +78,14 @@ static RMRRefreshColorPanel *sharedPlugin;
 
 - (void)createPluginMenuItem
 {
-    NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Edit"];
+    NSMenuItem *menuItem = [NSApp.mainMenu itemWithTitle:@"Edit"];
 
     if (menuItem) {
         NSMenuItem *actionMenuItem =
             [[NSMenuItem alloc] initWithTitle:@"Reload color lists"
                                        action:@selector(reloadCustomColorLists)
                                 keyEquivalent:@""];
-        [actionMenuItem setTarget:self];
-
+        actionMenuItem.target = self;
         [menuItem.submenu addItem:[NSMenuItem separatorItem]];
         [menuItem.submenu addItem:actionMenuItem];
     }
@@ -91,7 +99,6 @@ static RMRRefreshColorPanel *sharedPlugin;
 - (void)reloadCustomColorLists
 {
     NSColorPanel *colorPanel = [NSColorPanel sharedColorPanel];
-
     [colorPanel detachCustomColorLists];
     [colorPanel attachCustomColorLists];
 }
