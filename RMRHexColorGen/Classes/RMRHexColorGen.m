@@ -50,7 +50,7 @@
     NSString *colorListName =
         [[parameters.prefix uppercaseString]?:@""
             stringByAppendingString:
-                [[[parameters.inputPath stringByDeletingPathExtension] lastPathComponent] RMR_uppercaseFisrtSymbol]];
+                [[[parameters.inputPath stringByDeletingPathExtension] lastPathComponent] RMR_uppercaseFirstSymbol]];
 
 
     [[NSFileManager defaultManager] createDirectoryAtPath:parameters.outputPath
@@ -61,7 +61,7 @@
 
 
     RMRColorCategoryBuilder *colorCategoryBuilder =
-        [[RMRColorCategoryBuilder alloc] initWithPrefix:parameters.prefix categoryName:colorListName];
+    [[RMRColorCategoryBuilder alloc] initWithPrefix:parameters.prefix categoryName:colorListName inSwiftLanguage:parameters.needSwiftOutput];
     error = [colorCategoryBuilder generateColorCategoryForColors:colors
                                                       outputPath:parameters.outputPath];
     if ([self checkError:error]) return EXIT_FAILURE;

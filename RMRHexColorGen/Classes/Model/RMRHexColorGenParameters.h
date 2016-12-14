@@ -16,7 +16,7 @@
 @property (nonatomic, copy) NSString *prefix;
 @property (nonatomic, assign) BOOL printHelp;
 @property (nonatomic, assign) BOOL needClr;
-
+@property (nonatomic, assign) BOOL needSwiftOutput;
 
 + (instancetype)obtainParameters;
 
