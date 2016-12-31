@@ -27,6 +27,9 @@
 {
     if (![rawData length]) return nil;
 
+    // comments
+    if ([rawData hasPrefix:@"//"]) return nil;
+    
     NSRegularExpression *expr =
         [NSRegularExpression regularExpressionWithPattern:@"\\s*([a-f0-9]{3,8})\\s*(.*)\\s*"
                                                   options:NSRegularExpressionCaseInsensitive
