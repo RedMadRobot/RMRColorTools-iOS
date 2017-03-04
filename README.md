@@ -25,6 +25,12 @@ Small utility that generates UIColor category from colors list:
 #AARRGGBB ColorName
 #AARRGGBB ColorName
 #AARRGGBB ColorName
+
+// Start Lines with // to put comments in the file
+// Also, you can make references to named colors to use them elsewhere
+// for example, you define a color "Special Red", but want to use it
+// In a few places, such as "NavigationBarText".
+$ColorName SomeNewColorName
 ```
 
 Use `-clr` option to generate and install Color Palette.

@@ -20,7 +20,7 @@ void printHelp(char *utilName) {
     printf("       %s -h\n\n", utilName);
     printf("Options:\n");
     printf("    -o <path>   Output files at <path>\n");
-    printf("    -i <path>   Path to txt colors list file with format:\n\t\t#AARRGGBB ColorName\n\t\t#AARRGGBB ColorName\n");
+    printf("    -i <path>   Path to txt colors list file with format:\n\t\t#AARRGGBB ColorName\n\t\t#AARRGGBB ColorName\n\t\t$ColorName NewColorName\n");
     printf("    -p <prefix> Use <prefix> as the class prefix in the generated code\n");
     printf("    -clr        Use this flag if you need to generate and install CLR file\n");
     printf("    -h          Print this help and exit\n");
