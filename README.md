@@ -21,10 +21,8 @@ Thus, in case you’ve updated your color list file — **RMRHexColorGen** will 
 
 Small utility that generates UIColor category from colors list:
 ```
-#AARRGGBB ColorName
-#AARRGGBB ColorName
-#AARRGGBB ColorName
-#AARRGGBB ColorName
+#RRGGBBAA ColorName
+#RRGGBB ColorName
 
 // Start Lines with // to put comments in the file
 // Also, you can make references to named colors to use them elsewhere
@@ -33,7 +31,14 @@ Small utility that generates UIColor category from colors list:
 $ColorName SomeNewColorName
 ```
 
+
+
 Use `-clr` option to generate and install Color Palette.
+
+###Important Change:  
+
+This fork uses the RRGGBBAA Format.  Previous versions used AARRGGBB, which doesn't seem "conventional" to me, so please me aware of that!
+
 
 ###Usage:
 ```
