@@ -12,59 +12,51 @@
 #pragma mark — Constants
 
 // Help
-static NSString * const kRMRArgumentHelpShort = @"-h";
-static NSString * const kRMRArgumentHelp      = @"-help";
+NSString *const kRMRArgumentHelpShort = @"-h";
+NSString *const kRMRArgumentHelp = @"-help";
 
 // Prefix
-static NSString * const kRMRArgumentPrefixShort = @"p";
-static NSString * const kRMRArgumentPrefix      = @"prefix";
+NSString *const kRMRArgumentPrefixShort = @"p";
+NSString *const kRMRArgumentPrefix = @"prefix";
 
 // Input path
-static NSString * const kRMRArgumentInputPathShort = @"i";
-static NSString * const kRMRArgumentInputPath      = @"input";
+NSString *const kRMRArgumentInputPathShort = @"i";
+NSString *const kRMRArgumentInputPath = @"input";
 
 // Output path
-static NSString * const kRMRArgumentOutputPathShort = @"o";
-static NSString * const kRMRArgumentOutputPath      = @"output";
+NSString *const kRMRArgumentOutputPathShort = @"o";
+NSString *const kRMRArgumentOutputPath = @"output";
 
 // Generate .clr file
-static NSString * const kRMRArgumentClr = @"-clr";
+NSString *const kRMRArgumentClr = @"-clr";
 
 
 @implementation RMRHexColorGenParameters
+
+NSString *firstNotNilParameter(NSString *first, NSString *second)
+{
+    return first ? first : second ? second : nil;
+}
 
 + (instancetype)obtainParameters
 {
     RMRHexColorGenParameters *parameters = [[RMRHexColorGenParameters alloc] init];
 
-    NSArray *argumentList = [[NSProcessInfo processInfo] arguments];
+    NSArray *argumentList = [NSProcessInfo processInfo].arguments;
     parameters.printHelp =
-        [argumentList count] == 1 // No params
+        argumentList.count == 1 // No params
         || [argumentList containsObject:kRMRArgumentHelpShort]
         || [argumentList containsObject:kRMRArgumentHelp];
 
-    parameters.needClr = [argumentList containsObject:@"-clr"];
+    parameters.needClr = [argumentList containsObject:kRMRArgumentClr];
 
-    NSDictionary *arguments =
-        [[NSUserDefaults standardUserDefaults] volatileDomainForName:NSArgumentDomain];
+    NSDictionary *arguments = [[NSUserDefaults standardUserDefaults] volatileDomainForName:NSArgumentDomain];
 
-    parameters.prefix =
-        firstNotNilParameter(arguments[kRMRArgumentPrefixShort], arguments[kRMRArgumentPrefix]);
-
-    parameters.inputPath =
-        firstNotNilParameter(arguments[kRMRArgumentInputPathShort], arguments[kRMRArgumentInputPath]);
-
-    parameters.outputPath =
-        firstNotNilParameter(arguments[kRMRArgumentOutputPathShort], arguments[kRMRArgumentOutputPath]);
+    parameters.prefix = firstNotNilParameter(arguments[kRMRArgumentPrefixShort], arguments[kRMRArgumentPrefix]);
+    parameters.inputPath = firstNotNilParameter(arguments[kRMRArgumentInputPathShort], arguments[kRMRArgumentInputPath]);
+    parameters.outputPath = firstNotNilParameter(arguments[kRMRArgumentOutputPathShort], arguments[kRMRArgumentOutputPath]);
 
     return parameters;
-}
-
-
-#pragma mark — Private helper
-
-NSString *firstNotNilParameter(NSString *first, NSString *second) {
-    return first ? first : second ? second : nil;
 }
 
 @end

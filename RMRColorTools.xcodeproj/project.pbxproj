@@ -22,6 +22,7 @@
 		83D118301AB9ECF400D3C7B9 /* RMRStyleSheetReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182A1AB9ECF400D3C7B9 /* RMRStyleSheetReader.m */; };
 		83D118311AB9ECF400D3C7B9 /* RMRHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */; };
 		83D118321AB9ECF400D3C7B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182E1AB9ECF400D3C7B9 /* main.m */; };
+		B2FA8C054E57BFE70ED98C76 /* RMRCheckedFileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FA8C66484C3995744238B2 /* RMRCheckedFileWriter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,8 @@
 		83D1182C1AB9ECF400D3C7B9 /* RMRHexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRHexColor.h; sourceTree = "<group>"; };
 		83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRHexColor.m; sourceTree = "<group>"; };
 		83D1182E1AB9ECF400D3C7B9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B2FA8BB010DC6EB3137DA738 /* RMRCheckedFileWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRCheckedFileWriter.h; sourceTree = "<group>"; };
+		B2FA8C66484C3995744238B2 /* RMRCheckedFileWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRCheckedFileWriter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +138,9 @@
 				83D118011AB9D40000D3C7B9 /* Products */,
 				73759BFC0E0AC409E9F99B58 /* Frameworks */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		83D118011AB9D40000D3C7B9 /* Products */ = {
 			isa = PBXGroup;
@@ -184,6 +189,8 @@
 				83D1182A1AB9ECF400D3C7B9 /* RMRStyleSheetReader.m */,
 				830F500B1ABAC7A6004F31CD /* RMRColorCategoryBuilder.h */,
 				830F500C1ABAC7A6004F31CD /* RMRColorCategoryBuilder.m */,
+				B2FA8C66484C3995744238B2 /* RMRCheckedFileWriter.m */,
+				B2FA8BB010DC6EB3137DA738 /* RMRCheckedFileWriter.h */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -243,7 +250,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = RMR;
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = RedMadRobot;
 				TargetAttributes = {
 					83C30F261ABC427D00C425DD = {
@@ -307,6 +314,7 @@
 				830F500D1ABAC7A6004F31CD /* RMRColorCategoryBuilder.m in Sources */,
 				83D118321AB9ECF400D3C7B9 /* main.m in Sources */,
 				83D1182F1AB9ECF400D3C7B9 /* RMRHexColorParser.m in Sources */,
+				B2FA8C054E57BFE70ED98C76 /* RMRCheckedFileWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +334,7 @@
 				INFOPLIST_FILE = RMRRefreshColorPanelPlugin/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "redmadrobot.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xcplugin;
 			};
@@ -340,6 +349,7 @@
 				INFOPLIST_FILE = RMRRefreshColorPanelPlugin/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "redmadrobot.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xcplugin;
 			};
@@ -364,6 +374,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;

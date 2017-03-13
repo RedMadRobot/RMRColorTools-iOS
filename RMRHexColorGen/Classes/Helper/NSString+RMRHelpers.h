@@ -11,8 +11,8 @@
 
 @interface NSString (RMRHelpers)
 
-- (NSString *)RMR_uppercaseFisrtSymbol;
-- (NSString *)RMR_lowercaseFisrtSymbol;
+- (NSString *)RMR_uppercaseFirstSymbol;
+- (NSString *)RMR_lowercaseFirstSymbol;
 - (NSString *)RMR_removeLastCharacter;
 
 @end

@@ -16,26 +16,43 @@
 
 // Model
 #import "RMRHexColor.h"
+#import "RMRCheckedFileWriter.h"
 
 
 #pragma mark — Constants
 
-static NSString * const kTemplateKeyClassName     = @"<*class_name*>";
-static NSString * const kTemplateKeyPathClassName = @"<*path_class_name*>";
-static NSString * const kTemplateKeyMethods       = @"<*methods*>";
+NSString *const kTemplateKeyClassName = @"<*class_name*>";
+NSString *const kTemplateKeyPathClassName = @"<*path_class_name*>";
+NSString *const kTemplateKeyMethods = @"<*methods*>";
 
-static NSString * const kColorCategoryHeaderTemplate =
-    @"//\n//  <*path_class_name*>.h\n//\n"
-    @"\n@import UIKit;\n\n"
-    @"\n@interface <*class_name*>\n"
-    @"\n<*methods*>"
+NSString *const kColorCategoryHeaderTemplate = @""
+    @"//\n"
+    @"// <*path_class_name*>.h\n"
+    @"//\n"
+    @"// Automatically generated file. Please do not edit.\n"
+    @"//\n"
+    @"\n"
+    @"@import UIKit;\n"
+    @"\n"
+    @"\n"
+    @"@interface <*class_name*>\n"
+    @"\n"
+    @"<*methods*>"
     @"@end\n";
 
-static NSString * const kColorCategorySourceTemplate =
-    @"//\n//  <*path_class_name*>.m\n//\n"
-    @"\n#import \"<*path_class_name*>.h\"\n\n"
-    @"\n@implementation <*class_name*>\n"
-    @"\n<*methods*>"
+NSString *const kColorCategorySourceTemplate = @""
+    @"//\n"
+    @"// <*path_class_name*>.m\n"
+    @"//\n"
+    @"// Automatically generated file. Please do not edit.\n"
+    @"//\n"
+    @"\n"
+    @"#import \"<*path_class_name*>.h\"\n"
+    @"\n"
+    @"\n"
+    @"@implementation <*class_name*>\n"
+    @"\n"
+    @"<*methods*>"
     @"@end\n";
 
 
@@ -43,7 +60,6 @@ static NSString * const kColorCategorySourceTemplate =
 
 #pragma mark — Properties
 
-@property (nonatomic, copy) NSDate   *initializationDate;
 @property (nonatomic, copy) NSString *prefix;
 @property (nonatomic, copy) NSString *categoryName;
 
@@ -55,12 +71,10 @@ static NSString * const kColorCategorySourceTemplate =
 - (instancetype)initWithPrefix:(NSString *)prefix categoryName:(NSString *)categoryName
 {
     self = [super init];
-    if (!self) return nil;
-
-    self.prefix = prefix;
-    self.initializationDate = [NSDate date];
-    self.categoryName = categoryName;
-
+    if (self) {
+        self.prefix = prefix;
+        self.categoryName = categoryName;
+    }
     return self;
 }
 
@@ -69,58 +83,58 @@ static NSString * const kColorCategorySourceTemplate =
     NSError *error = nil;
 
     error = [self buildHeaderFileForColors:colorList outputPath:outputPath];
-    if (error) return error;
+    if (error) {
+        return error;
+    }
 
     error = [self buildSourceFileForColors:colorList outputPath:outputPath];
-    if (error) return error;
+    if (error) {
+        return error;
+    }
 
     return nil;
 }
 
 - (NSError *)buildHeaderFileForColors:(NSArray *)colorList outputPath:(NSString *)outputPath
 {
-    NSString *className     = [self buildClassName];
+    NSString *className = [self buildClassName];
     NSString *pathClassName = [self buildPathClassName];
-    NSString *methods       = [self buildMethodGroupForHeaderFileWithColorList:colorList];
+    NSString *methods = [self buildMethodGroupForHeaderFileWithColorList:colorList];
 
-    NSString *headerFile =
+    NSString *content =
         [[[kColorCategoryHeaderTemplate
-            stringByReplacingOccurrencesOfString:kTemplateKeyClassName     withString:className]
+            stringByReplacingOccurrencesOfString:kTemplateKeyClassName withString:className]
             stringByReplacingOccurrencesOfString:kTemplateKeyPathClassName withString:pathClassName]
-            stringByReplacingOccurrencesOfString:kTemplateKeyMethods       withString:methods];
+            stringByReplacingOccurrencesOfString:kTemplateKeyMethods withString:methods];
 
     NSString *outputFilePath =
         [[outputPath stringByAppendingPathComponent:pathClassName] stringByAppendingString:@".h"];
 
     NSError *error = nil;
-    [headerFile writeToFile:outputFilePath
-                 atomically:YES
-                   encoding:NSUTF8StringEncoding
-                      error:&error];
+    RMRCheckedFileWriter *writer = [RMRCheckedFileWriter new];
+    [writer writeString:content toFile:outputFilePath error:&error];
 
     return error;
 }
 
 - (NSError *)buildSourceFileForColors:(NSArray *)colorList outputPath:(NSString *)outputPath
 {
-    NSString *className     = [self buildClassName];
+    NSString *className = [self buildClassName];
     NSString *pathClassName = [self buildPathClassName];
-    NSString *methods       = [self buildMethodGroupForSourceFileWithColorList:colorList];
+    NSString *methods = [self buildMethodGroupForSourceFileWithColorList:colorList];
 
-    NSString *headerFile =
+    NSString *content =
         [[[kColorCategorySourceTemplate
-            stringByReplacingOccurrencesOfString:kTemplateKeyClassName     withString:className]
+            stringByReplacingOccurrencesOfString:kTemplateKeyClassName withString:className]
             stringByReplacingOccurrencesOfString:kTemplateKeyPathClassName withString:pathClassName]
-            stringByReplacingOccurrencesOfString:kTemplateKeyMethods       withString:methods];
+            stringByReplacingOccurrencesOfString:kTemplateKeyMethods withString:methods];
 
     NSString *outputFilePath =
         [[outputPath stringByAppendingPathComponent:pathClassName] stringByAppendingString:@".m"];
 
     NSError *error = nil;
-    [headerFile writeToFile:outputFilePath
-                 atomically:YES
-                   encoding:NSUTF8StringEncoding
-                      error:&error];
+    RMRCheckedFileWriter *writer = [RMRCheckedFileWriter new];
+    [writer writeString:content toFile:outputFilePath error:&error];
 
     return error;
 }
@@ -138,29 +152,18 @@ static NSString * const kColorCategorySourceTemplate =
     return [NSString stringWithFormat:@"UIColor+%@", self.categoryName];
 }
 
-- (NSString *)buildCreateDate
-{
-    static NSDateFormatter *dateFormatter;
-    if (!dateFormatter) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    }
-
-    return [dateFormatter stringFromDate:self.initializationDate];
-}
-
 - (NSString *)buildMethodSignatureForColor:(RMRHexColor *)hexColor
 {
-    static NSString * prefixKey    = @"<*prefix*>";
-    static NSString * colorNameKey = @"<*color_name*>";
+    NSString *const prefixKey = @"<*prefix*>";
+    NSString *const colorNameKey = @"<*color_name*>";
 
-    static NSString *colorMethodSignatureTemplate =
+    NSString *const colorMethodSignatureTemplate =
         @"+ (UIColor *)<*prefix*><*color_name*>Color";
 
-    NSString *prefix = [self.prefix lowercaseString];
-    prefix = prefix? [prefix stringByAppendingString:@"_"] : @"";
+    NSString *prefix = self.prefix.lowercaseString;
+    prefix = prefix ? [prefix stringByAppendingString:@"_"] : @"";
 
-    NSString *colorName = [hexColor.colorTitle RMR_lowercaseFisrtSymbol];
+    NSString *colorName = [hexColor.colorTitle RMR_lowercaseFirstSymbol];
 
     return
         [[colorMethodSignatureTemplate
@@ -168,12 +171,43 @@ static NSString * const kColorCategorySourceTemplate =
             stringByReplacingOccurrencesOfString:colorNameKey withString:colorName];
 }
 
+- (NSString *)buildMethodBodyForColor:(RMRHexColor *)hexColor
+{
+    NSString *const signatureKey = @"<*method_signature*>";
+    NSString *const redKey = @"<*red*>";
+    NSString *const greenKey = @"<*green*>";
+    NSString *const blueKey = @"<*blue*>";
+    NSString *const alphaKey = @"<*alpha*>";
+
+    NSString *const methodTemplate = @""
+        @"<*method_signature*>\n"
+        @"{\n"
+        @"    return [UIColor colorWithRed:<*red*> green:<*green*> blue:<*blue*> alpha:<*alpha*>];\n"
+        @"}\n";
+
+    NSString *methodSignature = [self buildMethodSignatureForColor:hexColor];
+
+    NSColor *rgbColor = [NSColor colorWithHexString:hexColor.colorValue];
+
+    NSString *redComponent = @(rgbColor.redComponent).stringValue;
+    NSString *greenComponent = @(rgbColor.greenComponent).stringValue;
+    NSString *blueComponent = @(rgbColor.blueComponent).stringValue;
+    NSString *alphaComponent = @(rgbColor.alphaComponent).stringValue;
+
+    return
+        [[[[[methodTemplate
+            stringByReplacingOccurrencesOfString:signatureKey withString:methodSignature]
+            stringByReplacingOccurrencesOfString:redKey withString:redComponent]
+            stringByReplacingOccurrencesOfString:greenKey withString:greenComponent]
+            stringByReplacingOccurrencesOfString:blueKey withString:blueComponent]
+            stringByReplacingOccurrencesOfString:alphaKey withString:alphaComponent];
+}
+
 - (NSString *)buildMethodGroupForHeaderFileWithColorList:(NSArray *)colorList
 {
     return
         [[colorList rx_mapWithBlock:^id(RMRHexColor *hexColor) {
-            return
-                [[self buildMethodSignatureForColor:hexColor] stringByAppendingString:@";\n"];
+            return [[self buildMethodSignatureForColor:hexColor] stringByAppendingString:@";\n"];
         }] rx_foldInitialValue:@"" block:^id(id memo, id each) {
             return [[memo stringByAppendingString:each] stringByAppendingString:@"\n"];
         }];
@@ -181,47 +215,12 @@ static NSString * const kColorCategorySourceTemplate =
 
 - (NSString *)buildMethodGroupForSourceFileWithColorList:(NSArray *)colorList
 {
-    static NSString * signatureKey = @"<*method_signature*>";
-    static NSString * redKey       = @"<*red*>";
-    static NSString * greenKey     = @"<*green*>";
-    static NSString * blueKey      = @"<*blue*>";
-    static NSString * alphaKey     = @"<*alpha*>";
-
-    static NSString *methodTemplate =
-        @"<*method_signature*>\n{\n"
-        @"    return [UIColor colorWithRed:<*red*>\n"
-        @"                           green:<*green*>\n"
-        @"                            blue:<*blue*>\n"
-        @"                           alpha:<*alpha*>];\n"
-        @"}\n";
-
     return
-    [[colorList rx_mapWithBlock:^id(RMRHexColor *hexColor) {
-        NSString *methodSignature = [self buildMethodSignatureForColor:hexColor];
-
-        NSColor *rgbColor = [NSColor colorWithHexString:hexColor.colorValue];
-
-//        NSString *redComponent   = [NSString stringWithFormat:@"%ff", rgbColor.redComponent];
-//        NSString *greenComponent = [NSString stringWithFormat:@"%ff", rgbColor.greenComponent];
-//        NSString *blueComponent  = [NSString stringWithFormat:@"%ff", rgbColor.blueComponent];
-//        NSString *alphaComponent = [NSString stringWithFormat:@"%ff", rgbColor.alphaComponent];
-
-        NSString *redComponent   = [@(rgbColor.redComponent) stringValue];
-        NSString *greenComponent = [@(rgbColor.greenComponent) stringValue];
-        NSString *blueComponent  = [@(rgbColor.blueComponent) stringValue];
-        NSString *alphaComponent = [@(rgbColor.alphaComponent) stringValue];
-
-        return
-            [[[[[methodTemplate
-                stringByReplacingOccurrencesOfString:signatureKey withString:methodSignature]
-                stringByReplacingOccurrencesOfString:redKey       withString:redComponent]
-                stringByReplacingOccurrencesOfString:greenKey     withString:greenComponent]
-                stringByReplacingOccurrencesOfString:blueKey      withString:blueComponent]
-                stringByReplacingOccurrencesOfString:alphaKey     withString:alphaComponent];
-
-    }] rx_foldInitialValue:@"" block:^id(id memo, id each) {
-        return [[memo stringByAppendingString:each] stringByAppendingString:@"\n"];
-    }];
+        [[colorList rx_mapWithBlock:^id(RMRHexColor *hexColor) {
+            return [self buildMethodBodyForColor:hexColor];
+        }] rx_foldInitialValue:@"" block:^id(id memo, id each) {
+            return [[memo stringByAppendingString:each] stringByAppendingString:@"\n"];
+        }];
 }
 
 @end

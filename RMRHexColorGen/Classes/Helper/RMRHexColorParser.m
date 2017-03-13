@@ -16,48 +16,45 @@
 
 @implementation RMRHexColorParser
 
-- (NSArray *)parseColors:(id)rawData
+- (NSArray *)parseColors:(NSString *)string
 {
-    NSArray *lines =
-        [rawData componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-    return [lines rx_mapWithBlock:^id(id each) { return [self parseColor:each]; }];
+    NSArray *lines = [string componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    return [lines rx_mapWithBlock:^id(id each) {
+        return [self parseColor:each];
+    }];
 }
 
-- (RMRHexColor *)parseColor:(id)rawData
+- (RMRHexColor *)parseColor:(NSString *)string
 {
-    if (![rawData length]) return nil;
+    if (string.length == 0) {
+        return nil;
+    }
 
     NSRegularExpression *expr =
         [NSRegularExpression regularExpressionWithPattern:@"\\s*([a-f0-9]{3,8})\\s*(.*)\\s*"
                                                   options:NSRegularExpressionCaseInsensitive
                                                     error:nil];
 
-    __block NSString *colorValue = nil;
-    __block NSString *colorTitle = nil;
+    RMRHexColor *color = [[RMRHexColor alloc] init];
 
-    void(^enumerateBlock)(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) =
+    void (^enumerateBlock)(NSTextCheckingResult *, NSMatchingFlags, BOOL *) =
         ^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
             if (result.numberOfRanges == 3) {
-                colorValue   = [rawData substringWithRange:[result rangeAtIndex:1]];
-                colorTitle = [rawData substringWithRange:[result rangeAtIndex:2]];
+                color.colorValue = [string substringWithRange:[result rangeAtIndex:1]];
+                color.colorTitle = [string substringWithRange:[result rangeAtIndex:2]];
             }
         };
 
-    [expr enumerateMatchesInString:rawData
+    [expr enumerateMatchesInString:string
                            options:0
-                             range:NSMakeRange(0, [rawData length])
+                             range:NSMakeRange(0, [string length])
                         usingBlock:enumerateBlock];
 
-    if (!colorTitle || !colorValue) {
-        printf("Can't parse data %s\n", [rawData cStringUsingEncoding:NSUTF8StringEncoding]);
+    if (!color.colorTitle || !color.colorValue) {
+        printf("Can't parse data %s\n", [string cStringUsingEncoding:NSUTF8StringEncoding]);
         return nil;
     }
 
-
-    RMRHexColor *color = [[RMRHexColor alloc] init];
-    color.colorTitle = colorTitle;
-    color.colorValue = colorValue;
-    
     return color;
 }
 

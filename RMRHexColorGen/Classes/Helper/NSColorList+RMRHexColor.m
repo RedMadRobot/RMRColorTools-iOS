@@ -18,24 +18,19 @@
 
 @implementation NSColorList (RMRHexColor)
 
-- (void)fillWithHexColors:(NSArray *)hexColorList
-                   prefix:(NSString *)prefix
+- (void)fillWithHexColors:(NSArray *)hexColorList prefix:(NSString *)prefix
 {
     prefix = [prefix uppercaseString];
 
     for (RMRHexColor *hexColor in hexColorList) {
         NSColor *color = [NSColor colorWithHexString:hexColor.colorValue];
-        NSString *colorName =
-            [prefix stringByAppendingString:[hexColor.colorTitle RMR_uppercaseFisrtSymbol]];
-        
+        NSString *colorName = [prefix stringByAppendingString:[hexColor.colorTitle RMR_uppercaseFirstSymbol]];
+
         CGFloat red = [color redComponent];
         CGFloat green = [color greenComponent];
         CGFloat blue = [color blueComponent];
         CGFloat alpha = [color alphaComponent];
-        color = [NSColor colorWithCalibratedRed:red
-                                          green:green
-                                           blue:blue
-                                          alpha:alpha];
+        color = [NSColor colorWithCalibratedRed:red green:green blue:blue alpha:alpha];
 
         [self setColor:color forKey:colorName];
     }
