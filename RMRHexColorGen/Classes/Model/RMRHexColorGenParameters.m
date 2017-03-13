@@ -29,42 +29,44 @@ static NSString * const kRMRArgumentOutputPath      = @"output";
 
 // Generate .clr file
 static NSString * const kRMRArgumentClr = @"-clr";
+static NSString * const kRMRArgumentSwift = @"-swift";
 
 
 @implementation RMRHexColorGenParameters
-
+    
 + (instancetype)obtainParameters
-{
-    RMRHexColorGenParameters *parameters = [[RMRHexColorGenParameters alloc] init];
-
-    NSArray *argumentList = [[NSProcessInfo processInfo] arguments];
-    parameters.printHelp =
+    {
+        RMRHexColorGenParameters *parameters = [[RMRHexColorGenParameters alloc] init];
+        
+        NSArray *argumentList = [[NSProcessInfo processInfo] arguments];
+        parameters.printHelp =
         [argumentList count] == 1 // No params
         || [argumentList containsObject:kRMRArgumentHelpShort]
         || [argumentList containsObject:kRMRArgumentHelp];
-
-    parameters.needClr = [argumentList containsObject:@"-clr"];
-
-    NSDictionary *arguments =
+        
+        parameters.needClr = [argumentList containsObject:@"-clr"];
+        parameters.needSwiftOutput = [argumentList containsObject:@"-swift"];
+        
+        NSDictionary *arguments =
         [[NSUserDefaults standardUserDefaults] volatileDomainForName:NSArgumentDomain];
-
-    parameters.prefix =
+        
+        parameters.prefix =
         firstNotNilParameter(arguments[kRMRArgumentPrefixShort], arguments[kRMRArgumentPrefix]);
-
-    parameters.inputPath =
+        
+        parameters.inputPath =
         firstNotNilParameter(arguments[kRMRArgumentInputPathShort], arguments[kRMRArgumentInputPath]);
-
-    parameters.outputPath =
+        
+        parameters.outputPath =
         firstNotNilParameter(arguments[kRMRArgumentOutputPathShort], arguments[kRMRArgumentOutputPath]);
-
-    return parameters;
-}
-
-
+        
+        return parameters;
+    }
+    
+    
 #pragma mark — Private helper
-
-NSString *firstNotNilParameter(NSString *first, NSString *second) {
-    return first ? first : second ? second : nil;
-}
-
-@end
+    
+    NSString *firstNotNilParameter(NSString *first, NSString *second) {
+        return first ? first : second ? second : nil;
+    }
+    
+    @end

@@ -30,11 +30,11 @@
         green = [self colorComponentFrom:colorString start:1 length:1];
         blue  = [self colorComponentFrom:colorString start:2 length:1];
         break;
-      case 4: // #ARGB
-        alpha = [self colorComponentFrom:colorString start:0 length:1];
-        red   = [self colorComponentFrom:colorString start:1 length:1];
-        green = [self colorComponentFrom:colorString start:2 length:1];
-        blue  = [self colorComponentFrom:colorString start:3 length:1];
+      case 4: // #RGBA
+        red = [self colorComponentFrom:colorString start:0 length:1];
+        green   = [self colorComponentFrom:colorString start:1 length:1];
+        blue = [self colorComponentFrom:colorString start:2 length:1];
+        alpha  = [self colorComponentFrom:colorString start:3 length:1];
         break;
       case 6: // #RRGGBB
         alpha = 1.0f;
@@ -42,16 +42,16 @@
         green = [self colorComponentFrom:colorString start:2 length:2];
         blue  = [self colorComponentFrom:colorString start:4 length:2];
         break;
-      case 8: // #AARRGGBB
-        alpha = [self colorComponentFrom:colorString start:0 length:2];
-        red   = [self colorComponentFrom:colorString start:2 length:2];
-        green = [self colorComponentFrom:colorString start:4 length:2];
-        blue  = [self colorComponentFrom:colorString start:6 length:2];
+      case 8: // #RRGGBBAA
+        red = [self colorComponentFrom:colorString start:0 length:2];
+        green   = [self colorComponentFrom:colorString start:2 length:2];
+        blue = [self colorComponentFrom:colorString start:4 length:2];
+        alpha  = [self colorComponentFrom:colorString start:6 length:2];
         break;
       default:
         [NSException raise:@"Invalid color value"
                     format:@"Color value %@ is invalid.  It should be a hex value "
-                           @"of the form #RBG, #ARGB, #RRGGBB, or #AARRGGBB", hexString];
+                           @"of the form #RBG, #RGBA, #RRGGBB, or #RRGGBBAA", hexString];
   }
 
     return [NSColor colorWithDeviceRed:red green:green blue:blue alpha:alpha];

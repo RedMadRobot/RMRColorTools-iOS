@@ -26,7 +26,7 @@
     for (RMRHexColor *hexColor in hexColorList) {
         NSColor *color = [NSColor colorWithHexString:hexColor.colorValue];
         NSString *colorName =
-            [prefix stringByAppendingString:[hexColor.colorTitle RMR_uppercaseFisrtSymbol]];
+            [prefix stringByAppendingString:[hexColor.colorTitle RMR_uppercaseFirstSymbol]];
         
         CGFloat red = [color redComponent];
         CGFloat green = [color greenComponent];

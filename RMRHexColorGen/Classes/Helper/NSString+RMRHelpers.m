@@ -11,12 +11,12 @@
 
 @implementation NSString (RMRHelpers)
 
-- (NSString *)RMR_uppercaseFisrtSymbol
+- (NSString *)RMR_uppercaseFirstSymbol
 {
     return [[[self substringToIndex:1] uppercaseString] stringByAppendingString:[self substringFromIndex:1]];
 }
 
-- (NSString *)RMR_lowercaseFisrtSymbol
+- (NSString *)RMR_lowercaseFirstSymbol
 {
     return [[[self substringToIndex:1] lowercaseString] stringByAppendingString:[self substringFromIndex:1]];
 }
