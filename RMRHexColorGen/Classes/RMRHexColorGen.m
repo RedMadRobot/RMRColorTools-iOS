@@ -71,7 +71,7 @@
 
     NSColorList *colorList = [[NSColorList alloc] initWithName:colorListName];
     [colorList fillWithHexColors:colors prefix:parameters.prefix ?: @""];
-    [colorList writeToFile:nil];
+    [colorList writeToFile:[parameters.outputPath stringByAppendingPathComponent: [colorListName stringByAppendingPathExtension:@"clr"]]];
 
     return EXIT_SUCCESS;
 }
