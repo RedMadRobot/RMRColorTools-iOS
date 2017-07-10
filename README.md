@@ -1,4 +1,4 @@
-#RMRColorTools-iOS
+# RMRColorTools-iOS
 It’s very important to have all your project resources organized and consistent, thus you won’t have to spend hours of time changing a single wide-spread color in your app.
 
 Working together with our designers, who supply us with handy theme style sheets, we wanted to have a single access point to a list of colors used in the app in order to maintain them all at once.
@@ -17,7 +17,7 @@ Thus, in case you’ve updated your color list file — **RMRHexColorGen** will 
 
 
 
-##RMRHexColorGen
+## RMRHexColorGen
 
 Small utility that generates UIColor category from colors list:
 ```
@@ -29,12 +29,12 @@ Small utility that generates UIColor category from colors list:
 
 Use `-clr` option to generate and install Color Palette.
 
-###Usage:
+### Usage:
 ```
 RMRHexColorGen [-i <path>] [-o <path>] [-p <prefix>] [-clr]
 ```
 
-###Options:
+### Options:
 ```
 -o <path>    Output files at <path>
 
@@ -49,26 +49,26 @@ RMRHexColorGen [-i <path>] [-o <path>] [-p <prefix>] [-clr]
 
 
 
-##RMRRefreshColorPanelPlugin
+## RMRRefreshColorPanelPlugin
 
 Xcode plugin that force Color Panel to reload custom Color Palettes after every build.
 
-###Install
+### Install
 
 Just clone this repo, run `RMRRefreshColorPanelPlugin` target and restart Xcode.
 
-###Usage
+### Usage
 
 RMRRefreshColorPanelPlugin will refresh Color Panel after every build end.
 Select `Reload color lists` from the `Edit` menu to force refresh.
 
-##Contact
+## Contact
 
 * http://www.redmadrobot.com
 * rc@redmadrobot.com
 
 
 
-##License
+## License
 
 RMRColorTools-iOS is available under the MIT license.
