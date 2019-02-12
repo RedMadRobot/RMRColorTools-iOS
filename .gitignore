@@ -22,3 +22,6 @@ Pods/
 
 # AppCode
 .idea/
+
+# Autogen files
+MyTestColors.xcassets/
