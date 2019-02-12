@@ -22,6 +22,8 @@
 		83D118301AB9ECF400D3C7B9 /* RMRStyleSheetReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182A1AB9ECF400D3C7B9 /* RMRStyleSheetReader.m */; };
 		83D118311AB9ECF400D3C7B9 /* RMRHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */; };
 		83D118321AB9ECF400D3C7B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182E1AB9ECF400D3C7B9 /* main.m */; };
+		D88CD6892213569300CE1508 /* RMRAssetCategoryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D88CD6882213569300CE1508 /* RMRAssetCategoryBuilder.m */; };
+		D88CD68C221361CB00CE1508 /* RMRStringTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D88CD68B221361CB00CE1508 /* RMRStringTools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +70,12 @@
 		83D1182C1AB9ECF400D3C7B9 /* RMRHexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRHexColor.h; sourceTree = "<group>"; };
 		83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRHexColor.m; sourceTree = "<group>"; };
 		83D1182E1AB9ECF400D3C7B9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D88CD6872213569300CE1508 /* RMRAssetCategoryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRAssetCategoryBuilder.h; sourceTree = "<group>"; };
+		D88CD6882213569300CE1508 /* RMRAssetCategoryBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRAssetCategoryBuilder.m; sourceTree = "<group>"; };
+		D88CD68A221361CB00CE1508 /* RMRStringTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRStringTools.h; sourceTree = "<group>"; };
+		D88CD68B221361CB00CE1508 /* RMRStringTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRStringTools.m; sourceTree = "<group>"; };
+		D88CD69322136B3500CE1508 /* Testing.palette */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Testing.palette; sourceTree = SOURCE_ROOT; };
+		D88CD69422136F1B00CE1508 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,7 @@
 		83C19AD51AC2ECCE00288BFE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D88CD69322136B3500CE1508 /* Testing.palette */,
 				83C19AD61AC2EDA400288BFE /* RMRHexColorGenPrefixHeader.pch */,
 			);
 			path = "Supporting Files";
@@ -130,6 +139,7 @@
 		83D117F71AB9D3FF00D3C7B9 = {
 			isa = PBXGroup;
 			children = (
+				D88CD69422136F1B00CE1508 /* README.md */,
 				83D118241AB9ECF400D3C7B9 /* RMRHexColorGen */,
 				83C30F2C1ABC427E00C425DD /* RMRRefreshColorPanelPlugin */,
 				83D118011AB9D40000D3C7B9 /* Products */,
@@ -184,6 +194,10 @@
 				83D1182A1AB9ECF400D3C7B9 /* RMRStyleSheetReader.m */,
 				830F500B1ABAC7A6004F31CD /* RMRColorCategoryBuilder.h */,
 				830F500C1ABAC7A6004F31CD /* RMRColorCategoryBuilder.m */,
+				D88CD6872213569300CE1508 /* RMRAssetCategoryBuilder.h */,
+				D88CD6882213569300CE1508 /* RMRAssetCategoryBuilder.m */,
+				D88CD68A221361CB00CE1508 /* RMRStringTools.h */,
+				D88CD68B221361CB00CE1508 /* RMRStringTools.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -298,6 +312,7 @@
 			files = (
 				83C19AD91AC2F9A700288BFE /* RXCollection.m in Sources */,
 				83C19AD11AC2E75100288BFE /* RMRHexColorGenParameters.m in Sources */,
+				D88CD6892213569300CE1508 /* RMRAssetCategoryBuilder.m in Sources */,
 				83C19ACE1AC2E19800288BFE /* NSString+RMRHelpers.m in Sources */,
 				830F50161ABAE168004F31CD /* NSColor+Hexadecimal.m in Sources */,
 				83D118301AB9ECF400D3C7B9 /* RMRStyleSheetReader.m in Sources */,
@@ -306,6 +321,7 @@
 				83C19AD41AC2EC9200288BFE /* RMRHexColorGen.m in Sources */,
 				830F500D1ABAC7A6004F31CD /* RMRColorCategoryBuilder.m in Sources */,
 				83D118321AB9ECF400D3C7B9 /* main.m in Sources */,
+				D88CD68C221361CB00CE1508 /* RMRStringTools.m in Sources */,
 				83D1182F1AB9ECF400D3C7B9 /* RMRHexColorParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

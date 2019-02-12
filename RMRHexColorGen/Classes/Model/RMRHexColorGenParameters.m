@@ -29,44 +29,83 @@ static NSString * const kRMRArgumentOutputPath      = @"output";
 
 // Generate .clr file
 static NSString * const kRMRArgumentClr = @"-clr";
-static NSString * const kRMRArgumentSwift = @"-swift";
+
+// Output Format and allowed values
+static NSString * const kRMRArgumentFormatShort = @"f";
+static NSString * const kRMRArgumentFormat      = @"format";
+static NSString * const kRMRArgumentValueSwift  = @"swift";
+static NSString * const kRMRArgumentValueObjC   = @"objc";
+static NSString * const kRMRArgumentValueAssets = @"assets";
+
+// Catalog Name
+static NSString * const kRMRArgumentNameShort = @"n";
+static NSString * const kRMRArgumentName      = @"name";
 
 
 @implementation RMRHexColorGenParameters
+
++ (RMRHexColorGenFormat)parseFormatFromString:(NSString*)formatString {
     
+    RMRHexColorGenFormat defaultFormat = RMRHexColorGenFormatSwift;
+    
+    if (formatString == nil) {
+        return defaultFormat;
+    }
+    
+    if ([formatString isEqualToString:kRMRArgumentValueObjC]) {
+        return RMRHexColorGenFormatObjectiveC;
+    }
+    
+    if ([formatString isEqualToString:kRMRArgumentValueSwift]) {
+        return RMRHexColorGenFormatSwift;
+    }
+    
+    if ([formatString isEqualToString:kRMRArgumentValueAssets]) {
+        return RMRHexColorGenFormatAssetCatalog;
+    }
+    
+    return defaultFormat;
+}
+
 + (instancetype)obtainParameters
-    {
-        RMRHexColorGenParameters *parameters = [[RMRHexColorGenParameters alloc] init];
-        
-        NSArray *argumentList = [[NSProcessInfo processInfo] arguments];
-        parameters.printHelp =
-        [argumentList count] == 1 // No params
-        || [argumentList containsObject:kRMRArgumentHelpShort]
-        || [argumentList containsObject:kRMRArgumentHelp];
-        
-        parameters.needClr = [argumentList containsObject:@"-clr"];
-        parameters.needSwiftOutput = [argumentList containsObject:@"-swift"];
-        
-        NSDictionary *arguments =
-        [[NSUserDefaults standardUserDefaults] volatileDomainForName:NSArgumentDomain];
-        
-        parameters.prefix =
-        firstNotNilParameter(arguments[kRMRArgumentPrefixShort], arguments[kRMRArgumentPrefix]);
-        
-        parameters.inputPath =
-        firstNotNilParameter(arguments[kRMRArgumentInputPathShort], arguments[kRMRArgumentInputPath]);
-        
-        parameters.outputPath =
-        firstNotNilParameter(arguments[kRMRArgumentOutputPathShort], arguments[kRMRArgumentOutputPath]);
-        
-        return parameters;
-    }
+{
+    RMRHexColorGenParameters *parameters = [[RMRHexColorGenParameters alloc] init];
     
+    NSArray *argumentList = [[NSProcessInfo processInfo] arguments];
+    parameters.printHelp =
+    [argumentList count] == 1 // No params
+    || [argumentList containsObject:kRMRArgumentHelpShort]
+    || [argumentList containsObject:kRMRArgumentHelp];
     
+    parameters.needClr = [argumentList containsObject:@"-clr"];
+    
+    NSDictionary *arguments =
+    [[NSUserDefaults standardUserDefaults] volatileDomainForName:NSArgumentDomain];
+    
+    parameters.prefix =
+    firstNotNilParameter(arguments[kRMRArgumentPrefixShort], arguments[kRMRArgumentPrefix]);
+    
+    parameters.inputPath =
+    firstNotNilParameter(arguments[kRMRArgumentInputPathShort], arguments[kRMRArgumentInputPath]);
+    
+    parameters.outputPath =
+    firstNotNilParameter(arguments[kRMRArgumentOutputPathShort], arguments[kRMRArgumentOutputPath]);
+    
+    parameters.outputFormat =
+    [self parseFormatFromString: firstNotNilParameter(arguments[kRMRArgumentFormatShort],
+                                                      arguments[kRMRArgumentFormat])];
+    
+    parameters.catalogName =
+    firstNotNilParameter(arguments[kRMRArgumentNameShort], arguments[kRMRArgumentName]);
+    
+    return parameters;
+}
+
+
 #pragma mark — Private helper
-    
-    NSString *firstNotNilParameter(NSString *first, NSString *second) {
-        return first ? first : second ? second : nil;
-    }
-    
-    @end
+
+NSString *firstNotNilParameter(NSString *first, NSString *second) {
+    return first ? first : second ? second : nil;
+}
+
+@end

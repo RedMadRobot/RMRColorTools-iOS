@@ -53,14 +53,14 @@ static NSString * const kColorExtensionSwiftTemplate =
 @property (nonatomic, copy) NSDate   *initializationDate;
 @property (nonatomic, copy) NSString *prefix;
 @property (nonatomic, copy) NSString *categoryName;
-@property (nonatomic, assign) BOOL inSwift;
+@property (nonatomic, assign) RMRHexColorGenFormat outputFormat;
 
 @end
 
 
 @implementation RMRColorCategoryBuilder
 
-- (instancetype)initWithPrefix:(NSString *)prefix categoryName:(NSString *)categoryName inSwiftLanguage:(BOOL)useSwift
+- (instancetype)initWithPrefix:(NSString *)prefix categoryName:(NSString *)categoryName outputFormat:(RMRHexColorGenFormat)format
 {
     self = [super init];
     if (!self) return nil;
@@ -68,7 +68,7 @@ static NSString * const kColorExtensionSwiftTemplate =
     self.prefix = prefix;
     self.initializationDate = [NSDate date];
     self.categoryName = categoryName;
-    self.inSwift = useSwift;
+    self.outputFormat = format;
     
     return self;
 }
@@ -77,20 +77,25 @@ static NSString * const kColorExtensionSwiftTemplate =
 {
     NSError *error = nil;
     
-    if (self.inSwift) {
+    if (self.outputFormat == RMRHexColorGenFormatSwift) {
         error = [self buildSwiftExtensionForColors:colorList outputPath:outputPath];
     }
-    else {
+    else if (self.outputFormat == RMRHexColorGenFormatObjectiveC) {
+        
         error = [self buildHeaderFileForColors:colorList outputPath:outputPath];
         if (error) return error;
         
         error = [self buildSourceFileForColors:colorList outputPath:outputPath];
         if (error) return error;
         
+    } else if (self.outputFormat == RMRHexColorGenFormatAssetCatalog) {
+        error = [NSError errorWithDomain:@"RMRErrorDomain"
+                                    code:500
+                                userInfo:@{NSLocalizedDescriptionKey : @"Something went wrong internally.  You shouldn't see this."}];
+        
     }
     
-    
-    return nil;
+    return error;
 }
 
 - (NSError *)buildHeaderFileForColors:(NSArray *)colorList outputPath:(NSString *)outputPath
@@ -164,8 +169,6 @@ static NSString * const kColorExtensionSwiftTemplate =
     
     return nil;
 }
-
-
 
 
 #pragma mark — Private helper

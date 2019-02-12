@@ -13,7 +13,7 @@
 #import "RMRColorCategoryBuilder.h"
 #import "RMRHexColorGenParameters.h"
 #import "RMRStyleSheetReader.h"
-
+#import "RMRAssetCategoryBuilder.h"
 
 @interface RMRHexColorGen ()
 
@@ -60,10 +60,19 @@
     if ([self checkError:error]) return EXIT_FAILURE;
 
 
-    RMRColorCategoryBuilder *colorCategoryBuilder =
-    [[RMRColorCategoryBuilder alloc] initWithPrefix:parameters.prefix categoryName:colorListName inSwiftLanguage:parameters.needSwiftOutput];
-    error = [colorCategoryBuilder generateColorCategoryForColors:colors
-                                                      outputPath:parameters.outputPath];
+    if(parameters.outputFormat == RMRHexColorGenFormatAssetCatalog) {
+        RMRAssetCategoryBuilder *builder = [[RMRAssetCategoryBuilder alloc] initWithParameters: parameters];
+        error = [builder generateAssetsCatalogWithColors:colors];
+        
+    } else {
+        
+        RMRColorCategoryBuilder *colorCategoryBuilder =
+        [[RMRColorCategoryBuilder alloc] initWithPrefix:parameters.prefix categoryName:colorListName outputFormat:parameters.outputFormat];
+        error = [colorCategoryBuilder generateColorCategoryForColors:colors
+                                                          outputPath:parameters.outputPath];
+    }
+    
+    
     if ([self checkError:error]) return EXIT_FAILURE;
 
 

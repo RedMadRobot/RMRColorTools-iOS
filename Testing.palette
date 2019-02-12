@@ -1,0 +1,20 @@
+// Colors in RRGGBB or RRGGBBAA format!
+
+// ------------------  Named Colors --------------
+// examples: 
+// #FFFFFF White
+// #000000 Black
+
+#3D78FE MyBlue
+#7C8089 MyGrey
+#36383C MyBlack
+
+
+
+// ------------------  Aliases --------------
+// Aliases $NamedColor NewName
+// For example:
+// $AlmostBlack MainTextColor
+
+$MyBlack PrimaryTextColor
+
