@@ -1,57 +1,85 @@
-#RMRColorTools-iOS
+# RMRColorTools-iOS
+
+**RMRHexColorGen** is a command line tool that *parses a human-readable text file* containing Color definitions (names and hex values) and can *generate useful code for your Xcode projects* in one of **3 output flavours**:
+
+1.  An Objective-C category on UIColor
+2.  A Swift Extension on UIColor
+3.  An Assets catalog with Color Sets  (Introduced in Xcode 9)
+
 It’s very important to have all your project resources organized and consistent, thus you won’t have to spend hours of time changing a single wide-spread color in your app.
 
-Working together with our designers, who supply us with handy theme style sheets, we wanted to have a single access point to a list of colors used in the app in order to maintain them all at once.
+The addition of Colors to Assets catalogs in Xcode 9 provided a great solution to the issue of a common color palette being used and reduced the numbers of headaches associated with being completely in sync with the design team, and for the mostpart, you may see this source code as a bit dated and/or obsolete.  We would not entirely disagree.  That said, Named Colors via Assets catalogs are a feature that is only available to you if your deployment target OS is iOS 11 or later.
 
-So we developed a few easy to use utils that help us to keep our code clean and up to date without any overhead.
+So you may be working on a mature project with some existing workflows and pipelines that you don't want to disrupt.  In this case, you may find some use out of this tool.  Especially if you use a design tool where you can export color definitions to a text file or your do not want to overburden your developers with boring but necessary (and time-consuming!) tasks.
 
-You may find two targets in the main project: **RMRHexColorGen** and **RMRRefreshColorPanelPlugin**.
+RMRColorTools-iOS enables an efficient workflow where:
 
-**RMRHexColorGen** generates a UIColor class category with all the colors you declare and `.CLR` file with color palette used within the standard OS X Color Panel component in Xcode and other desktop apps.
-We’ve faced a non-obvious caveat during our investigation: in order to refresh the list of Color Panel palettes one must restart the app that uses it.
+- Designers can define and name colors
+- Designers can edit and update the color palettes without programmer support
+- Developers don't need to concern themselves with the actual values of colors.  They just need to know "this element needs that color name", they set it once and it stays updated (assuming you use the new Colors Assets catalogs)
 
-So here’s the **RMRRefreshColorPanelPlugin** comes on stage. 
-This plugin simply forces Xcode to refresh its instance of Color Panel after every build.
+## Other Features
 
-Thus, in case you’ve updated your color list file — **RMRHexColorGen** will generate a new `.CLR` file AND **RMRRefreshColorPanelPlugin** will refresh Color Panel for you.
+### Color Aliases 
+Using simple markup (outlined below), a designer can define a color by giving its `RGB` or `RGBA` hex value then providing it a name.  It also allows for *aliases* to be defined, which are just references to previously defined colors.  This makes sense for example if you name your colors in your color palette (such as `MyAppBlue`), then create aliases to those colors based on purpose (such as `MainAppTint` which references `MyAppBlue` )
 
+### Xcode Color Palette Generation and auto-refreshing
+This has been made somewhat obsolete since the introduction of Color Sets in Asset Catalogs, which are explained [here](https://blog.zeplin.io/asset-catalog-colors-on-xcode-9-c4fdccc0381a).  That said, Color Assets Catalogs are only available on iOS11 or later.    Xcode supports Color Palette (`.CLR`) files that reside somewhere deep on your OSX system.  **RMRHexColorGen** can generate and install these for you, and with the help of the **RMRRefreshColorPanelPlugin**, Xcode can stay up-to-date with any incoming changes to the color definitions file you'd get from your designers.  Without (**RMRRefreshColorPanelPlugin**), you would have to restart Xcode each time you want to see the updated palettes; indeed an annoying step.
 
+Thus, in case you’ve updated your color list file — **RMRHexColorGen** will generate a new `.CLR` file AND **RMRRefreshColorPanelPlugin** will refresh Color Panel for you.  See below for typical integration steps
 
-##RMRHexColorGen
+### Command line tool for Easy Build Automation
+
+Because **RMRHexColorGen** is a command line tool, you can set up a Run Script in your Xcode build that will keep your generated colors up-to-date and your Color Palettes automatically refreshed (via **RMRRefreshColorPanelPlugin**... This plugin simply forces Xcode to refresh its instance of Color Panel after every build).
+
+## Usage
+
+### Create a Colors List
 
 Small utility that generates UIColor category from colors list:
 ```
-#RRGGBBAA ColorName
+// MyAppColors.palette
+//
+// Lines beginning with // are ignored by the parser, so you can add comments for your team members.
+//
+
+
+// Define an opaque color in RRGGBB Hex Format. e.g. #FFEE24.   (# character is required!)
 #RRGGBB ColorName
 
-// Start Lines with // to put comments in the file
-// Also, you can make references to named colors to use them elsewhere
-// for example, you define a color "Special Red", but want to use it
-// In a few places, such as "NavigationBarText".
-$ColorName SomeNewColorName
+// Or in RRGGBBAA format if you need transparency
+#RRGGBBAA ColorNameTranslucent
+
+
+// Create an Alias to an already defined color.  You can see the pattern: $ExistingColorname AliasName.  ($ character required!)
+$ColorName MainTitleText
+
+// You should ideally define your colors at the top, and all aliases below them!
+
 ```
 
 
+### Important Change:  
 
-Use `-clr` option to generate and install Color Palette.
-
-###Important Change:  
-
-This fork uses the RRGGBBAA Format.  Previous versions used AARRGGBB, which doesn't seem "conventional" to me, so please me aware of that!
+This branch of the original project uses the RRGGBBAA Format.  Previous versions used AARRGGBB, which doesn't seem "conventional" to me, so please me aware of that!
 
 
-###Usage:
+### Command Line Tool Usage:
 ```
-RMRHexColorGen [-i <path>] [-o <path>] [-p <prefix>] [-clr]
+RMRHexColorGen [-i <path>] [-o <path>] [-p <prefix>] [-clr] [-f <format>] [-n <name>]
 ```
 
-###Options:
+### Options:
 ```
 -o <path>    Output files at <path>
 
 -i <path>    Path to txt colors list file
 
--p <prefix>  Use <prefix> as the class prefix in the generated code
+-f <format>  The desired output format.  Valid values for <format> are: objc, swift, assets
+
+-p <prefix>  Use <prefix> as the class prefix in the generated code.  Only relevant for format: objc and swift
+
+-n <name>    If you are using assets as your format, you need to provide a name for the Assets catalog.  Otherwise defaults to MyAppColors
 
 -clr         Use this flag if you need to generate and install CLR file
 
@@ -60,26 +88,89 @@ RMRHexColorGen [-i <path>] [-o <path>] [-p <prefix>] [-clr]
 
 
 
-##RMRRefreshColorPanelPlugin
+## RMRRefreshColorPanelPlugin
 
 Xcode plugin that force Color Panel to reload custom Color Palettes after every build.
 
-###Install
+### Install
 
 Just clone this repo, run `RMRRefreshColorPanelPlugin` target and restart Xcode.
 
-###Usage
+### Usage
 
 RMRRefreshColorPanelPlugin will refresh Color Panel after every build end.
 Select `Reload color lists` from the `Edit` menu to force refresh.
 
-##Contact
+## Xcode Build Integration Examples
 
+### Create Run Script
+
+In your Xcode Project's Build Phases, add a "Run Script" that executes before "Compile Sources":
+
+```bash
+# Xcode Run Script
+# SRCROOT is the location of your Xcode Project file
+# You wrap the line below in quotes so that it correctly resolves paths 
+# that have spaces in their name.
+
+cd "${SRCROOT}/ColorTools"
+echo "${SRCROOT}/ColorTools"
+
+
+# We assume you have the following in the ColorTools folder:
+# - The RMRHexColorGen command line tool (i.e. when you build this project in Xcode, 
+#    in the Navigator's Products folder, right click to show in Finder, then copy that 
+#    file into ColorTools folder)
+# - A Colors definition file, explained above.  It's in text format and you can call 
+#    it whatever you want.  We tend to prefer the .palette file extension.  So call it MyAppColors.palette
+#
+# Then it might make sense to reference a bash script that you manage separately, or you can put that 
+# inline in this Run Script.  This script should also reside in the ColorTools folder (or wherever.  
+# We're making this easier on the Noobs)
+
+./update_colors.sh
+```
+
+Then we have various flavours on `update_colors.sh`  (below)
+
+#### Objective-C
+
+Output in Objective-C format to the ColorTools folder with a prefix of `ma` while also generating an Xcode color palette and installing it.  
+
+```bash
+./RMRHexColorGen -i MyAppColors.palette -o ./ -f objc -p my -clr
+echo "Updated Colors.  Please restart Xcode if you haven't installed the RMRRefreshColorPanelPlugin to let the updated colors take effect in Interface Builder!"
+```
+
+#### Swift
+
+Output to a swift extension on UIColor with a prefix of `my` (i.e. `UIColor.myMainTitleText`, `UIColor.myOffWhite`, etc.) to a different folder relative to ColorTools:
+
+```bash
+./RMRHexColorGen -i MyAppColors.palette -o ./../Generated/Colors -f swift -p my
+echo "Updated Colors."
+```
+
+#### Asset Catalogs
+
+Generate an Assets catalog that is only filled with Color Sets.
+
+```bash
+./RMRHexColorGen -i MyAppColors.palette -o ./../Generated -f assets -n ColorAssets
+echo "Updated Colors."
+```
+
+
+
+## Contact
+* oconnor.freelance@gmail.com
+
+(Original Authors)
 * http://www.redmadrobot.com
 * rc@redmadrobot.com
 
 
 
-##License
+## License
 
 RMRColorTools-iOS is available under the MIT license.
