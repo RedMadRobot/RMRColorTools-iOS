@@ -253,7 +253,7 @@ static NSString * const kColorsEnumSwiftTemplate =
     static NSString * valueKey     = @"<*constant_string*>";
     
     static NSString *colorStringTemplate =
-    @"     static let <*color_name*>: UIColor = UIColor(named:\"<*constant_string*>\")!";
+    @"     static let <*color_name*>: UIColor = UIColor(named: \"<*constant_string*>\")!";
     
     return
     [[colorList rx_mapWithBlock:^id(RMRHexColor *hexColor) {

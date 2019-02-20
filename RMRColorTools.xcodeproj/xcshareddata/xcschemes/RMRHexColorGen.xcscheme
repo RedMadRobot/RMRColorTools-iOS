@@ -72,7 +72,11 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-f assets"
+            argument = "-f swift"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-p t"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
