@@ -72,12 +72,12 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-f swift"
+            argument = "-f assets"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-p t"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-n MyTestColors"

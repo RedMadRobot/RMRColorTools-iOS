@@ -15,8 +15,8 @@ internal enum MyTestColors {
      }
 
 
-     static let myBlue: UIColor = UIColor(named:"MyBlue")!
-     static let myGrey: UIColor = UIColor(named:"MyGrey")!
-     static let myBlack: UIColor = UIColor(named:"MyBlack")!
-     static let primaryTextColor: UIColor = UIColor(named:"PrimaryTextColor")!
+     static let myBlue: UIColor = UIColor(named: "MyBlue")!
+     static let myGrey: UIColor = UIColor(named: "MyGrey")!
+     static let myBlack: UIColor = UIColor(named: "MyBlack")!
+     static let primaryTextColor: UIColor = UIColor(named: "PrimaryTextColor")!
 }
