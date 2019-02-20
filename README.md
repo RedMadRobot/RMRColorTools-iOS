@@ -71,15 +71,22 @@ RMRHexColorGen [-i <path>] [-o <path>] [-p <prefix>] [-clr] [-f <format>] [-n <n
 
 ### Options:
 ```
--o <path>    Output files at <path>
-
 -i <path>    Path to txt colors list file
 
+-o <path>    Output files at <path>
+
+-n <name>    The Name you want to use when generating.  It gets used differently depending on output format:
+
+output format: objc; used in the output filename:  UIColor+<name>.h/m and in category name UIColor(<name>)
+output format: swift; used in the output filename: UIColor+<name>.swift
+
+output format: assets;  used in the output filename: <name>.swift and in assets catalog name: <name>.xcassets
+                        and in the generated enum in <name>.swift
+                        internal enum <name> { ... }
+            
 -f <format>  The desired output format.  Valid values for <format> are: objc, swift, assets
 
 -p <prefix>  Use <prefix> as the class prefix in the generated code.  Only relevant for format: objc and swift
-
--n <name>    If you are using assets as your format, you need to provide a name for the Assets catalog.  Otherwise defaults to MyAppColors
 
 -clr         Use this flag if you need to generate and install CLR file
 
@@ -122,7 +129,7 @@ echo "${SRCROOT}/ColorTools"
 #    in the Navigator's Products folder, right click to show in Finder, then copy that 
 #    file into ColorTools folder)
 # - A Colors definition file, explained above.  It's in text format and you can call 
-#    it whatever you want.  We tend to prefer the .palette file extension.  So call it MyAppColors.palette
+#    it whatever you want.  We tend to prefer the .palette file extension.  So call it AppColors.palette
 #
 # Then it might make sense to reference a bash script that you manage separately, or you can put that 
 # inline in this Run Script.  This script should also reside in the ColorTools folder (or wherever.  
@@ -135,10 +142,10 @@ Then we have various flavours on `update_colors.sh`  (below)
 
 #### Objective-C
 
-Output in Objective-C format to the ColorTools folder with a prefix of `ma` while also generating an Xcode color palette and installing it.  
+Output in Objective-C format to the ColorTools folder with a prefix of `ma` while also generating an Xcode color palette and installing it.   No name was specified, so it defaults to `MyAppColors`
 
 ```bash
-./RMRHexColorGen -i MyAppColors.palette -o ./ -f objc -p my -clr
+./RMRHexColorGen -i AppColors.palette -o ./ -f objc -p my -clr
 echo "Updated Colors.  Please restart Xcode if you haven't installed the RMRRefreshColorPanelPlugin to let the updated colors take effect in Interface Builder!"
 ```
 
@@ -147,16 +154,16 @@ echo "Updated Colors.  Please restart Xcode if you haven't installed the RMRRefr
 Output to a swift extension on UIColor with a prefix of `my` (i.e. `UIColor.myMainTitleText`, `UIColor.myOffWhite`, etc.) to a different folder relative to ColorTools:
 
 ```bash
-./RMRHexColorGen -i MyAppColors.palette -o ./../Generated/Colors -f swift -p my
+./RMRHexColorGen -i AppColors.palette -o ./../Generated/Colors -f swift -p my
 echo "Updated Colors."
 ```
 
 #### Asset Catalogs
 
-Generate an Assets catalog that is only filled with Color Sets.
+Generate an Assets catalog that is only filled with Color Sets.  Also creates a Swift file so you can use these exact same colors in code with type safety.  `UIColor(named: String)` can be brittle if a string changes so we should avoid that.
 
 ```bash
-./RMRHexColorGen -i MyAppColors.palette -o ./../Generated -f assets -n ColorAssets
+./RMRHexColorGen -i AppColors.palette -o ./../Generated -f assets -n ColorAssets
 echo "Updated Colors."
 ```
 
