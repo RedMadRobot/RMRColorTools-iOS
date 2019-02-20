@@ -15,8 +15,7 @@
 - (instancetype)init RMR_UNAVAILABLE_INSTEAD("use initWithPrefix:categoryName:");
 
 - (instancetype)initWithPrefix:(NSString *)prefix
-                  categoryName:(NSString *)categoryName
-                  outputFormat:(RMRHexColorGenFormat)format RMR_DESIGNATED_INITIALIZER;
+                  categoryName:(NSString *)categoryName RMR_DESIGNATED_INITIALIZER;
 
 - (NSError *)generateColorCategoryForColors:(NSArray *)colorList outputPath:(NSString *)outputPath;
 

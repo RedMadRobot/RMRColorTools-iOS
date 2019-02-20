@@ -46,7 +46,7 @@ static NSString * const kRMRArgumentName      = @"name";
 
 + (RMRHexColorGenFormat)parseFormatFromString:(NSString*)formatString {
     
-    RMRHexColorGenFormat defaultFormat = RMRHexColorGenFormatSwift;
+    RMRHexColorGenFormat defaultFormat = RMRHexColorGenFormatInvalid;
     
     if (formatString == nil) {
         return defaultFormat;
@@ -95,8 +95,20 @@ static NSString * const kRMRArgumentName      = @"name";
     [self parseFormatFromString: firstNotNilParameter(arguments[kRMRArgumentFormatShort],
                                                       arguments[kRMRArgumentFormat])];
     
-    parameters.catalogName =
+    parameters.name =
     firstNotNilParameter(arguments[kRMRArgumentNameShort], arguments[kRMRArgumentName]);
+    
+    if (parameters.name == nil) {
+        parameters.name = @"MyAppColors";
+    }
+    
+    // make sure you're using it correctly.
+    if(parameters.outputFormat == RMRHexColorGenFormatInvalid ||
+       parameters.inputPath == nil ||
+       parameters.outputPath == nil) {
+        parameters.printHelp = YES;
+    }
+    
     
     return parameters;
 }

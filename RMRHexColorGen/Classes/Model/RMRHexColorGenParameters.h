@@ -9,6 +9,7 @@
 @import Foundation;
 
 typedef NS_ENUM(NSInteger, RMRHexColorGenFormat) {
+    RMRHexColorGenFormatInvalid,
     RMRHexColorGenFormatObjectiveC,
     RMRHexColorGenFormatSwift,
     RMRHexColorGenFormatAssetCatalog
@@ -20,7 +21,21 @@ typedef NS_ENUM(NSInteger, RMRHexColorGenFormat) {
 @property (nonatomic, copy) NSString *outputPath;
 // for obj-C/Swift it's a prefix
 @property (nonatomic, copy) NSString *prefix;
-@property (nonatomic, copy) NSString *catalogName; // for AssetCatalog it's the name.  (Otherwise defaults to MyAppColors.xcassets)
+
+/** name is used in different ways, depending on output format:
+ outputFormat: RMRHexColorGenFormatObjectiveC
+ name is used in the output filename:  UIColor+name.h/m and in category name UIColor(name)
+ 
+ outputFormat: RMRHexColorGenFormatSwift
+ name is used in the output filename: UIColor+name.swift
+ 
+ outputFormat: RMRHexColorGenFormatAssetCatalog
+ name is used in the output filename: name.swift and in assets catalog name: name.xcassets
+ and in the generated enum in name.swift
+ internal enum <name> { ... }
+ 
+ */
+@property (nonatomic, copy) NSString *name;  // if nil, defaults to MyAppColors
 
 @property (nonatomic, assign) BOOL printHelp;
 @property (nonatomic, assign) BOOL needClr;

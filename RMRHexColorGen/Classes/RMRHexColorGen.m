@@ -13,7 +13,8 @@
 #import "RMRColorCategoryBuilder.h"
 #import "RMRHexColorGenParameters.h"
 #import "RMRStyleSheetReader.h"
-#import "RMRAssetCategoryBuilder.h"
+#import "RMRAssetsCatalogBuilder.h"
+#import "RMRSwiftCodeBuilder.h"
 
 @interface RMRHexColorGen ()
 
@@ -47,6 +48,7 @@
     if ([self checkError:error]) return EXIT_FAILURE;
 
 
+    // Parses the input file name, such as MyAppColors.palette
     NSString *colorListName =
         [[parameters.prefix uppercaseString]?:@""
             stringByAppendingString:
@@ -60,16 +62,26 @@
     if ([self checkError:error]) return EXIT_FAILURE;
 
 
-    if(parameters.outputFormat == RMRHexColorGenFormatAssetCatalog) {
-        RMRAssetCategoryBuilder *builder = [[RMRAssetCategoryBuilder alloc] initWithParameters: parameters];
+    if (parameters.outputFormat == RMRHexColorGenFormatAssetCatalog)
+    {
+        RMRAssetsCatalogBuilder *builder = [[RMRAssetsCatalogBuilder alloc] initWithParameters: parameters];
         error = [builder generateAssetsCatalogWithColors:colors];
         
-    } else {
+        if ([self checkError:error]) return EXIT_FAILURE;
         
-        RMRColorCategoryBuilder *colorCategoryBuilder =
-        [[RMRColorCategoryBuilder alloc] initWithPrefix:parameters.prefix categoryName:colorListName outputFormat:parameters.outputFormat];
-        error = [colorCategoryBuilder generateColorCategoryForColors:colors
-                                                          outputPath:parameters.outputPath];
+        RMRSwiftCodeBuilder *codeBuilder = [[RMRSwiftCodeBuilder alloc] initWithParameters:parameters outputType:RMRSwiftOutputTypeAssetsCatalogNamedColors];
+        error = [codeBuilder generateSwiftCodeForColors:colors];
+    }
+    else if (parameters.outputFormat == RMRHexColorGenFormatSwift)
+    {
+        RMRSwiftCodeBuilder *codeBuilder = [[RMRSwiftCodeBuilder alloc] initWithParameters:parameters outputType:RMRSwiftOutputTypeStandalone];
+        error = [codeBuilder generateSwiftCodeForColors:colors];
+        
+    } else {
+        // objective-C
+        RMRColorCategoryBuilder *builder = [[RMRColorCategoryBuilder alloc] initWithPrefix:parameters.prefix
+                                                                              categoryName:parameters.name];
+        error = [builder generateColorCategoryForColors:colors outputPath:parameters.outputPath];
     }
     
     
@@ -78,6 +90,7 @@
 
     if (!parameters.needClr) return EXIT_SUCCESS;
 
+    // GENERATE AN XCODE COLOR TEMPLATE
     NSColorList *colorList = [[NSColorList alloc] initWithName:colorListName];
     [colorList fillWithHexColors:colors prefix:parameters.prefix?:@""];
     [colorList writeToFile:nil];

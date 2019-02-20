@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class RMRHexColorGenParameters;
 
-@interface RMRAssetCategoryBuilder : NSObject
+@interface RMRAssetsCatalogBuilder : NSObject
 
 - (instancetype)initWithParameters:(RMRHexColorGenParameters*)parameters;
 - (NSError*)generateAssetsCatalogWithColors:(NSArray*)colors;

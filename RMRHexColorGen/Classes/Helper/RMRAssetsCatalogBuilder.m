@@ -6,20 +6,21 @@
 //  Copyright © 2019 RedMadRobot. All rights reserved.
 //
 
-#import "RMRAssetCategoryBuilder.h"
+#import "RMRAssetsCatalogBuilder.h"
 #import "RMRHexColorGenParameters.h"
 #import "RMRHexColor.h"
 #import "RXCollection.h"
 #import "NSColor+Hexadecimal.h"
 #import "RMRStringTools.h"
+#import "Constants.h"
 
-static NSString * const kRMRAssetsCatalogDefaultName = @"MyAppColors";
+
 
 static NSString * const kRMRAssetsCatalogFileExtension = @".xcassets";
 static NSString * const kRMRAssetsColorSetFileExtension = @".colorset";
 static NSString * const kRMRAssetsContentsFilename = @"Contents.json";
 
-static NSString * const kRMRErrorDomain = @"RMRColorTools";
+
 
 static NSString * const kAssetsContentsJson =
 @"{\n"
@@ -52,11 +53,11 @@ static NSString * const kColorContentsJsonTemplate =
 @"}";
 
 
-@interface RMRAssetCategoryBuilder()
+@interface RMRAssetsCatalogBuilder()
 @property (nonatomic, retain) RMRHexColorGenParameters *parameters;
 @end
 
-@implementation RMRAssetCategoryBuilder
+@implementation RMRAssetsCatalogBuilder
 
 - (instancetype)initWithParameters:(RMRHexColorGenParameters*)parameters
 {
@@ -77,10 +78,7 @@ static NSString * const kColorContentsJsonTemplate =
                                userInfo:@{NSLocalizedDescriptionKey: @"You tried building an assets catalog by specifying the wrong parameter for format.  You should include \"-format assets\" to generate an assets catalog"}];
     }
     
-    NSString *catalogName = parameters.catalogName;
-    if (catalogName == nil) {
-        catalogName = kRMRAssetsCatalogDefaultName;
-    }
+    NSString *catalogName = parameters.name;  // this will be non-nil, look to where params are parsed.
     
     NSString *outputCatalogPath =
     [[[parameters.outputPath stringByExpandingTildeInPath] stringByAppendingPathComponent:catalogName] stringByAppendingString:kRMRAssetsCatalogFileExtension];

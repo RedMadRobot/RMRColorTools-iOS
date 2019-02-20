@@ -22,8 +22,9 @@
 		83D118301AB9ECF400D3C7B9 /* RMRStyleSheetReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182A1AB9ECF400D3C7B9 /* RMRStyleSheetReader.m */; };
 		83D118311AB9ECF400D3C7B9 /* RMRHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */; };
 		83D118321AB9ECF400D3C7B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182E1AB9ECF400D3C7B9 /* main.m */; };
-		D88CD6892213569300CE1508 /* RMRAssetCategoryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D88CD6882213569300CE1508 /* RMRAssetCategoryBuilder.m */; };
+		D88CD6892213569300CE1508 /* RMRAssetsCatalogBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D88CD6882213569300CE1508 /* RMRAssetsCatalogBuilder.m */; };
 		D88CD68C221361CB00CE1508 /* RMRStringTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D88CD68B221361CB00CE1508 /* RMRStringTools.m */; };
+		D8DF6A09221D489400CB128E /* RMRSwiftCodeBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DF6A08221D489400CB128E /* RMRSwiftCodeBuilder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,12 +71,15 @@
 		83D1182C1AB9ECF400D3C7B9 /* RMRHexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRHexColor.h; sourceTree = "<group>"; };
 		83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRHexColor.m; sourceTree = "<group>"; };
 		83D1182E1AB9ECF400D3C7B9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D88CD6872213569300CE1508 /* RMRAssetCategoryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRAssetCategoryBuilder.h; sourceTree = "<group>"; };
-		D88CD6882213569300CE1508 /* RMRAssetCategoryBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRAssetCategoryBuilder.m; sourceTree = "<group>"; };
+		D88CD6872213569300CE1508 /* RMRAssetsCatalogBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRAssetsCatalogBuilder.h; sourceTree = "<group>"; };
+		D88CD6882213569300CE1508 /* RMRAssetsCatalogBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRAssetsCatalogBuilder.m; sourceTree = "<group>"; };
 		D88CD68A221361CB00CE1508 /* RMRStringTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRStringTools.h; sourceTree = "<group>"; };
 		D88CD68B221361CB00CE1508 /* RMRStringTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRStringTools.m; sourceTree = "<group>"; };
 		D88CD69322136B3500CE1508 /* Testing.palette */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Testing.palette; sourceTree = SOURCE_ROOT; };
 		D88CD69422136F1B00CE1508 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D8DF6A07221D489400CB128E /* RMRSwiftCodeBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRSwiftCodeBuilder.h; sourceTree = "<group>"; };
+		D8DF6A08221D489400CB128E /* RMRSwiftCodeBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRSwiftCodeBuilder.m; sourceTree = "<group>"; };
+		D8DF6A0A221D4C4600CB128E /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,10 +198,13 @@
 				83D1182A1AB9ECF400D3C7B9 /* RMRStyleSheetReader.m */,
 				830F500B1ABAC7A6004F31CD /* RMRColorCategoryBuilder.h */,
 				830F500C1ABAC7A6004F31CD /* RMRColorCategoryBuilder.m */,
-				D88CD6872213569300CE1508 /* RMRAssetCategoryBuilder.h */,
-				D88CD6882213569300CE1508 /* RMRAssetCategoryBuilder.m */,
+				D8DF6A07221D489400CB128E /* RMRSwiftCodeBuilder.h */,
+				D8DF6A08221D489400CB128E /* RMRSwiftCodeBuilder.m */,
+				D88CD6872213569300CE1508 /* RMRAssetsCatalogBuilder.h */,
+				D88CD6882213569300CE1508 /* RMRAssetsCatalogBuilder.m */,
 				D88CD68A221361CB00CE1508 /* RMRStringTools.h */,
 				D88CD68B221361CB00CE1508 /* RMRStringTools.m */,
+				D8DF6A0A221D4C4600CB128E /* Constants.h */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -312,7 +319,7 @@
 			files = (
 				83C19AD91AC2F9A700288BFE /* RXCollection.m in Sources */,
 				83C19AD11AC2E75100288BFE /* RMRHexColorGenParameters.m in Sources */,
-				D88CD6892213569300CE1508 /* RMRAssetCategoryBuilder.m in Sources */,
+				D88CD6892213569300CE1508 /* RMRAssetsCatalogBuilder.m in Sources */,
 				83C19ACE1AC2E19800288BFE /* NSString+RMRHelpers.m in Sources */,
 				830F50161ABAE168004F31CD /* NSColor+Hexadecimal.m in Sources */,
 				83D118301AB9ECF400D3C7B9 /* RMRStyleSheetReader.m in Sources */,
@@ -320,6 +327,7 @@
 				830F50191ABAEB71004F31CD /* NSColorList+RMRHexColor.m in Sources */,
 				83C19AD41AC2EC9200288BFE /* RMRHexColorGen.m in Sources */,
 				830F500D1ABAC7A6004F31CD /* RMRColorCategoryBuilder.m in Sources */,
+				D8DF6A09221D489400CB128E /* RMRSwiftCodeBuilder.m in Sources */,
 				83D118321AB9ECF400D3C7B9 /* main.m in Sources */,
 				D88CD68C221361CB00CE1508 /* RMRStringTools.m in Sources */,
 				83D1182F1AB9ECF400D3C7B9 /* RMRHexColorParser.m in Sources */,
