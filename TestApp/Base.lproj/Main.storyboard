@@ -19,17 +19,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGl-Zi-V0U">
-                                <rect key="frame" x="0.0" y="343.5" width="375" height="323.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Catalog" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndN-jC-g2v">
+                                <rect key="frame" x="0.0" y="20" width="375" height="215.5"/>
+                                <color key="backgroundColor" name="MyBlue"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <size key="shadowOffset" width="-1" height="-1"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Catalog" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndN-jC-g2v">
-                                <rect key="frame" x="0.0" y="20" width="375" height="323.5"/>
-                                <color key="backgroundColor" name="MyBlue"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From UIColor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dJ-fe-Ubj">
+                                <rect key="frame" x="0.0" y="451.5" width="375" height="215.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="-1" height="-1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Generated Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGl-Zi-V0U">
+                                <rect key="frame" x="0.0" y="235.5" width="375" height="216"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -39,21 +47,25 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ndN-jC-g2v" firstAttribute="height" secondItem="HGl-Zi-V0U" secondAttribute="height" id="145-2Q-G1S"/>
-                            <constraint firstItem="HGl-Zi-V0U" firstAttribute="top" secondItem="ndN-jC-g2v" secondAttribute="bottom" id="4eY-6B-wHg"/>
-                            <constraint firstItem="ndN-jC-g2v" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ekf-US-WlD"/>
-                            <constraint firstItem="HGl-Zi-V0U" firstAttribute="top" secondItem="ndN-jC-g2v" secondAttribute="bottom" id="cJn-K4-BSl"/>
-                            <constraint firstItem="HGl-Zi-V0U" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dz5-3q-tCy"/>
-                            <constraint firstItem="ndN-jC-g2v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oN9-KS-c7Y"/>
-                            <constraint firstItem="HGl-Zi-V0U" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pIG-HV-bJg"/>
-                            <constraint firstItem="HGl-Zi-V0U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xQn-IX-wlz"/>
-                            <constraint firstItem="ndN-jC-g2v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ycL-nB-mbx"/>
+                            <constraint firstItem="ndN-jC-g2v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="04Z-ga-owi"/>
+                            <constraint firstItem="6dJ-fe-Ubj" firstAttribute="top" secondItem="HGl-Zi-V0U" secondAttribute="bottom" id="9K8-Bp-ph5"/>
+                            <constraint firstItem="6dJ-fe-Ubj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FmF-Gq-HG3"/>
+                            <constraint firstItem="6dJ-fe-Ubj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M0L-T3-hdR"/>
+                            <constraint firstItem="6dJ-fe-Ubj" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="WnD-nL-LSX"/>
+                            <constraint firstItem="HGl-Zi-V0U" firstAttribute="top" secondItem="ndN-jC-g2v" secondAttribute="bottom" id="XLf-IH-9fl"/>
+                            <constraint firstItem="HGl-Zi-V0U" firstAttribute="height" secondItem="ndN-jC-g2v" secondAttribute="height" id="XgY-Q4-ESa"/>
+                            <constraint firstItem="ndN-jC-g2v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fTI-em-7Mg"/>
+                            <constraint firstItem="6dJ-fe-Ubj" firstAttribute="height" secondItem="ndN-jC-g2v" secondAttribute="height" id="g2c-Fi-zKG"/>
+                            <constraint firstItem="HGl-Zi-V0U" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hSU-7l-SqU"/>
+                            <constraint firstItem="HGl-Zi-V0U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kYY-YM-P31"/>
+                            <constraint firstItem="ndN-jC-g2v" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wVf-nZ-for"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="catalogLabel" destination="ndN-jC-g2v" id="b2h-ZJ-3ph"/>
-                        <outlet property="codeLabel" destination="HGl-Zi-V0U" id="b2Y-yN-gxm"/>
+                        <outlet property="catalogLabel" destination="ndN-jC-g2v" id="pSx-gC-3rW"/>
+                        <outlet property="codeLabel" destination="HGl-Zi-V0U" id="hdI-LX-qe1"/>
+                        <outlet property="colorLabel" destination="6dJ-fe-Ubj" id="oA2-bI-sp5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

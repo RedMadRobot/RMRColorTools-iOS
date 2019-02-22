@@ -24,6 +24,7 @@
 		83D118321AB9ECF400D3C7B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182E1AB9ECF400D3C7B9 /* main.m */; };
 		D88CD6892213569300CE1508 /* RMRAssetsCatalogBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D88CD6882213569300CE1508 /* RMRAssetsCatalogBuilder.m */; };
 		D88CD68C221361CB00CE1508 /* RMRStringTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D88CD68B221361CB00CE1508 /* RMRStringTools.m */; };
+		D897936A221EB116004EE06E /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8979369221EB116004EE06E /* UIColor+HexString.swift */; };
 		D8AB5DBC221D6CBE005F057D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AB5DBB221D6CBE005F057D /* AppDelegate.swift */; };
 		D8AB5DBE221D6CBE005F057D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AB5DBD221D6CBE005F057D /* ViewController.swift */; };
 		D8AB5DC1221D6CBE005F057D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AB5DBF221D6CBE005F057D /* Main.storyboard */; };
@@ -79,12 +80,14 @@
 		83D1182C1AB9ECF400D3C7B9 /* RMRHexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRHexColor.h; sourceTree = "<group>"; };
 		83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRHexColor.m; sourceTree = "<group>"; };
 		83D1182E1AB9ECF400D3C7B9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D82EF1AB22202DC500AA633D /* TODO-List.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "TODO-List.txt"; sourceTree = "<group>"; };
 		D88CD6872213569300CE1508 /* RMRAssetsCatalogBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRAssetsCatalogBuilder.h; sourceTree = "<group>"; };
 		D88CD6882213569300CE1508 /* RMRAssetsCatalogBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRAssetsCatalogBuilder.m; sourceTree = "<group>"; };
 		D88CD68A221361CB00CE1508 /* RMRStringTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRStringTools.h; sourceTree = "<group>"; };
 		D88CD68B221361CB00CE1508 /* RMRStringTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRStringTools.m; sourceTree = "<group>"; };
 		D88CD69322136B3500CE1508 /* Testing.palette */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Testing.palette; sourceTree = SOURCE_ROOT; };
 		D88CD69422136F1B00CE1508 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D8979369221EB116004EE06E /* UIColor+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexString.swift"; sourceTree = "<group>"; };
 		D8AB5DB9221D6CBE005F057D /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AB5DBB221D6CBE005F057D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8AB5DBD221D6CBE005F057D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +171,7 @@
 		83D117F71AB9D3FF00D3C7B9 = {
 			isa = PBXGroup;
 			children = (
+				D82EF1AB22202DC500AA633D /* TODO-List.txt */,
 				D88CD69422136F1B00CE1508 /* README.md */,
 				83D118241AB9ECF400D3C7B9 /* RMRHexColorGen */,
 				83C30F2C1ABC427E00C425DD /* RMRRefreshColorPanelPlugin */,
@@ -259,6 +263,7 @@
 				D8AB5DC2221D6CC5005F057D /* Assets.xcassets */,
 				D8AB5DC4221D6CC5005F057D /* LaunchScreen.storyboard */,
 				D8AB5DC7221D6CC5005F057D /* Info.plist */,
+				D8979369221EB116004EE06E /* UIColor+HexString.swift */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
@@ -442,6 +447,7 @@
 				D8AB5DBE221D6CBE005F057D /* ViewController.swift in Sources */,
 				D8AB5DD1221D6F78005F057D /* UIColor+MyTestColors.swift in Sources */,
 				D8AB5DBC221D6CBE005F057D /* AppDelegate.swift in Sources */,
+				D897936A221EB116004EE06E /* UIColor+HexString.swift in Sources */,
 				D8AB5DCE221D6E15005F057D /* MyTestColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
