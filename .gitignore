@@ -24,4 +24,7 @@ Pods/
 .idea/
 
 # Autogen files
-MyTestColors.xcassets/
+MyTestColors.*
+
+# Project Tracking
+TODO-List.txt
