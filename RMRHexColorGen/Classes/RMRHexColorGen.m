@@ -10,7 +10,7 @@
 
 #import "NSColorList+RMRHexColor.h"
 #import "NSString+RMRHelpers.h"
-#import "RMRColorCategoryBuilder.h"
+#import "RMRObjcCodeBuilder.h"
 #import "RMRHexColorGenParameters.h"
 #import "RMRStyleSheetReader.h"
 #import "RMRAssetsCatalogBuilder.h"
@@ -79,9 +79,8 @@
         
     } else {
         // objective-C
-        RMRColorCategoryBuilder *builder = [[RMRColorCategoryBuilder alloc] initWithPrefix:parameters.prefix
-                                                                              categoryName:parameters.name];
-        error = [builder generateColorCategoryForColors:colors outputPath:parameters.outputPath];
+        RMRObjcCodeBuilder *builder = [[RMRObjcCodeBuilder alloc] initWithParameters:parameters];
+        error = [builder generateColorCategoryForColors:colors];
     }
     
     

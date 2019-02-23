@@ -54,7 +54,7 @@ static NSString * const kColorsEnumSwiftTemplate =
 @property (nonatomic, retain) RMRHexColorGenParameters *parameters;
 @property (nonatomic, assign) RMRSwiftOutputType outputType;
 
-    @property (nonatomic, strong) NSString *colorClassName;
+@property (nonatomic, strong) NSString *colorClassName;
     
 @end
 
