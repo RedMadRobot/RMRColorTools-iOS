@@ -13,5 +13,7 @@
 
 @property (nonatomic, copy) NSString *colorTitle;
 @property (nonatomic, copy) NSString *colorValue;
+@property (nonatomic, assign) BOOL isAlias;
+@property (nonatomic, copy) NSString *comments;
 
 @end

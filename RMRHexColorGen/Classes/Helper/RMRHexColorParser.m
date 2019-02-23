@@ -23,6 +23,10 @@
     NSArray *definedColors = [lines rx_mapWithBlock:^id(id each) { return [self parseColor:each definedColors: nil]; }];
     NSArray *referenceColors = [lines rx_mapWithBlock:^id(id each) { return [self parseColor:each definedColors: definedColors]; }];
     
+    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:NSStringFromSelector(@selector(colorTitle)) ascending:YES];
+    definedColors = [definedColors sortedArrayUsingDescriptors:@[sorter]];
+    referenceColors = [referenceColors sortedArrayUsingDescriptors:@[sorter]];
+    
     return [definedColors arrayByAddingObjectsFromArray:referenceColors];
 }
 
@@ -46,13 +50,16 @@
                                                     error:nil];
         
         __block NSString *colorValue = nil;
-        __block NSString *colorTitle = nil;
+        __block NSString *colorTitleAndComments = nil;
+        
         
         void(^enumerateBlock)(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) =
         ^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
             if (result.numberOfRanges == 3) {
                 colorValue   = [rawData substringWithRange:[result rangeAtIndex:1]];
-                colorTitle = [rawData substringWithRange:[result rangeAtIndex:2]];
+                
+                NSRange titleRange = [result rangeAtIndex:2];
+                colorTitleAndComments = [rawData substringWithRange:titleRange];
             }
         };
         
@@ -61,15 +68,19 @@
                                  range:NSMakeRange(0, [rawData length])
                             usingBlock:enumerateBlock];
         
-        if (!colorTitle || !colorValue) {
+        if (!colorTitleAndComments || !colorValue) {
             printf("Can't parse data %s\n", [rawData cStringUsingEncoding:NSUTF8StringEncoding]);
             return nil;
         }
+        
+        NSString *colorTitle = [[colorTitleAndComments componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] firstObject];
+        NSString *comments = [colorTitleAndComments substringFromIndex:colorTitle.length];
         
         
         RMRHexColor *color = [[RMRHexColor alloc] init];
         color.colorTitle = colorTitle;
         color.colorValue = colorValue;
+        color.comments = comments;
         
         return color;
     }
@@ -78,16 +89,24 @@
         
         // strip the $$ from the string
         NSString *line = [rawData stringByReplacingOccurrencesOfString:@"$" withString:@""];
-        NSArray *elements = [line componentsSeparatedByString:@" "];
+        NSArray *elements = [line componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];//[line componentsSeparatedByString:@" "];
+        elements = [elements rx_filterWithBlock:^BOOL(NSString* each) {
+            return (each.length > 0);
+        }];
         
-        if (elements.count != 2) {
+        
+        if (elements.count < 2) {
             printf("There is something wrong with your formatting of color: %s.  It should be $$<ColorReferenceName> <NewName>", [line cStringUsingEncoding:NSUTF8StringEncoding]);
             return nil;
         }
         
         // first element should match a colorTitle in definedColors, then use its color value
-        NSString *colorReferenceName = elements.firstObject;
-        NSString *newColorTitle = elements.lastObject;
+        NSString *colorReferenceName = elements[0];
+        NSString *newColorTitle = elements[1];
+        
+        NSString *comments = [[elements subarrayWithRange:(NSRange){2, elements.count - 2}] componentsJoinedByString:@" "];
+        //printf([comments cStringUsingEncoding:NSUTF8StringEncoding]);
+        
         
         __block RMRHexColor *newColor = nil;
         [definedColors enumerateObjectsUsingBlock:^(RMRHexColor * _Nonnull color, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -95,6 +114,8 @@
                 newColor = [[RMRHexColor alloc] init];
                 newColor.colorTitle = newColorTitle;
                 newColor.colorValue = color.colorValue;
+                newColor.isAlias = YES;
+                newColor.comments = comments;
                 *stop = YES;
             }
         }];

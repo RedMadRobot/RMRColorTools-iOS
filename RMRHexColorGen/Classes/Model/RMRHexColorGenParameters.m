@@ -78,6 +78,7 @@ static NSString * const kRMRArgumentName      = @"name";
     || [argumentList containsObject:kRMRArgumentHelp];
     
     parameters.needClr = [argumentList containsObject:@"-clr"];
+    parameters.isForOSX = [argumentList containsObject:@"-osx"];
     
     NSDictionary *arguments =
     [[NSUserDefaults standardUserDefaults] volatileDomainForName:NSArgumentDomain];

@@ -1,0 +1,32 @@
+TODO List
+=========
+
+X Include source file template name in generated file.  I.e. This was parsed output from XXX.palette
+    - initWithParameters: on RMRColorCategoryBuilder and follow similar approach as the swift one.
+
+- Option to specify the color space
+
+X Option to specify OSX output (i.e. NSColor)
+    - ObjectiveC as well!
+
+
+X Allow for comments in the generated file  (Defined Colors (with hex codes), Aliases)
+
+X Allow for comments in the markup file so that:
+    - ObjectiveC too!
+
+#SomeHexValue ColorName MyComments becomes
+
+// #SomeHexValue: MyComments
+static let colorName: UIColor = UIColor(named:"ColorName")!
+
+or
+
+// $ColorName: MyComments
+static let colorName: UIColor = UIColor(named:"ColorName")!
+
+X and have these be separated by whitespace, NOT just a space character
+    X have to basically replace a string of whitespace with "" then get the components separated by ""
+    X Should also look at the # parser code as it's different than the $ parser stuff (Regex)
+
+

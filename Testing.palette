@@ -7,7 +7,7 @@
 
 #3D78FE MyBlue
 #7C8089 MyGrey
-#36383C MyBlack
+#36383C MyBlack  BreakingIT!   Testing some shit here, eh?  Foakin' do it!!!
 
 
 
@@ -16,5 +16,5 @@
 // For example:
 // $AlmostBlack MainTextColor
 
-$MyBlack PrimaryTextColor
-
+$MyBlack PrimaryTextColor BreakingIT!   Testing some shit here, eh?  Foakin' do it!!!
+$MyBlue BerthaBlue

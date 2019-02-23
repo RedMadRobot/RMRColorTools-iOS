@@ -40,6 +40,7 @@ typedef NS_ENUM(NSInteger, RMRHexColorGenFormat) {
 @property (nonatomic, assign) BOOL printHelp;
 @property (nonatomic, assign) BOOL needClr;
 @property (nonatomic, assign) RMRHexColorGenFormat outputFormat;
+@property (nonatomic, assign) BOOL isForOSX;  // generates NSColor instead of UIColor
 
 + (instancetype)obtainParameters;
 
