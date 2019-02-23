@@ -7,13 +7,13 @@ X Include source file template name in generated file.  I.e. This was parsed out
 - Option to specify the color space
 
 X Option to specify OSX output (i.e. NSColor)
-    - ObjectiveC as well!
+    X ObjectiveC as well!
 
 
 X Allow for comments in the generated file  (Defined Colors (with hex codes), Aliases)
 
 X Allow for comments in the markup file so that:
-    - ObjectiveC too!
+    X ObjectiveC too!
 
 #SomeHexValue ColorName MyComments becomes
 

@@ -42,10 +42,11 @@ Small utility that generates UIColor category from colors list:
 //
 // Lines beginning with // are ignored by the parser, so you can add comments for your team members.
 //
+// Or you can make comments be generated into the output file by adding them after the color name (see below)
 
 
 // Define an opaque color in RRGGBB Hex Format. e.g. #FFEE24.   (# character is required!)
-#RRGGBB ColorName
+#RRGGBB ColorName Add some comments that should be generated into the output file.
 
 // Or in RRGGBBAA format if you need transparency
 #RRGGBBAA ColorNameTranslucent
@@ -89,6 +90,8 @@ output format: assets;  used in the output filename: <name>.swift and in assets 
 -p <prefix>  Use <prefix> as the class prefix in the generated code.  Only relevant for format: objc and swift
 
 -clr         Use this flag if you need to generate and install CLR file
+
+-osx         Generate for the OSX platform (i.e. NSColor instead of UIColor) 
 
 -h           Print this help and exit
 ```

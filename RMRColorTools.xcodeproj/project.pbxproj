@@ -80,7 +80,6 @@
 		83D1182C1AB9ECF400D3C7B9 /* RMRHexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRHexColor.h; sourceTree = "<group>"; };
 		83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRHexColor.m; sourceTree = "<group>"; };
 		83D1182E1AB9ECF400D3C7B9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D82EF1AB22202DC500AA633D /* TODO-List.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "TODO-List.txt"; sourceTree = "<group>"; };
 		D88CD6872213569300CE1508 /* RMRAssetsCatalogBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRAssetsCatalogBuilder.h; sourceTree = "<group>"; };
 		D88CD6882213569300CE1508 /* RMRAssetsCatalogBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRAssetsCatalogBuilder.m; sourceTree = "<group>"; };
 		D88CD68A221361CB00CE1508 /* RMRStringTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRStringTools.h; sourceTree = "<group>"; };
@@ -171,7 +170,6 @@
 		83D117F71AB9D3FF00D3C7B9 = {
 			isa = PBXGroup;
 			children = (
-				D82EF1AB22202DC500AA633D /* TODO-List.txt */,
 				D88CD69422136F1B00CE1508 /* README.md */,
 				83D118241AB9ECF400D3C7B9 /* RMRHexColorGen */,
 				83C30F2C1ABC427E00C425DD /* RMRRefreshColorPanelPlugin */,
