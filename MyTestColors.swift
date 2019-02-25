@@ -7,16 +7,6 @@ import UIKit
 
 internal enum MyTestColors {
 
-     internal enum ColorNameConstants {
-
-          static let myBlack: String = "MyBlack"
-          static let myBlue: String = "MyBlue"
-          static let myGrey: String = "MyGrey"
-          static let berthaBlue: String = "BerthaBlue"
-          static let primaryTextColor: String = "PrimaryTextColor"
-     }
-
-
      //-------- Defined Colors with Provided Hex Values
 
      // #36383C -   BreakingIT!   Testing some shit here, eh?  Foakin' do it!!!
@@ -33,4 +23,16 @@ internal enum MyTestColors {
      static let berthaBlue: UIColor = UIColor(named: "BerthaBlue")!
      // #36383C - BreakingIT! Testing some shit here, eh? Foakin' do it!!!
      static let primaryTextColor: UIColor = UIColor(named: "PrimaryTextColor")!
+
+
+
+     //--------- Constants used for named colors (you will likely never need them but here for completeness)
+     internal enum ColorNameConstants {
+
+          static let myBlack: String = "MyBlack"
+          static let myBlue: String = "MyBlue"
+          static let myGrey: String = "MyGrey"
+          static let berthaBlue: String = "BerthaBlue"
+          static let primaryTextColor: String = "PrimaryTextColor"
+     }
 }
