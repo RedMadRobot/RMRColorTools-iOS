@@ -43,8 +43,8 @@ static NSString * const kColorsEnumSwiftTemplate =
 @"\nimport <*import_framework_name*>\n"
 @"\ninternal enum <*root_name*> {\n"
 @"\n<*static_constants*>"
-@"\n\n\n     //--------- Constants used for named colors (you will likely never need them but here for completeness)"
-@"\n     internal enum ColorNameConstants {\n"
+@"\n\n     //--------- Constants used for named colors (you will likely never need them but here for completeness)"
+@"\n     internal enum Name {\n"
 @"\n<*static_colornames*>"
 @"     }\n"
 @"}\n";
