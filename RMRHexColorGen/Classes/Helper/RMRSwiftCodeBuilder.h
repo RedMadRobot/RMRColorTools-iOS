@@ -11,16 +11,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger, RMRSwiftOutputType) {
-    RMRSwiftOutputTypeStandalone,
-    RMRSwiftOutputTypeAssetsCatalogNamedColors
-};
-
 @interface RMRSwiftCodeBuilder : NSObject
 
 - (instancetype)init RMR_UNAVAILABLE_INSTEAD("use initWithPrefix:swiftFilename:outputType:");
 
-- (instancetype)initWithParameters:(RMRHexColorGenParameters*)parameters outputType:(RMRSwiftOutputType)swiftOutputType;
+- (instancetype)initWithParameters:(RMRHexColorGenParameters*)parameters;
 - (NSError *)generateSwiftCodeForColors:(NSArray *)colorList;
 
 @end

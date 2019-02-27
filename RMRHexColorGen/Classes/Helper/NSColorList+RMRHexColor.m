@@ -32,10 +32,14 @@
         CGFloat green = [color greenComponent];
         CGFloat blue = [color blueComponent];
         CGFloat alpha = [color alphaComponent];
-        color = [NSColor colorWithCalibratedRed:red
-                                          green:green
-                                           blue:blue
-                                          alpha:alpha];
+        
+        // this will produce results that aren't in the sRGB color space.  Hence you can't communicate with designers.
+        //color = [NSColor colorWithCalibratedRed:red green:green blue:blue alpha:alpha];
+        
+        color = [NSColor colorWithSRGBRed:red
+                                    green:green
+                                     blue:blue
+                                    alpha:alpha];
 
         [self setColor:color forKey:colorName];
     }

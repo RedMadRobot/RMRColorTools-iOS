@@ -12,7 +12,7 @@
 
 @interface RMRObjcCodeBuilder : NSObject
 
-- (instancetype)init RMR_UNAVAILABLE_INSTEAD("use initWithPrefix:categoryName:");
+- (instancetype)init RMR_UNAVAILABLE_INSTEAD("use initWithParameters:");
 
 - (instancetype)initWithParameters:(RMRHexColorGenParameters*)parameters RMR_DESIGNATED_INITIALIZER;
 

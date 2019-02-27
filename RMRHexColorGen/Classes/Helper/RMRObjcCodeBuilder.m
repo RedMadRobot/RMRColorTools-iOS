@@ -119,7 +119,14 @@ static NSString * const kColorCategorySourceTemplate =
     NSString *inputFilename = self.parameters.inputPath.lastPathComponent;
     NSString *className     = [self buildClassName];
     NSString *pathClassName = [self buildPathClassName];
-    NSString *methods       = [self buildMethodGroupForSourceFileWithColorList:colorList];
+    
+    NSString *methods;
+    if(self.parameters.useValuesNotNames) {
+        methods = [self buildValueBasedColorListForSourceFileWithColorList:colorList];
+    } else {
+        methods = [self buildNamedColorListForSourceFileWithColorList:colorList];
+    }
+    
     
     NSString *headerFile =
     [[[[kColorCategorySourceTemplate
@@ -238,8 +245,43 @@ static NSString * const kColorCategorySourceTemplate =
         return [[memo stringByAppendingString:each] stringByAppendingString:@"\n"];
     }];
 }
+    
+- (NSString *)buildNamedColorListForSourceFileWithColorList:(NSArray *)colorList {
+    
+    static NSString * signatureKey = @"<*method_signature*>";
+    static NSString * colorNameKey = @"<*color_name*>";
+    NSString *methodTemplate;
+    
+    if(self.parameters.isForOSX)
+    {
+        methodTemplate =
+        @"<*method_signature*>\n{\n"
+        @"    return [NSColor colorNamed:<*color_name*>];\n"
+        @"}\n";
+    }
+    else
+    {
+        methodTemplate =
+        @"<*method_signature*>\n{\n"
+        @"    return [UIColor colorNamed:<*color_name*>];\n"
+        @"}\n";
+    }
+    
+    return
+    [[colorList rx_mapWithBlock:^id(RMRHexColor *hexColor) {
+        NSString *methodSignature = [self buildMethodSignatureForColor:hexColor];
+        
+        return
+        [[methodTemplate
+             stringByReplacingOccurrencesOfString:signatureKey withString:methodSignature]
+            stringByReplacingOccurrencesOfString:colorNameKey withString:hexColor.colorTitle];
+        
+    }] rx_foldInitialValue:@"" block:^id(id memo, id each) {
+        return [[memo stringByAppendingString:each] stringByAppendingString:@"\n"];
+    }];
+}
 
-- (NSString *)buildMethodGroupForSourceFileWithColorList:(NSArray *)colorList
+- (NSString *)buildValueBasedColorListForSourceFileWithColorList:(NSArray *)colorList
 {
     static NSString * signatureKey = @"<*method_signature*>";
     static NSString * redKey       = @"<*red*>";
@@ -269,6 +311,7 @@ static NSString * const kColorCategorySourceTemplate =
         @"                           alpha:<*alpha*>];\n"
         @"}\n";
     }
+    
     
     
     return

@@ -293,6 +293,7 @@
 				83D1180A1AB9D45D00D3C7B9 /* Sources */,
 				83D1180B1AB9D45D00D3C7B9 /* Frameworks */,
 				83D1180C1AB9D45D00D3C7B9 /* CopyFiles */,
+				D8FBEC7E2226E65600C2CAD6 /* Copy to bin Folder */,
 			);
 			buildRules = (
 			);
@@ -404,6 +405,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+		D8FBEC7E2226E65600C2CAD6 /* Copy to bin Folder */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy to bin Folder";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp \"${BUILT_PRODUCTS_DIR}/RMRHexColorGen\" \"${PROJECT_DIR}/bin\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var catalogLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var colorLabel: UILabel!
-    
+    @IBOutlet weak var clrLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +55,7 @@ class ViewController: UIViewController {
         if color.compare(other: .t_myBlue) == false {
             print("Swift Generated Color failed")
         }
+        
     }
 }
 

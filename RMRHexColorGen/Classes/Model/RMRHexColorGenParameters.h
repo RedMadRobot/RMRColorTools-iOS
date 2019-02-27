@@ -10,8 +10,9 @@
 
 typedef NS_ENUM(NSInteger, RMRHexColorGenFormat) {
     RMRHexColorGenFormatInvalid,
-    RMRHexColorGenFormatObjectiveC,
-    RMRHexColorGenFormatSwift,
+    RMRHexColorGenFormatObjectiveCCategory,
+    RMRHexColorGenFormatSwiftExtension,
+    RMRHexColorGenFormatSwiftEnum,
     RMRHexColorGenFormatAssetCatalog
 };
 
@@ -39,6 +40,7 @@ typedef NS_ENUM(NSInteger, RMRHexColorGenFormat) {
 
 @property (nonatomic, assign) BOOL printHelp;
 @property (nonatomic, assign) BOOL needClr;
+@property (nonatomic, assign) BOOL useValuesNotNames;  // will use colorWithRed:... instead of colorNamed:
 @property (nonatomic, assign) RMRHexColorGenFormat outputFormat;
 @property (nonatomic, assign) BOOL isForOSX;  // generates NSColor instead of UIColor
 

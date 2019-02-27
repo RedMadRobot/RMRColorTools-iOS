@@ -25,9 +25,8 @@ internal enum MyTestColors {
      static let primaryTextColor: UIColor = UIColor(named: "PrimaryTextColor")!
 
 
-
      //--------- Constants used for named colors (you will likely never need them but here for completeness)
-     internal enum ColorNameConstants {
+     internal enum Name {
 
           static let myBlack: String = "MyBlack"
           static let myBlue: String = "MyBlue"

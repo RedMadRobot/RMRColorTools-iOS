@@ -9,15 +9,18 @@ extension UIColor {
 
     //-------- Defined Colors with Provided Hex Values
 
-    // #36383C -   BreakingIT!   Testing some shit here, eh?  Foakin' do it!!!
+     // #36383C -   BreakingIT!   Testing some shit here, eh?  Foakin' do it!!!
     static let t_myBlack: UIColor = UIColor(red: 0.2117647081613541, green: 0.2196078449487686, blue: 0.2352941185235977, alpha: 1)
+     // #3D78FE
     static let t_myBlue: UIColor = UIColor(red: 0.239215686917305, green: 0.4705882370471954, blue: 0.9960784316062927, alpha: 1)
+     // #7C8089
     static let t_myGrey: UIColor = UIColor(red: 0.4862745106220245, green: 0.501960813999176, blue: 0.5372549295425415, alpha: 1)
 
 
     //-------- Color Aliases who are references to defined colors above:
 
+     // #3D78FE
     static let t_berthaBlue: UIColor = UIColor(red: 0.239215686917305, green: 0.4705882370471954, blue: 0.9960784316062927, alpha: 1)
-    // #36383C - BreakingIT! Testing some shit here, eh? Foakin' do it!!!
+     // #36383C - BreakingIT! Testing some shit here, eh? Foakin' do it!!!
     static let t_primaryTextColor: UIColor = UIColor(red: 0.2117647081613541, green: 0.2196078449487686, blue: 0.2352941185235977, alpha: 1)
 }

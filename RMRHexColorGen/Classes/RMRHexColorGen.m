@@ -69,12 +69,12 @@
         
         if ([self checkError:error]) return EXIT_FAILURE;
         
-        RMRSwiftCodeBuilder *codeBuilder = [[RMRSwiftCodeBuilder alloc] initWithParameters:parameters outputType:RMRSwiftOutputTypeAssetsCatalogNamedColors];
+        RMRSwiftCodeBuilder *codeBuilder = [[RMRSwiftCodeBuilder alloc] initWithParameters:parameters];
         error = [codeBuilder generateSwiftCodeForColors:colors];
     }
-    else if (parameters.outputFormat == RMRHexColorGenFormatSwift)
+    else if (parameters.outputFormat == RMRHexColorGenFormatSwiftExtension || parameters.outputFormat == RMRHexColorGenFormatSwiftEnum)
     {
-        RMRSwiftCodeBuilder *codeBuilder = [[RMRSwiftCodeBuilder alloc] initWithParameters:parameters outputType:RMRSwiftOutputTypeStandalone];
+        RMRSwiftCodeBuilder *codeBuilder = [[RMRSwiftCodeBuilder alloc] initWithParameters:parameters];
         error = [codeBuilder generateSwiftCodeForColors:colors];
         
     } else {

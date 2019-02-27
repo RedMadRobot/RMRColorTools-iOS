@@ -30,12 +30,19 @@ static NSString * const kRMRArgumentOutputPath      = @"output";
 // Generate .clr file
 static NSString * const kRMRArgumentClr = @"-clr";
 
+// Generate OSX/AppKit colors
+static NSString * const kRMRArgumentOSX = @"-osx";
+
+// Generate Values Not Names
+static NSString * const kRMRArgumentValuesNotNames = @"-vnn";
+
 // Output Format and allowed values
-static NSString * const kRMRArgumentFormatShort = @"f";
-static NSString * const kRMRArgumentFormat      = @"format";
-static NSString * const kRMRArgumentValueSwift  = @"swift";
-static NSString * const kRMRArgumentValueObjC   = @"objc";
-static NSString * const kRMRArgumentValueAssets = @"assets";
+static NSString * const kRMRArgumentFormatShort             = @"f";
+static NSString * const kRMRArgumentFormat                  = @"format";
+static NSString * const kRMRArgumentValueSwiftExtension     = @"ext";
+static NSString * const kRMRArgumentValueSwiftEnum          = @"enum";
+static NSString * const kRMRArgumentValueCategory           = @"objc";
+static NSString * const kRMRArgumentValueAssetsCatalog      = @"assets";
 
 // Catalog Name
 static NSString * const kRMRArgumentNameShort = @"n";
@@ -52,15 +59,19 @@ static NSString * const kRMRArgumentName      = @"name";
         return defaultFormat;
     }
     
-    if ([formatString isEqualToString:kRMRArgumentValueObjC]) {
-        return RMRHexColorGenFormatObjectiveC;
+    if ([formatString isEqualToString:kRMRArgumentValueCategory]) {
+        return RMRHexColorGenFormatObjectiveCCategory;
     }
     
-    if ([formatString isEqualToString:kRMRArgumentValueSwift]) {
-        return RMRHexColorGenFormatSwift;
+    if ([formatString isEqualToString:kRMRArgumentValueSwiftExtension]) {
+        return RMRHexColorGenFormatSwiftExtension;
     }
     
-    if ([formatString isEqualToString:kRMRArgumentValueAssets]) {
+    if ([formatString isEqualToString:kRMRArgumentValueSwiftEnum]) {
+        return RMRHexColorGenFormatSwiftEnum;
+    }
+    
+    if ([formatString isEqualToString:kRMRArgumentValueAssetsCatalog]) {
         return RMRHexColorGenFormatAssetCatalog;
     }
     
@@ -77,8 +88,9 @@ static NSString * const kRMRArgumentName      = @"name";
     || [argumentList containsObject:kRMRArgumentHelpShort]
     || [argumentList containsObject:kRMRArgumentHelp];
     
-    parameters.needClr = [argumentList containsObject:@"-clr"];
-    parameters.isForOSX = [argumentList containsObject:@"-osx"];
+    parameters.needClr = [argumentList containsObject:kRMRArgumentClr];
+    parameters.isForOSX = [argumentList containsObject:kRMRArgumentOSX];
+    parameters.useValuesNotNames = [argumentList containsObject:kRMRArgumentValuesNotNames];
     
     NSDictionary *arguments =
     [[NSUserDefaults standardUserDefaults] volatileDomainForName:NSArgumentDomain];

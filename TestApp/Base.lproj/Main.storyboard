@@ -20,16 +20,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Catalog" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndN-jC-g2v">
-                                <rect key="frame" x="0.0" y="20" width="375" height="215.5"/>
-                                <color key="backgroundColor" name="MyBlue"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="162"/>
+                                <color key="backgroundColor" name="BerthaBlue"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <size key="shadowOffset" width="-1" height="-1"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From UIColor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dJ-fe-Ubj">
-                                <rect key="frame" x="0.0" y="451.5" width="375" height="215.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From .CLR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXk-uK-E0u">
+                                <rect key="frame" x="0.0" y="505.5" width="375" height="161.5"/>
+                                <color key="backgroundColor" red="0.18612326681613922" green="0.36520999670028687" blue="0.99345213174819946" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -37,7 +38,15 @@
                                 <size key="shadowOffset" width="-1" height="-1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Generated Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGl-Zi-V0U">
-                                <rect key="frame" x="0.0" y="235.5" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="182" width="375" height="161.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="-1" height="-1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From UIColor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dJ-fe-Ubj">
+                                <rect key="frame" x="0.0" y="343.5" width="375" height="162"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -48,22 +57,27 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ndN-jC-g2v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="04Z-ga-owi"/>
+                            <constraint firstItem="iXk-uK-E0u" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2hk-g7-Fyr"/>
                             <constraint firstItem="6dJ-fe-Ubj" firstAttribute="top" secondItem="HGl-Zi-V0U" secondAttribute="bottom" id="9K8-Bp-ph5"/>
                             <constraint firstItem="6dJ-fe-Ubj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FmF-Gq-HG3"/>
+                            <constraint firstItem="iXk-uK-E0u" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="LCW-fn-7hG"/>
                             <constraint firstItem="6dJ-fe-Ubj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M0L-T3-hdR"/>
-                            <constraint firstItem="6dJ-fe-Ubj" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="WnD-nL-LSX"/>
+                            <constraint firstItem="iXk-uK-E0u" firstAttribute="top" secondItem="6dJ-fe-Ubj" secondAttribute="bottom" id="TZa-kb-9tc"/>
                             <constraint firstItem="HGl-Zi-V0U" firstAttribute="top" secondItem="ndN-jC-g2v" secondAttribute="bottom" id="XLf-IH-9fl"/>
-                            <constraint firstItem="HGl-Zi-V0U" firstAttribute="height" secondItem="ndN-jC-g2v" secondAttribute="height" id="XgY-Q4-ESa"/>
+                            <constraint firstItem="iXk-uK-E0u" firstAttribute="height" secondItem="ndN-jC-g2v" secondAttribute="height" id="dH8-Bn-8cq"/>
                             <constraint firstItem="ndN-jC-g2v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fTI-em-7Mg"/>
-                            <constraint firstItem="6dJ-fe-Ubj" firstAttribute="height" secondItem="ndN-jC-g2v" secondAttribute="height" id="g2c-Fi-zKG"/>
                             <constraint firstItem="HGl-Zi-V0U" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hSU-7l-SqU"/>
+                            <constraint firstItem="iXk-uK-E0u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="k6Y-Nm-9qF"/>
                             <constraint firstItem="HGl-Zi-V0U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kYY-YM-P31"/>
+                            <constraint firstItem="HGl-Zi-V0U" firstAttribute="height" secondItem="ndN-jC-g2v" secondAttribute="height" id="mPe-EQ-lMC"/>
+                            <constraint firstItem="6dJ-fe-Ubj" firstAttribute="height" secondItem="ndN-jC-g2v" secondAttribute="height" id="u9k-aR-yIJ"/>
                             <constraint firstItem="ndN-jC-g2v" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wVf-nZ-for"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="catalogLabel" destination="ndN-jC-g2v" id="pSx-gC-3rW"/>
+                        <outlet property="clrLabel" destination="iXk-uK-E0u" id="e8o-Vm-pYf"/>
                         <outlet property="codeLabel" destination="HGl-Zi-V0U" id="hdI-LX-qe1"/>
                         <outlet property="colorLabel" destination="6dJ-fe-Ubj" id="oA2-bI-sp5"/>
                     </connections>
@@ -74,7 +88,7 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="MyBlue">
+        <namedColor name="BerthaBlue">
             <color red="0.23921568627450981" green="0.47058823529411764" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
