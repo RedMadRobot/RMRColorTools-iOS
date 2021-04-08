@@ -13,13 +13,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var catalogLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var colorLabel: UILabel!
-    @IBOutlet weak var clrLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.catalogLabel.backgroundColor = GeneratedColors.myGrey
-        self.codeLabel.backgroundColor = GeneratedColors.myBlack
+        //self.catalogLabel.backgroundColor = GeneratedColors.myGrey // this gets set to myBlue in the storyboard
+        self.codeLabel.backgroundColor = GeneratedColors.myBlue
+        
         let colorCode = "#3d78fe" // corresponds to myBlue
         let values = UIColor.rgba(from: colorCode)
         guard let v = values, let color = UIColor(values: values)  else { return }
