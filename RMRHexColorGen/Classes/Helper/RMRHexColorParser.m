@@ -44,23 +44,37 @@
     // hex color definitions
     if ([rawData hasPrefix:@"#"] && definedColors == nil) {
         
+        // you can test this on regextester.com
+        // will capture 3 digit, 6 digit, or 8 (RRGGBBAA) hex strings
+        NSString *captureValidHexString = @"#([a-fA-F0-9]{3}){1,2}([a-fA-F0-9]{2})?";
+        
         NSRegularExpression *expr =
-        [NSRegularExpression regularExpressionWithPattern:@"\\s*([a-f0-9]{3,8})\\s*(.*)\\s*"
+        [NSRegularExpression regularExpressionWithPattern:captureValidHexString
                                                   options:NSRegularExpressionCaseInsensitive
                                                     error:nil];
         
         __block NSString *colorValue = nil;
-        __block NSString *colorTitleAndComments = nil;
+        __block NSString *alternateValue = nil;
         
+        __block NSRange lastRange = NSMakeRange(NSNotFound, 0);
         
         void(^enumerateBlock)(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) =
         ^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
-            if (result.numberOfRanges == 3) {
-                colorValue = [rawData substringWithRange:[result rangeAtIndex:1]];
+            if (flags & NSMatchingCompleted) {
+                /* DONE. */
+                // It fires this block one last time if you specify the option NSMatchingReportCompleted
+                // which as you see below, can mess up our lastRange variable
                 
-                NSRange titleRange = [result rangeAtIndex:2];
-                colorTitleAndComments = [rawData substringWithRange:titleRange];
+            } else {
+                if(colorValue == nil) {
+                    colorValue = [rawData substringWithRange: [result range]];
+                    lastRange = [result range];
+                } else {
+                    alternateValue = [rawData substringWithRange: [result range]];
+                    lastRange = [result range];
+                }
             }
+            
         };
         
         [expr enumerateMatchesInString:rawData
@@ -68,13 +82,24 @@
                                  range:NSMakeRange(0, [rawData length])
                             usingBlock:enumerateBlock];
         
-        if (!colorTitleAndComments || !colorValue) {
+        if (!colorValue) {
             printf("Can't parse data %s\n", [rawData cStringUsingEncoding:NSUTF8StringEncoding]);
             return nil;
         }
         
-        NSString *colorTitle = [[colorTitleAndComments componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] firstObject];
-        NSString *comments = [colorTitleAndComments substringFromIndex:colorTitle.length];
+        // here we should have the one or two colors, now we can get the color name
+        NSUInteger offset = lastRange.location + lastRange.length;
+        NSRange textContentRange = NSMakeRange(offset, [rawData length] - offset);
+        
+        // trim any leading / trailing whitespace
+        NSString *nonHexColorContent = [[rawData substringWithRange:textContentRange] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        
+        
+        NSString *colorTitle = [[nonHexColorContent componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] firstObject];
+        NSString *comments = [nonHexColorContent substringFromIndex:colorTitle.length];
+        if([comments length] > 0) {
+            comments = [comments substringFromIndex:1]; // the first character is most likely a space.
+        }
         
         
         RMRHexColor *color = [[RMRHexColor alloc] init];

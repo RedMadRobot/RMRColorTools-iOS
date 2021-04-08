@@ -12,14 +12,19 @@
 @implementation RMRHexColor
 
 - (BOOL)isEqual:(id)object {
-    if([object isKindOfClass: [RMRHexColor class]] == NO) { return false; }
+    if ([object isKindOfClass: [RMRHexColor class]] == NO) { return false; }
     
     RMRHexColor *other = (RMRHexColor*)object;
+    // this is annoying.  isEqualToString does not work if both are nil.
+    BOOL isAlternateEqual = (self.alternateColorValue == nil && other.alternateColorValue == nil) || (self.alternateColorValue != nil && other.alternateColorValue != nil && [self.alternateColorValue isEqualToString:other.alternateColorValue]);
+    
+    BOOL isCommentsEqual = (self.comments == nil && other.comments == nil) || (self.comments != nil && other.comments != nil && [self.comments isEqualToString:other.comments]);
+    
     return (
-            [self.colorTitle isEqualToString: other.colorTitle] &&
-            [self.colorValue isEqualToString: other.colorValue] &&
-            [self.alternateColorValue isEqualToString: other.alternateColorValue] &&
-            [self.comments isEqualToString: other.comments] &&
+            ([self.colorTitle isEqualToString: other.colorTitle]) &&
+            ([self.colorValue isEqualToString: other.colorValue]) &&
+            isAlternateEqual &&
+            isCommentsEqual &&
             self.isAlias == other.isAlias
             );
     

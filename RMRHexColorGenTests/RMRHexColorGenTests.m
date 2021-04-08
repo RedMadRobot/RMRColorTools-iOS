@@ -39,7 +39,8 @@
     RMRHexColor *expectedResult = nil;  // lines that begin with // should be ignored by the parser.
     
     RMRHexColor *result = [self.parser parseColor:sut];
-    XCTAssert([expectedResult isEqual:result], @"These two are not the same.");
+    XCTAssertNil(expectedResult, @"These two are not the same.");
+    XCTAssertNil(result, @"These two are not the same.");
     
 }
 
