@@ -39,8 +39,8 @@ static NSString * const kRMRArgumentValuesNotNames = @"-vnn";
 // Output Format and allowed values
 static NSString * const kRMRArgumentFormatShort             = @"f";
 static NSString * const kRMRArgumentFormat                  = @"format";
-static NSString * const kRMRArgumentValueSwiftExtension     = @"ext";
-static NSString * const kRMRArgumentValueSwiftEnum          = @"enum";
+static NSString * const kRMRArgumentValueSwiftExtension     = @"swift-extension";
+static NSString * const kRMRArgumentValueSwiftEnum          = @"swift-enum";
 static NSString * const kRMRArgumentValueCategory           = @"objc";
 static NSString * const kRMRArgumentValueAssetsCatalog      = @"assets";
 
@@ -107,6 +107,18 @@ static NSString * const kRMRArgumentName      = @"name";
     parameters.outputFormat =
     [self parseFormatFromString: firstNotNilParameter(arguments[kRMRArgumentFormatShort],
                                                       arguments[kRMRArgumentFormat])];
+    
+    // if we haven't explicitly overriden this, which is no longer supported though the flag is still in the code.
+    if(!parameters.useValuesNotNames) {
+        switch (parameters.outputFormat) {
+            case RMRHexColorGenFormatSwiftEnum:
+            case RMRHexColorGenFormatSwiftExtension:
+            case RMRHexColorGenFormatObjectiveCCategory:
+                parameters.useValuesNotNames = YES;
+            default:
+                break;
+        }
+    }
     
     parameters.name =
     firstNotNilParameter(arguments[kRMRArgumentNameShort], arguments[kRMRArgumentName]);

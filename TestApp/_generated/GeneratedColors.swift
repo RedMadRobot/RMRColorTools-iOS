@@ -9,19 +9,19 @@ internal enum GeneratedColors {
 
      //-------- Defined Colors with Provided Hex Values
 
-     // ##36383C -  BreakingIT!   Testing some stuff here.
+    /// #36383C -  BreakingIT!   Testing some stuff here.
      static let myBlack: UIColor = UIColor(named: "MyBlack")!
-     // ##3D78FE - Basic Blue for the app
+    /// #3D78FE - Basic Blue for the app
      static let myBlue: UIColor = UIColor(named: "MyBlue")!
-     // ##7C8089
+    /// #7C8089
      static let myGrey: UIColor = UIColor(named: "MyGrey")!
 
 
      //--------- Color Aliases who are references to defined colors above:
 
-     // ##3D78FE
+    /// #3D78FE
      static let primaryAppColor: UIColor = UIColor(named: "PrimaryAppColor")!
-     // ##36383C - BreakingIT! Testing some stuff here.
+    /// #36383C - BreakingIT! Testing some stuff here.
      static let primaryTextColor: UIColor = UIColor(named: "PrimaryTextColor")!
 
 

@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         if color.compare(other: GeneratedColors.myBlue) == false {
             print("Asset Catalog Color failed")
         }
-        if color.compare(other: .t_myBlue) == false {
+        if color.compare(other: .app_myBlue) == false {
             print("Swift Generated Color failed")
         }
         

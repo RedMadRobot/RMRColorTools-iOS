@@ -24,6 +24,7 @@
 		D82EB120261E1249005BD378 /* RXCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C19AD81AC2F9A700288BFE /* RXCollection.m */; };
 		D8624F16261F22280013C332 /* GeneratedColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8624F14261F22280013C332 /* GeneratedColors.swift */; };
 		D8624F17261F22280013C332 /* GeneratedColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8624F15261F22280013C332 /* GeneratedColors.xcassets */; };
+		D8624F87261F46BC0013C332 /* UIColor+ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8624F86261F46BC0013C332 /* UIColor+ColorExtensions.swift */; };
 		D88CD6892213569300CE1508 /* RMRAssetsCatalogBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D88CD6882213569300CE1508 /* RMRAssetsCatalogBuilder.m */; };
 		D88CD68C221361CB00CE1508 /* RMRStringTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D88CD68B221361CB00CE1508 /* RMRStringTools.m */; };
 		D897936A221EB116004EE06E /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8979369221EB116004EE06E /* UIColor+HexString.swift */; };
@@ -79,11 +80,12 @@
 		D8624F0C261F216B0013C332 /* AppColors.palette */ = {isa = PBXFileReference; lastKnownFileType = text; path = AppColors.palette; sourceTree = "<group>"; };
 		D8624F14261F22280013C332 /* GeneratedColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedColors.swift; sourceTree = "<group>"; };
 		D8624F15261F22280013C332 /* GeneratedColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GeneratedColors.xcassets; sourceTree = "<group>"; };
+		D8624F7F261F402A0013C332 /* Testing.palette */ = {isa = PBXFileReference; lastKnownFileType = text; path = Testing.palette; sourceTree = "<group>"; };
+		D8624F86261F46BC0013C332 /* UIColor+ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ColorExtensions.swift"; sourceTree = "<group>"; };
 		D88CD6872213569300CE1508 /* RMRAssetsCatalogBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRAssetsCatalogBuilder.h; sourceTree = "<group>"; };
 		D88CD6882213569300CE1508 /* RMRAssetsCatalogBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRAssetsCatalogBuilder.m; sourceTree = "<group>"; };
 		D88CD68A221361CB00CE1508 /* RMRStringTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRStringTools.h; sourceTree = "<group>"; };
 		D88CD68B221361CB00CE1508 /* RMRStringTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRStringTools.m; sourceTree = "<group>"; };
-		D88CD69322136B3500CE1508 /* Testing.palette */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Testing.palette; sourceTree = SOURCE_ROOT; };
 		D88CD69422136F1B00CE1508 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D8979369221EB116004EE06E /* UIColor+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexString.swift"; sourceTree = "<group>"; };
 		D8AB5DB9221D6CBE005F057D /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,7 +137,7 @@
 		83C19AD51AC2ECCE00288BFE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D88CD69322136B3500CE1508 /* Testing.palette */,
+				D8624F7F261F402A0013C332 /* Testing.palette */,
 				83C19AD61AC2EDA400288BFE /* RMRHexColorGenPrefixHeader.pch */,
 			);
 			path = "Supporting Files";
@@ -235,6 +237,7 @@
 		D8624F10261F21BA0013C332 /* _generated */ = {
 			isa = PBXGroup;
 			children = (
+				D8624F86261F46BC0013C332 /* UIColor+ColorExtensions.swift */,
 				D8624F14261F22280013C332 /* GeneratedColors.swift */,
 				D8624F15261F22280013C332 /* GeneratedColors.xcassets */,
 			);
@@ -398,7 +401,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT\"\ncd bin\n# Generate an asset catalog from these\n./RMRHexColorGen -i ./../TestApp/AppColors.palette -o ./../TestApp/_generated -f assets -n GeneratedColors\n./RMRHexColorGen -i ./../TestApp/AppColors.palette -o ./../TestApp/_generated -f swift -n ColorExtensions -p app\necho \"Updated Colors.\"\n";
+			shellScript = "cd \"$SRCROOT\"\ncd bin\n# Generate an asset catalog from these\n./RMRHexColorGen -i ./../TestApp/AppColors.palette -o ./../TestApp/_generated -f assets -n GeneratedColors\n./RMRHexColorGen -i ./../TestApp/AppColors.palette -o ./../TestApp/_generated -f swift-extension -n ColorExtensions -p app\necho \"Updated Colors.\"\n";
 		};
 		D8FBEC7E2226E65600C2CAD6 /* Copy to bin Folder */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -457,6 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8624F87261F46BC0013C332 /* UIColor+ColorExtensions.swift in Sources */,
 				D8AB5DBE221D6CBE005F057D /* ViewController.swift in Sources */,
 				D8624F16261F22280013C332 /* GeneratedColors.swift in Sources */,
 				D8AB5DBC221D6CBE005F057D /* AppDelegate.swift in Sources */,

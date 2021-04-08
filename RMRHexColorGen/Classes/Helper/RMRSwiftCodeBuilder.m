@@ -189,21 +189,19 @@ static NSString * const kValueColorsEnumSwiftTemplate =
     
     static NSString * colorDefinitionTemplateOnIOS =
     @"<*color_comments*>    static var <*method_signature*>: UIColor = {\n"
-    @"if #available(iOS 13, *) {\n"
-    @"    return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in\n"
-    @"        if UITraitCollection.userInterfaceStyle == .dark {\n"
-    @"            /// Return the color for Dark Mode\n"
-    @"            return UIColor(red: <*red_dark*>, green: <*green_dark*>, blue: <*blue_dark*>, alpha: <*alpha_dark*>)\n"
+    @"        if #available(iOS 13, *) {\n"
+    @"            return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in\n"
+    @"                if UITraitCollection.userInterfaceStyle == .dark {\n"
+    @"                    return UIColor(red: <*red_dark*>, green: <*green_dark*>, blue: <*blue_dark*>, alpha: <*alpha_dark*>)\n"
+    @"                } else {\n"
+    @"                    return UIColor(red: <*red*>, green: <*green*>, blue: <*blue*>, alpha: <*alpha*>)\n"
+    @"                }\n"
+    @"            }\n"
     @"        } else {\n"
-    @"            /// Return the color for Light Mode\n"
+    @"            // Return a fallback color for iOS 12 and lower.  Uses Light Mode only. \n"
     @"            return UIColor(red: <*red*>, green: <*green*>, blue: <*blue*>, alpha: <*alpha*>)\n"
     @"        }\n"
-    @"    }\n"
-    @"} else {\n"
-    @"    /// Return a fallback color for iOS 12 and lower.\n"
-    @"    return UIColor(red: <*red*>, green: <*green*>, blue: <*blue*>, alpha: <*alpha*>)\n"
-    @"}\n"
-    @"}()\n";
+    @"    }()\n";
     
     // you have more control over color space on OSX.... sRGB is the safest and most likely what the Designers use...
     static NSString * colorDefinitionTemplateMacOS = @"<*color_comments*>    static let <*method_signature*>: NSColor = NSColor(srgbRed: <*red*>, green: <*green*>, blue: <*blue*>, alpha: <*alpha*>)";
@@ -254,9 +252,9 @@ static NSString * const kValueColorsEnumSwiftTemplate =
         
         NSString *commentsValue;
         if(hexColor.comments.length > 0) {
-            commentsValue = [NSString stringWithFormat:@"     // #%@ - %@\n", hexColor.colorValue, hexColor.comments];
+            commentsValue = [NSString stringWithFormat:@"    /// %@ - %@\n", hexColor.colorValue, hexColor.comments];
         } else {
-            commentsValue = [NSString stringWithFormat:@"     // #%@\n", hexColor.colorValue];
+            commentsValue = [NSString stringWithFormat:@"    /// %@\n", hexColor.colorValue];
         }
         
         NSString *outputLine =
@@ -430,9 +428,9 @@ static NSString * const kValueColorsEnumSwiftTemplate =
         
         NSString *commentsValue;
         if(hexColor.comments.length > 0) {
-            commentsValue = [NSString stringWithFormat:@"     // #%@ - %@\n", hexColor.colorValue, hexColor.comments];
+            commentsValue = [NSString stringWithFormat:@"    /// %@ - %@\n", hexColor.colorValue, hexColor.comments];
         } else {
-            commentsValue = [NSString stringWithFormat:@"     // #%@\n", hexColor.colorValue];
+            commentsValue = [NSString stringWithFormat:@"    /// %@\n", hexColor.colorValue];
         }
         
         

@@ -62,11 +62,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-i Testing.palette"
+            argument = "-i $SRCROOT/RMRHexColorGen/Supporting\ Files/Testing.palette"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-o ./"
+            argument = "-o $SRCROOT/RMRHexColorGen/Supporting\ Files/_generated"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

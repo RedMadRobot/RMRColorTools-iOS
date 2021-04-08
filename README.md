@@ -1,10 +1,11 @@
 # RMRColorTools-iOS
 
-**RMRHexColorGen** is a command line tool that *parses a human-readable text file* containing Color definitions (names and hex values) and can *generate useful code for your Xcode projects* in one of **3 output flavours**:
+**RMRHexColorGen** is a command line tool that *parses a human-readable text file* containing Color definitions (names and hex values) and can *generate useful code for your Xcode projects* in one of **4 output flavours**:
 
 1.  An Objective-C category on UIColor
 2.  A Swift Extension on UIColor
-3.  An Assets catalog with Color Sets  (Introduced in Xcode 9)
+3.  A Swift enum with static members, so your colors are grouped.
+4.  (Typical Option) An Assets catalog with Color Sets  (Introduced in Xcode 9), along with an enum which derives named UIColor objects from the assets catalog. 
 
 It’s very important to have all your project resources organized and consistent, thus you won’t have to spend hours of time changing a single wide-spread color in your app.
 
@@ -17,16 +18,16 @@ RMRColorTools-iOS enables an efficient workflow where:
 - Designers can define and name colors
 - Designers can edit and update the color palettes without programmer support
 - Developers don't need to concern themselves with the actual values of colors.  They just need to know "this element needs that color name", they set it once and it stays updated (assuming you use the new Colors Assets catalogs)
+- You don't need to go fishing through Asset catalogs to find out which of your color assets matches a given HEX value provided by the designer.
 
 ## Other Features
 
 ### Color Aliases 
 Using simple markup (outlined below), a designer can define a color by giving its `RGB` or `RGBA` hex value then providing it a name.  It also allows for *aliases* to be defined, which are just references to previously defined colors.  This makes sense for example if you name your colors in your color palette (such as `MyAppBlue`), then create aliases to those colors based on purpose (such as `MainAppTint` which references `MyAppBlue` )
 
-### Xcode Color Palette Generation and auto-refreshing
-This has been made somewhat obsolete since the introduction of Color Sets in Asset Catalogs, which are explained [here](https://blog.zeplin.io/asset-catalog-colors-on-xcode-9-c4fdccc0381a).  That said, Color Assets Catalogs are only available on iOS11 or later.    Xcode supports Color Palette (`.CLR`) files that reside somewhere deep on your OSX system.  **RMRHexColorGen** can generate and install these for you, and with the help of the **RMRRefreshColorPanelPlugin**, Xcode can stay up-to-date with any incoming changes to the color definitions file you'd get from your designers.  Without (**RMRRefreshColorPanelPlugin**), you would have to restart Xcode each time you want to see the updated palettes; indeed an annoying step.
+### Support for Dark Mode on iOS
 
-Thus, in case you’ve updated your color list file — **RMRHexColorGen** will generate a new `.CLR` file AND **RMRRefreshColorPanelPlugin** will refresh Color Panel for you.  See below for typical integration steps
+Sometimes you need 2 representations for one color, depending on whether the iOS device is in Dark Mode.  This is also possible with `RMRHexColorGen`.  The general syntax below is given in Usage.  
 
 ### Command line tool for Easy Build Automation
 
@@ -50,6 +51,9 @@ Small utility that generates UIColor category from colors list:
 
 // Or in RRGGBBAA format if you need transparency
 #RRGGBBAA ColorNameTranslucent
+
+// Perhaps you want to support Dark Mode.  Just add a second hex value after the first one.  The first is always 'Any' and the second is for dark mode.
+#FF0000 #AA0000 Red You can see that the second value is darker than the first
 
 
 // Create an Alias to an already defined color.  You can see the pattern: $ExistingColorname AliasName.  ($ character required!)
@@ -79,17 +83,16 @@ RMRHexColorGen [-i <path>] [-o <path>] [-p <prefix>] [-clr] [-f <format>] [-n <n
 -n <name>    The Name you want to use when generating.  It gets used differently depending on output format:
 
 output format: objc; used in the output filename:  UIColor+<name>.h/m and in category name UIColor(<name>)
-output format: swift; used in the output filename: UIColor+<name>.swift
+output format: swift-extension; used in the output filename: UIColor+<name>.swift
+output format: swift-enum; used in the output filename: <name>.swift
 
 output format: assets;  used in the output filename: <name>.swift and in assets catalog name: <name>.xcassets
                         and in the generated enum in <name>.swift
                         internal enum <name> { ... }
             
--f <format>  The desired output format.  Valid values for <format> are: objc, swift, assets
+-f <format>  The desired output format.  Valid values for <format> are: objc, swift-enum, swift-extension, assets
 
 -p <prefix>  Use <prefix> as the class prefix in the generated code.  Only relevant for format: objc and swift
-
--clr         Use this flag if you need to generate and install CLR file
 
 -osx         Generate for the OSX platform (i.e. NSColor instead of UIColor) 
 
@@ -134,8 +137,8 @@ Then we have various flavours on `update_colors.sh`  (below)
 Output in Objective-C format to the ColorTools folder with a prefix of `ma` while also generating an Xcode color palette and installing it.   No name was specified, so it defaults to `MyAppColors`
 
 ```bash
-./RMRHexColorGen -i AppColors.palette -o ./ -f objc -p my -clr
-echo "Updated Colors.  Please restart Xcode if you haven't installed the RMRRefreshColorPanelPlugin to let the updated colors take effect in Interface Builder!"
+./RMRHexColorGen -i AppColors.palette -o ./ -f objc -p my
+echo "Updated Colors."
 ```
 
 #### Swift
@@ -143,7 +146,7 @@ echo "Updated Colors.  Please restart Xcode if you haven't installed the RMRRefr
 Output to a swift extension on UIColor with a prefix of `my` (i.e. `UIColor.myMainTitleText`, `UIColor.myOffWhite`, etc.) to a different folder relative to ColorTools:
 
 ```bash
-./RMRHexColorGen -i AppColors.palette -o ./../Generated/Colors -f swift -p my
+./RMRHexColorGen -i AppColors.palette -o ./../Generated/Colors -f swift-extension -p my -n AppColors
 echo "Updated Colors."
 ```
 

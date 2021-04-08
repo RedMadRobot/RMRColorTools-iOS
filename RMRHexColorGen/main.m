@@ -22,7 +22,7 @@ void printHelp(char *utilName) {
     printf("    -o <path>   Output files at <path>\n");
     printf("    -i <path>   Path to txt colors list file with format:\n\t\t#RRGGBBAA ColorName\n\t\t#RRGGBBAA ColorName\n\t\t$ColorName NewColorName\n");
     printf("    -n <name>   The Name of your Assets Catalog / ObjC Category / Swift Extension / Swift File, depending on Output Format.\n");
-    printf("    -f <format> Output Format.  Valid values are swift, objc, assets.\n");
+    printf("    -f <format> Output Format.  Valid values are swift-enum, swift-extension, objc, assets.\n");
     printf("Options:\n");
     printf("    -p <prefix> Use <prefix> as the class prefix in the generated code\n");
     printf("    -vnn        Use this flag if you need to generate colors using RGB values and not Named Colors.  i.e. pre-iOS 11.0\n");
