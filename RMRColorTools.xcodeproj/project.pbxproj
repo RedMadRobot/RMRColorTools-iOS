@@ -22,6 +22,8 @@
 		D82EB118261E1229005BD378 /* RMRHexColorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D118281AB9ECF400D3C7B9 /* RMRHexColorParser.m */; };
 		D82EB11C261E1232005BD378 /* RMRHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */; };
 		D82EB120261E1249005BD378 /* RXCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C19AD81AC2F9A700288BFE /* RXCollection.m */; };
+		D8624F16261F22280013C332 /* GeneratedColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8624F14261F22280013C332 /* GeneratedColors.swift */; };
+		D8624F17261F22280013C332 /* GeneratedColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8624F15261F22280013C332 /* GeneratedColors.xcassets */; };
 		D88CD6892213569300CE1508 /* RMRAssetsCatalogBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D88CD6882213569300CE1508 /* RMRAssetsCatalogBuilder.m */; };
 		D88CD68C221361CB00CE1508 /* RMRStringTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D88CD68B221361CB00CE1508 /* RMRStringTools.m */; };
 		D897936A221EB116004EE06E /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8979369221EB116004EE06E /* UIColor+HexString.swift */; };
@@ -30,9 +32,6 @@
 		D8AB5DC1221D6CBE005F057D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AB5DBF221D6CBE005F057D /* Main.storyboard */; };
 		D8AB5DC3221D6CC5005F057D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8AB5DC2221D6CC5005F057D /* Assets.xcassets */; };
 		D8AB5DC6221D6CC5005F057D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AB5DC4221D6CC5005F057D /* LaunchScreen.storyboard */; };
-		D8AB5DCE221D6E15005F057D /* MyTestColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AB5DCC221D6E14005F057D /* MyTestColors.swift */; };
-		D8AB5DCF221D6E15005F057D /* MyTestColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8AB5DCD221D6E14005F057D /* MyTestColors.xcassets */; };
-		D8AB5DD1221D6F78005F057D /* UIColor+MyTestColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AB5DD0221D6F77005F057D /* UIColor+MyTestColors.swift */; };
 		D8DF6A09221D489400CB128E /* RMRSwiftCodeBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DF6A08221D489400CB128E /* RMRSwiftCodeBuilder.m */; };
 /* End PBXBuildFile section */
 
@@ -66,11 +65,6 @@
 		83C19AD81AC2F9A700288BFE /* RXCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXCollection.m; sourceTree = "<group>"; };
 		83C30F281ABC427D00C425DD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		83C30F2A1ABC427E00C425DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		83C30F2E1ABC427E00C425DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83C30F371ABC42B000C425DD /* NSColorPanel+RMRColorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColorPanel+RMRColorList.h"; sourceTree = "<group>"; };
-		83C30F381ABC42B000C425DD /* NSColorPanel+RMRColorList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColorPanel+RMRColorList.m"; sourceTree = "<group>"; };
-		83C30F391ABC42B000C425DD /* RMRRefreshColorPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRRefreshColorPanel.h; sourceTree = "<group>"; };
-		83C30F3A1ABC42B000C425DD /* RMRRefreshColorPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRRefreshColorPanel.m; sourceTree = "<group>"; };
 		83D1180E1AB9D45D00D3C7B9 /* RMRHexColorGen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RMRHexColorGen; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D118271AB9ECF400D3C7B9 /* RMRHexColorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRHexColorParser.h; sourceTree = "<group>"; };
 		83D118281AB9ECF400D3C7B9 /* RMRHexColorParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRHexColorParser.m; sourceTree = "<group>"; };
@@ -82,6 +76,9 @@
 		D82EB10D261E1042005BD378 /* RMRHexColorGenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RMRHexColorGenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D82EB10F261E1042005BD378 /* RMRHexColorGenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRHexColorGenTests.m; sourceTree = "<group>"; };
 		D82EB111261E1042005BD378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8624F0C261F216B0013C332 /* AppColors.palette */ = {isa = PBXFileReference; lastKnownFileType = text; path = AppColors.palette; sourceTree = "<group>"; };
+		D8624F14261F22280013C332 /* GeneratedColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedColors.swift; sourceTree = "<group>"; };
+		D8624F15261F22280013C332 /* GeneratedColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GeneratedColors.xcassets; sourceTree = "<group>"; };
 		D88CD6872213569300CE1508 /* RMRAssetsCatalogBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRAssetsCatalogBuilder.h; sourceTree = "<group>"; };
 		D88CD6882213569300CE1508 /* RMRAssetsCatalogBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRAssetsCatalogBuilder.m; sourceTree = "<group>"; };
 		D88CD68A221361CB00CE1508 /* RMRStringTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRStringTools.h; sourceTree = "<group>"; };
@@ -96,9 +93,6 @@
 		D8AB5DC2221D6CC5005F057D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8AB5DC5221D6CC5005F057D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8AB5DC7221D6CC5005F057D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8AB5DCC221D6E14005F057D /* MyTestColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTestColors.swift; sourceTree = SOURCE_ROOT; };
-		D8AB5DCD221D6E14005F057D /* MyTestColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MyTestColors.xcassets; sourceTree = SOURCE_ROOT; };
-		D8AB5DD0221D6F77005F057D /* UIColor+MyTestColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MyTestColors.swift"; sourceTree = SOURCE_ROOT; };
 		D8DF6A07221D489400CB128E /* RMRSwiftCodeBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRSwiftCodeBuilder.h; sourceTree = "<group>"; };
 		D8DF6A08221D489400CB128E /* RMRSwiftCodeBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRSwiftCodeBuilder.m; sourceTree = "<group>"; };
 		D8DF6A0A221D4C4600CB128E /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -147,32 +141,11 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		83C30F2C1ABC427E00C425DD /* RMRRefreshColorPanelPlugin */ = {
-			isa = PBXGroup;
-			children = (
-				83C30F391ABC42B000C425DD /* RMRRefreshColorPanel.h */,
-				83C30F3A1ABC42B000C425DD /* RMRRefreshColorPanel.m */,
-				83C30F371ABC42B000C425DD /* NSColorPanel+RMRColorList.h */,
-				83C30F381ABC42B000C425DD /* NSColorPanel+RMRColorList.m */,
-				83C30F2D1ABC427E00C425DD /* Supporting Files */,
-			);
-			path = RMRRefreshColorPanelPlugin;
-			sourceTree = "<group>";
-		};
-		83C30F2D1ABC427E00C425DD /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				83C30F2E1ABC427E00C425DD /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		83D117F71AB9D3FF00D3C7B9 = {
 			isa = PBXGroup;
 			children = (
 				D88CD69422136F1B00CE1508 /* README.md */,
 				83D118241AB9ECF400D3C7B9 /* RMRHexColorGen */,
-				83C30F2C1ABC427E00C425DD /* RMRRefreshColorPanelPlugin */,
 				D8AB5DBA221D6CBE005F057D /* TestApp */,
 				D82EB10E261E1042005BD378 /* RMRHexColorGenTests */,
 				83D118011AB9D40000D3C7B9 /* Products */,
@@ -259,19 +232,27 @@
 			path = RMRHexColorGenTests;
 			sourceTree = "<group>";
 		};
+		D8624F10261F21BA0013C332 /* _generated */ = {
+			isa = PBXGroup;
+			children = (
+				D8624F14261F22280013C332 /* GeneratedColors.swift */,
+				D8624F15261F22280013C332 /* GeneratedColors.xcassets */,
+			);
+			path = _generated;
+			sourceTree = "<group>";
+		};
 		D8AB5DBA221D6CBE005F057D /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
-				D8AB5DCC221D6E14005F057D /* MyTestColors.swift */,
-				D8AB5DCD221D6E14005F057D /* MyTestColors.xcassets */,
+				D8624F10261F21BA0013C332 /* _generated */,
 				D8AB5DBB221D6CBE005F057D /* AppDelegate.swift */,
 				D8AB5DBD221D6CBE005F057D /* ViewController.swift */,
-				D8AB5DD0221D6F77005F057D /* UIColor+MyTestColors.swift */,
 				D8AB5DBF221D6CBE005F057D /* Main.storyboard */,
 				D8AB5DC2221D6CC5005F057D /* Assets.xcassets */,
 				D8AB5DC4221D6CC5005F057D /* LaunchScreen.storyboard */,
 				D8AB5DC7221D6CC5005F057D /* Info.plist */,
 				D8979369221EB116004EE06E /* UIColor+HexString.swift */,
+				D8624F0C261F216B0013C332 /* AppColors.palette */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
@@ -392,7 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8AB5DC6221D6CC5005F057D /* LaunchScreen.storyboard in Resources */,
-				D8AB5DCF221D6E15005F057D /* MyTestColors.xcassets in Resources */,
+				D8624F17261F22280013C332 /* GeneratedColors.xcassets in Resources */,
 				D8AB5DC3221D6CC5005F057D /* Assets.xcassets in Resources */,
 				D8AB5DC1221D6CBE005F057D /* Main.storyboard in Resources */,
 			);
@@ -417,7 +398,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+			shellScript = "cd \"$SRCROOT\"\ncd bin\n# Generate an asset catalog from these\n./RMRHexColorGen -i ./../TestApp/AppColors.palette -o ./../TestApp/_generated -f assets -n GeneratedColors\n./RMRHexColorGen -i ./../TestApp/AppColors.palette -o ./../TestApp/_generated -f swift -n ColorExtensions -p app\necho \"Updated Colors.\"\n";
 		};
 		D8FBEC7E2226E65600C2CAD6 /* Copy to bin Folder */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -477,10 +458,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8AB5DBE221D6CBE005F057D /* ViewController.swift in Sources */,
-				D8AB5DD1221D6F78005F057D /* UIColor+MyTestColors.swift in Sources */,
+				D8624F16261F22280013C332 /* GeneratedColors.swift in Sources */,
 				D8AB5DBC221D6CBE005F057D /* AppDelegate.swift in Sources */,
 				D897936A221EB116004EE06E /* UIColor+HexString.swift in Sources */,
-				D8AB5DCE221D6E15005F057D /* MyTestColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

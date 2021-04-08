@@ -72,6 +72,17 @@ static NSString * const kColorCategorySourceTemplate =
     
 - (NSError *)generateColorCategoryForColors:(NSArray *)colorList
 {
+    BOOL hasDarkModeSpecified = NO;
+    for (RMRHexColor *color in colorList) {
+        if (color.alternateColorValue != nil) {
+            hasDarkModeSpecified = YES;
+        }
+    }
+    
+    if(hasDarkModeSpecified) {
+        NSLog(@"You are using the Objective-C code builder (which is really kind of obsolete, objective-C), but have specified dark mode colors in your Palette.  These will be ignored.  You are invited to write handlers for these but for now dark mode colors with the Objective-C code builder is not supported.");
+    }
+    
     NSError *error = nil;
     
     NSString *outputFolder = self.parameters.outputPath;

@@ -25,9 +25,8 @@ void printHelp(char *utilName) {
     printf("    -f <format> Output Format.  Valid values are swift, objc, assets.\n");
     printf("Options:\n");
     printf("    -p <prefix> Use <prefix> as the class prefix in the generated code\n");
-    printf("    -clr        Use this flag if you need to generate and install CLR file\n");
     printf("    -vnn        Use this flag if you need to generate colors using RGB values and not Named Colors.  i.e. pre-iOS 11.0\n");
-    printf("    -osx        Use this flag if you need to generate code for OSX.  I.e. NSColor not UIColor\n");
+    printf("    -osx        Use this flag if you need to generate code for OSX.  I.e. NSColor not UIColor.  Note: Alternate Colors not supported.\n");
     printf("    -h          Print this help and exit\n");
 }
 

@@ -1,11 +1,12 @@
+
 // Colors in RRGGBB or RRGGBBAA format!
 
 // ------------------  Named Colors --------------
-// examples: 
+// examples:
 // #FFFFFF White
 // #000000 Black
 
-#3D78FE MyBlue
+#3D78FE #2478FE MyBlue Basic Blue for the app
 #7C8089 MyGrey
 #36383C MyBlack  BreakingIT!   Testing some stuff here.
 

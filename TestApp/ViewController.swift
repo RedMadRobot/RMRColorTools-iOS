@@ -18,9 +18,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.catalogLabel.backgroundColor = MyTestColors.myBlue
-        self.codeLabel.backgroundColor = .t_myBlue
-        let colorCode = "#3d78fe"
+        self.catalogLabel.backgroundColor = GeneratedColors.myGrey
+        self.codeLabel.backgroundColor = GeneratedColors.myBlack
+        let colorCode = "#3d78fe" // corresponds to myBlue
         let values = UIColor.rgba(from: colorCode)
         guard let v = values, let color = UIColor(values: values)  else { return }
         
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
             print("Alpha Failed")
         }
    
-        if color.compare(other: MyTestColors.myBlue) == false {
+        if color.compare(other: GeneratedColors.myBlue) == false {
             print("Asset Catalog Color failed")
         }
         if color.compare(other: .t_myBlue) == false {

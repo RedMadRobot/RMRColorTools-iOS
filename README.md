@@ -97,20 +97,6 @@ output format: assets;  used in the output filename: <name>.swift and in assets 
 ```
 
 
-
-## RMRRefreshColorPanelPlugin
-
-Xcode plugin that force Color Panel to reload custom Color Palettes after every build.
-
-### Install
-
-Just clone this repo, run `RMRRefreshColorPanelPlugin` target and restart Xcode.
-
-### Usage
-
-RMRRefreshColorPanelPlugin will refresh Color Panel after every build end.
-Select `Reload color lists` from the `Edit` menu to force refresh.
-
 ## Xcode Build Integration Examples
 
 ### Create Run Script
