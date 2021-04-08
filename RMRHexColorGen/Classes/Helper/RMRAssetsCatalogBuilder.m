@@ -75,7 +75,7 @@ static NSString * const kColorContentsJsonTemplateWithDarkMode =
 @"                    \"appearances\" : [\n"
 @"                       {\n"
 @"                          \"appearance\" : \"luminosity\",\n"
-@"                          \"value\" : \"dark\"\n
+@"                          \"value\" : \"dark\"\n"
 @"                       }\n"
 @"                     ],\n"
 @"                    \"idiom\" : \"universal\",\n"
@@ -169,16 +169,21 @@ static NSString * const kColorContentsJsonTemplateWithDarkMode =
     static NSString * blueKey      = @"<*blue*>";
     static NSString * alphaKey     = @"<*alpha*>"; // expects a decimal as string
     
-    static NSString * redKey       = @"<*red_dark*>";  // expects 2 characters
-    static NSString * greenKey     = @"<*green_dark*>";
-    static NSString * blueKey      = @"<*blue_dark*>";
-    static NSString * alphaKey     = @"<*alpha_dark*>"; // expects a decimal as string
+    static NSString * redKeyDark   = @"<*red_dark*>";  // expects 2 characters
+    static NSString * greenKeyDark = @"<*green_dark*>";
+    static NSString * blueKeyDark  = @"<*blue_dark*>";
+    static NSString * alphaKeyDark = @"<*alpha_dark*>"; // expects a decimal as string
     
     for(RMRHexColor *hexColor in colorList) {
         
         NSString *folderName = [hexColor.colorTitle stringByAppendingString:kRMRAssetsColorSetFileExtension];
         
+        NSString *fileContents;
+        NSError *colorGenError = nil;
+        
         BOOL needsDarkMode = (hexColor.alternateColorValue != nil);
+        
+        NSString *template = needsDarkMode ? kColorContentsJsonTemplateWithDarkMode : kColorContentsJsonTemplate;
         
         NSString *colorString = [[hexColor.colorValue stringByReplacingOccurrencesOfString:@"#"
                                                                                 withString:@""] uppercaseString];
@@ -194,15 +199,35 @@ static NSString * const kColorContentsJsonTemplateWithDarkMode =
             alphaComponent = [NSString stringWithFormat:@"%f", [alphaComponent hexAsNormalizedFloatValue]];
         }
         
-        
-        
-        NSString *fileContents = [[[[kColorContentsJsonTemplate
+        fileContents = [[[[template
             stringByReplacingOccurrencesOfString:redKey       withString:redComponent]
            stringByReplacingOccurrencesOfString:greenKey     withString:greenComponent]
           stringByReplacingOccurrencesOfString:blueKey      withString:blueComponent]
          stringByReplacingOccurrencesOfString:alphaKey     withString:alphaComponent];
         
-        NSError *colorGenError = nil;
+        if (needsDarkMode) {
+            
+            NSString *darkColorString = [[hexColor.alternateColorValue stringByReplacingOccurrencesOfString:@"#"
+                                                                                    withString:@""] uppercaseString];
+            darkColorString = [darkColorString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
+            NSString *redComponent   = [darkColorString substringWithRange:NSMakeRange(0, 2)];
+            NSString *greenComponent = [darkColorString substringWithRange:NSMakeRange(2, 2)];
+            NSString *blueComponent  = [darkColorString substringWithRange:NSMakeRange(4, 2)];
+            NSString *alphaComponent = @"1.0";
+            
+            if(colorString.length == 8) {
+                alphaComponent = [colorString substringWithRange:NSMakeRange(6, 2)];
+                alphaComponent = [NSString stringWithFormat:@"%f", [alphaComponent hexAsNormalizedFloatValue]];
+            }
+            
+            fileContents = [[[[fileContents
+                stringByReplacingOccurrencesOfString:redKeyDark       withString:redComponent]
+               stringByReplacingOccurrencesOfString:greenKeyDark     withString:greenComponent]
+              stringByReplacingOccurrencesOfString:blueKeyDark      withString:blueComponent]
+             stringByReplacingOccurrencesOfString:alphaKeyDark     withString:alphaComponent];
+            
+        }
         
         // now create the folder
         NSString *folderPath = [outputCatalogPath stringByAppendingPathComponent:folderName];
