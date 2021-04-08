@@ -56,7 +56,7 @@
         void(^enumerateBlock)(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) =
         ^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
             if (result.numberOfRanges == 3) {
-                colorValue   = [rawData substringWithRange:[result rangeAtIndex:1]];
+                colorValue = [rawData substringWithRange:[result rangeAtIndex:1]];
                 
                 NSRange titleRange = [result rangeAtIndex:2];
                 colorTitleAndComments = [rawData substringWithRange:titleRange];

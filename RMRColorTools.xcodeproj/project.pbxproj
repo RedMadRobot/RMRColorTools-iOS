@@ -14,14 +14,14 @@
 		83C19AD11AC2E75100288BFE /* RMRHexColorGenParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C19AD01AC2E75100288BFE /* RMRHexColorGenParameters.m */; };
 		83C19AD41AC2EC9200288BFE /* RMRHexColorGen.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C19AD31AC2EC9200288BFE /* RMRHexColorGen.m */; };
 		83C19AD91AC2F9A700288BFE /* RXCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C19AD81AC2F9A700288BFE /* RXCollection.m */; };
-		83C30F291ABC427D00C425DD /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C30F281ABC427D00C425DD /* AppKit.framework */; };
-		83C30F2B1ABC427E00C425DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C30F2A1ABC427E00C425DD /* Foundation.framework */; };
-		83C30F3B1ABC42B000C425DD /* NSColorPanel+RMRColorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C30F381ABC42B000C425DD /* NSColorPanel+RMRColorList.m */; };
-		83C30F3C1ABC42B000C425DD /* RMRRefreshColorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C30F3A1ABC42B000C425DD /* RMRRefreshColorPanel.m */; };
 		83D1182F1AB9ECF400D3C7B9 /* RMRHexColorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D118281AB9ECF400D3C7B9 /* RMRHexColorParser.m */; };
 		83D118301AB9ECF400D3C7B9 /* RMRStyleSheetReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182A1AB9ECF400D3C7B9 /* RMRStyleSheetReader.m */; };
 		83D118311AB9ECF400D3C7B9 /* RMRHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */; };
 		83D118321AB9ECF400D3C7B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182E1AB9ECF400D3C7B9 /* main.m */; };
+		D82EB110261E1042005BD378 /* RMRHexColorGenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82EB10F261E1042005BD378 /* RMRHexColorGenTests.m */; };
+		D82EB118261E1229005BD378 /* RMRHexColorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D118281AB9ECF400D3C7B9 /* RMRHexColorParser.m */; };
+		D82EB11C261E1232005BD378 /* RMRHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */; };
+		D82EB120261E1249005BD378 /* RXCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C19AD81AC2F9A700288BFE /* RXCollection.m */; };
 		D88CD6892213569300CE1508 /* RMRAssetsCatalogBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D88CD6882213569300CE1508 /* RMRAssetsCatalogBuilder.m */; };
 		D88CD68C221361CB00CE1508 /* RMRStringTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D88CD68B221361CB00CE1508 /* RMRStringTools.m */; };
 		D897936A221EB116004EE06E /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8979369221EB116004EE06E /* UIColor+HexString.swift */; };
@@ -64,7 +64,6 @@
 		83C19AD61AC2EDA400288BFE /* RMRHexColorGenPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRHexColorGenPrefixHeader.pch; sourceTree = "<group>"; };
 		83C19AD71AC2F9A700288BFE /* RXCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXCollection.h; sourceTree = "<group>"; };
 		83C19AD81AC2F9A700288BFE /* RXCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXCollection.m; sourceTree = "<group>"; };
-		83C30F271ABC427D00C425DD /* RMRRefreshColorPanelPlugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RMRRefreshColorPanelPlugin.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C30F281ABC427D00C425DD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		83C30F2A1ABC427E00C425DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		83C30F2E1ABC427E00C425DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +79,9 @@
 		83D1182C1AB9ECF400D3C7B9 /* RMRHexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRHexColor.h; sourceTree = "<group>"; };
 		83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRHexColor.m; sourceTree = "<group>"; };
 		83D1182E1AB9ECF400D3C7B9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D82EB10D261E1042005BD378 /* RMRHexColorGenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RMRHexColorGenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D82EB10F261E1042005BD378 /* RMRHexColorGenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRHexColorGenTests.m; sourceTree = "<group>"; };
+		D82EB111261E1042005BD378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D88CD6872213569300CE1508 /* RMRAssetsCatalogBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRAssetsCatalogBuilder.h; sourceTree = "<group>"; };
 		D88CD6882213569300CE1508 /* RMRAssetsCatalogBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRAssetsCatalogBuilder.m; sourceTree = "<group>"; };
 		D88CD68A221361CB00CE1508 /* RMRStringTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRStringTools.h; sourceTree = "<group>"; };
@@ -103,16 +105,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		83C30F251ABC427D00C425DD /* Frameworks */ = {
+		83D1180B1AB9D45D00D3C7B9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83C30F291ABC427D00C425DD /* AppKit.framework in Frameworks */,
-				83C30F2B1ABC427E00C425DD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		83D1180B1AB9D45D00D3C7B9 /* Frameworks */ = {
+		D82EB10A261E1042005BD378 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -174,6 +174,7 @@
 				83D118241AB9ECF400D3C7B9 /* RMRHexColorGen */,
 				83C30F2C1ABC427E00C425DD /* RMRRefreshColorPanelPlugin */,
 				D8AB5DBA221D6CBE005F057D /* TestApp */,
+				D82EB10E261E1042005BD378 /* RMRHexColorGenTests */,
 				83D118011AB9D40000D3C7B9 /* Products */,
 				73759BFC0E0AC409E9F99B58 /* Frameworks */,
 			);
@@ -183,8 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				83D1180E1AB9D45D00D3C7B9 /* RMRHexColorGen */,
-				83C30F271ABC427D00C425DD /* RMRRefreshColorPanelPlugin.xcplugin */,
 				D8AB5DB9221D6CBE005F057D /* TestApp.app */,
+				D82EB10D261E1042005BD378 /* RMRHexColorGenTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,6 +250,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D82EB10E261E1042005BD378 /* RMRHexColorGenTests */ = {
+			isa = PBXGroup;
+			children = (
+				D82EB10F261E1042005BD378 /* RMRHexColorGenTests.m */,
+				D82EB111261E1042005BD378 /* Info.plist */,
+			);
+			path = RMRHexColorGenTests;
+			sourceTree = "<group>";
+		};
 		D8AB5DBA221D6CBE005F057D /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,23 +279,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		83C30F261ABC427D00C425DD /* RMRRefreshColorPanelPlugin */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 83C30F361ABC427E00C425DD /* Build configuration list for PBXNativeTarget "RMRRefreshColorPanelPlugin" */;
-			buildPhases = (
-				83C30F241ABC427D00C425DD /* Resources */,
-				83C30F251ABC427D00C425DD /* Frameworks */,
-				83C30F231ABC427D00C425DD /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = RMRRefreshColorPanelPlugin;
-			productName = RMRRefreshColorPanelPlugin;
-			productReference = 83C30F271ABC427D00C425DD /* RMRRefreshColorPanelPlugin.xcplugin */;
-			productType = "com.apple.product-type.bundle";
-		};
 		83D1180D1AB9D45D00D3C7B9 /* RMRHexColorGen */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83D118121AB9D45D00D3C7B9 /* Build configuration list for PBXNativeTarget "RMRHexColorGen" */;
@@ -303,6 +296,23 @@
 			productName = RMRHexColorGen;
 			productReference = 83D1180E1AB9D45D00D3C7B9 /* RMRHexColorGen */;
 			productType = "com.apple.product-type.tool";
+		};
+		D82EB10C261E1042005BD378 /* RMRHexColorGenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D82EB112261E1042005BD378 /* Build configuration list for PBXNativeTarget "RMRHexColorGenTests" */;
+			buildPhases = (
+				D82EB109261E1042005BD378 /* Sources */,
+				D82EB10A261E1042005BD378 /* Frameworks */,
+				D82EB10B261E1042005BD378 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RMRHexColorGenTests;
+			productName = RMRHexColorGenTests;
+			productReference = D82EB10D261E1042005BD378 /* RMRHexColorGenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		D8AB5DB8221D6CBE005F057D /* TestApp */ = {
 			isa = PBXNativeTarget;
@@ -333,11 +343,13 @@
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = RedMadRobot;
 				TargetAttributes = {
-					83C30F261ABC427D00C425DD = {
-						CreatedOnToolsVersion = 6.2;
-					};
 					83D1180D1AB9D45D00D3C7B9 = {
 						CreatedOnToolsVersion = 6.2;
+					};
+					D82EB10C261E1042005BD378 = {
+						CreatedOnToolsVersion = 12.4;
+						DevelopmentTeam = Z76RWC6PEN;
+						ProvisioningStyle = Automatic;
 					};
 					D8AB5DB8221D6CBE005F057D = {
 						CreatedOnToolsVersion = 10.1;
@@ -351,6 +363,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -360,14 +373,14 @@
 			projectRoot = "";
 			targets = (
 				83D1180D1AB9D45D00D3C7B9 /* RMRHexColorGen */,
-				83C30F261ABC427D00C425DD /* RMRRefreshColorPanelPlugin */,
 				D8AB5DB8221D6CBE005F057D /* TestApp */,
+				D82EB10C261E1042005BD378 /* RMRHexColorGenTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		83C30F241ABC427D00C425DD /* Resources */ = {
+		D82EB10B261E1042005BD378 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -427,15 +440,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		83C30F231ABC427D00C425DD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				83C30F3C1ABC42B000C425DD /* RMRRefreshColorPanel.m in Sources */,
-				83C30F3B1ABC42B000C425DD /* NSColorPanel+RMRColorList.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		83D1180A1AB9D45D00D3C7B9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -454,6 +458,17 @@
 				83D118321AB9ECF400D3C7B9 /* main.m in Sources */,
 				D88CD68C221361CB00CE1508 /* RMRStringTools.m in Sources */,
 				83D1182F1AB9ECF400D3C7B9 /* RMRHexColorParser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D82EB109261E1042005BD378 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D82EB118261E1229005BD378 /* RMRHexColorParser.m in Sources */,
+				D82EB11C261E1232005BD378 /* RMRHexColor.m in Sources */,
+				D82EB110261E1042005BD378 /* RMRHexColorGenTests.m in Sources */,
+				D82EB120261E1249005BD378 /* RXCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,38 +506,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		83C30F341ABC427E00C425DD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEPLOYMENT_LOCATION = YES;
-				DSTROOT = "$(HOME)";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = RMRRefreshColorPanelPlugin/Info.plist;
-				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xcplugin;
-			};
-			name = Debug;
-		};
-		83C30F351ABC427E00C425DD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEPLOYMENT_LOCATION = YES;
-				DSTROOT = "$(HOME)";
-				INFOPLIST_FILE = RMRRefreshColorPanelPlugin/Info.plist;
-				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xcplugin;
-			};
-			name = Release;
-		};
 		83D118051AB9D40000D3C7B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -617,6 +600,77 @@
 			};
 			name = Release;
 		};
+		D82EB113261E1042005BD378 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = Z76RWC6PEN;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = RMRHexColorGenTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = redmadrobot.RMRHexColorGenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D82EB114261E1042005BD378 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Z76RWC6PEN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = RMRHexColorGenTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = redmadrobot.RMRHexColorGenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		D8AB5DC8221D6CC5005F057D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -701,15 +755,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		83C30F361ABC427E00C425DD /* Build configuration list for PBXNativeTarget "RMRRefreshColorPanelPlugin" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				83C30F341ABC427E00C425DD /* Debug */,
-				83C30F351ABC427E00C425DD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		83D117FB1AB9D40000D3C7B9 /* Build configuration list for PBXProject "RMRColorTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -724,6 +769,15 @@
 			buildConfigurations = (
 				83D118131AB9D45D00D3C7B9 /* Debug */,
 				83D118141AB9D45D00D3C7B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D82EB112261E1042005BD378 /* Build configuration list for PBXNativeTarget "RMRHexColorGenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D82EB113261E1042005BD378 /* Debug */,
+				D82EB114261E1042005BD378 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
