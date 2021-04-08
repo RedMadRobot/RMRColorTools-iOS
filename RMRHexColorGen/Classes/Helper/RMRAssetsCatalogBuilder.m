@@ -52,6 +52,46 @@ static NSString * const kColorContentsJsonTemplate =
 @"             ]\n"
 @"}";
 
+static NSString * const kColorContentsJsonTemplateWithDarkMode =
+@"{\n"
+@"    \"info\" : {\n"
+@"        \"version\" : 1,\n"
+@"        \"author\" : \"xcode\"\n"
+@"    },\n"
+@"    \"colors\" : [\n"
+@"                {\n"
+@"                    \"idiom\" : \"universal\",\n"
+@"                    \"color\" : {\n"
+@"                        \"color-space\" : \"srgb\",\n"
+@"                        \"components\" : {\n"
+@"                            \"red\" : \"0x<*red*>\",\n"
+@"                            \"alpha\" : \"<*alpha*>\",\n"
+@"                            \"blue\" : \"0x<*blue*>\",\n"
+@"                            \"green\" : \"0x<*green*>\"\n"
+@"                        }\n"
+@"                    }\n"
+@"                },\n"
+@"                {\n"
+@"                    \"appearances\" : [\n"
+@"                       {\n"
+@"                          \"appearance\" : \"luminosity\",\n"
+@"                          \"value\" : \"dark\"\n
+@"                       }\n"
+@"                     ],\n"
+@"                    \"idiom\" : \"universal\",\n"
+@"                    \"color\" : {\n"
+@"                        \"color-space\" : \"srgb\",\n"
+@"                        \"components\" : {\n"
+@"                            \"red\" : \"0x<*red_dark*>\",\n"
+@"                            \"alpha\" : \"<*alpha_dark*>\",\n"
+@"                            \"blue\" : \"0x<*blue_dark*>\",\n"
+@"                            \"green\" : \"0x<*green_dark*>\"\n"
+@"                        }\n"
+@"                    }\n"
+@"                }\n"
+@"             ]\n"
+@"}";
+
 
 @interface RMRAssetsCatalogBuilder()
 @property (nonatomic, retain) RMRHexColorGenParameters *parameters;
@@ -129,7 +169,16 @@ static NSString * const kColorContentsJsonTemplate =
     static NSString * blueKey      = @"<*blue*>";
     static NSString * alphaKey     = @"<*alpha*>"; // expects a decimal as string
     
+    static NSString * redKey       = @"<*red_dark*>";  // expects 2 characters
+    static NSString * greenKey     = @"<*green_dark*>";
+    static NSString * blueKey      = @"<*blue_dark*>";
+    static NSString * alphaKey     = @"<*alpha_dark*>"; // expects a decimal as string
+    
     for(RMRHexColor *hexColor in colorList) {
+        
+        NSString *folderName = [hexColor.colorTitle stringByAppendingString:kRMRAssetsColorSetFileExtension];
+        
+        BOOL needsDarkMode = (hexColor.alternateColorValue != nil);
         
         NSString *colorString = [[hexColor.colorValue stringByReplacingOccurrencesOfString:@"#"
                                                                                 withString:@""] uppercaseString];
@@ -145,7 +194,7 @@ static NSString * const kColorContentsJsonTemplate =
             alphaComponent = [NSString stringWithFormat:@"%f", [alphaComponent hexAsNormalizedFloatValue]];
         }
         
-        NSString *folderName = [hexColor.colorTitle stringByAppendingString:kRMRAssetsColorSetFileExtension];
+        
         
         NSString *fileContents = [[[[kColorContentsJsonTemplate
             stringByReplacingOccurrencesOfString:redKey       withString:redComponent]

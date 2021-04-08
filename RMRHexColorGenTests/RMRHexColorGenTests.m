@@ -71,7 +71,7 @@
     expectedResult.colorTitle = @"StandardBackgroundColor";
     expectedResult.colorValue = @"#A0B1C2";
     expectedResult.alternateColorValue = nil;
-    expectedResult.comments = @"This is some comment other now.";
+    expectedResult.comments = @"This is some other comment now.";
     expectedResult.isAlias = YES;
     RMRHexColor *result = [self.parser parseColor:sut definedColors:@[existingColor]];
     XCTAssert([expectedResult isEqual:result], @"These two are not the same.");

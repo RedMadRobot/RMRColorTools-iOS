@@ -105,6 +105,7 @@
         RMRHexColor *color = [[RMRHexColor alloc] init];
         color.colorTitle = colorTitle;
         color.colorValue = colorValue;
+        color.alternateColorValue = alternateValue;
         color.comments = comments;
         
         return color;
@@ -139,6 +140,7 @@
                 newColor = [[RMRHexColor alloc] init];
                 newColor.colorTitle = newColorTitle;
                 newColor.colorValue = color.colorValue;
+                newColor.alternateColorValue = color.alternateColorValue;
                 newColor.isAlias = YES;
                 newColor.comments = comments;
                 *stop = YES;
