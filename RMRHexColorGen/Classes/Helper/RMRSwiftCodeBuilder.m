@@ -58,6 +58,9 @@ static NSString * const kValueColorsEnumSwiftTemplate =
 @"\n"
 @"}\n";
 
+
+
+
 @interface RMRSwiftCodeBuilder ()
 
 #pragma mark — Properties
@@ -178,15 +181,39 @@ static NSString * const kValueColorsEnumSwiftTemplate =
     static NSString * greenKey     = @"<*green*>";
     static NSString * blueKey      = @"<*blue*>";
     static NSString * alphaKey     = @"<*alpha*>";
+    static NSString * redKeyDark       = @"<*red_dark*>";
+    static NSString * greenKeyDark     = @"<*green_dark*>";
+    static NSString * blueKeyDark      = @"<*blue_dark*>";
+    static NSString * alphaKeyDark     = @"<*alpha_dark*>";
     static NSString * commentsKey  = @"<*color_comments*>";
+    
+    static NSString * colorDefinitionTemplateOnIOS =
+    @"<*color_comments*>    static var <*method_signature*>: UIColor = {\n"
+    @"if #available(iOS 13, *) {\n"
+    @"    return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in\n"
+    @"        if UITraitCollection.userInterfaceStyle == .dark {\n"
+    @"            /// Return the color for Dark Mode\n"
+    @"            return UIColor(red: <*red_dark*>, green: <*green_dark*>, blue: <*blue_dark*>, alpha: <*alpha_dark*>)\n"
+    @"        } else {\n"
+    @"            /// Return the color for Light Mode\n"
+    @"            return UIColor(red: <*red*>, green: <*green*>, blue: <*blue*>, alpha: <*alpha*>)\n"
+    @"        }\n"
+    @"    }\n"
+    @"} else {\n"
+    @"    /// Return a fallback color for iOS 12 and lower.\n"
+    @"    return UIColor(red: <*red*>, green: <*green*>, blue: <*blue*>, alpha: <*alpha*>)\n"
+    @"}\n"
+    @"}()\n";
+    
+    // you have more control over color space on OSX.... sRGB is the safest and most likely what the Designers use...
+    static NSString * colorDefinitionTemplateMacOS = @"<*color_comments*>    static let <*method_signature*>: NSColor = NSColor(srgbRed: <*red*>, green: <*green*>, blue: <*blue*>, alpha: <*alpha*>)";
     
     NSString *methodTemplate;
     
     if(self.parameters.isForOSX) {
-        // you have more control over color space on OSX.... sRGB is the safest and most likely what the Designers use...
-        methodTemplate = @"<*color_comments*>    static let <*method_signature*>: <*class_name*> = <*class_name*>(srgbRed: <*red*>, green: <*green*>, blue: <*blue*>, alpha: <*alpha*>)";
+        methodTemplate = colorDefinitionTemplateMacOS;
     } else {
-        methodTemplate = @"<*color_comments*>    static let <*method_signature*>: <*class_name*> = <*class_name*>(red: <*red*>, green: <*green*>, blue: <*blue*>, alpha: <*alpha*>)";
+        methodTemplate = colorDefinitionTemplateOnIOS;
     }
     
     // the colorList will be sorted first with defined colors, then aliases.
@@ -241,6 +268,30 @@ static NSString * const kValueColorsEnumSwiftTemplate =
            stringByReplacingOccurrencesOfString:blueKey      withString:blueComponent]
           stringByReplacingOccurrencesOfString:alphaKey     withString:alphaComponent]
          stringByReplacingOccurrencesOfString:commentsKey withString:commentsValue];
+        
+        if(hexColor.alternateColorValue != nil) {
+            
+            NSColor *rgbColorDark = [NSColor colorWithHexString:hexColor.alternateColorValue];
+            
+            NSString *redComponentDark   = [@(rgbColorDark.redComponent) stringValue];
+            NSString *greenComponentDark = [@(rgbColorDark.greenComponent) stringValue];
+            NSString *blueComponentDark  = [@(rgbColorDark.blueComponent) stringValue];
+            NSString *alphaComponentDark = [@(rgbColorDark.alphaComponent) stringValue];
+            
+            outputLine = [[[[outputLine
+                             stringByReplacingOccurrencesOfString:redKeyDark withString:redComponentDark]
+                            stringByReplacingOccurrencesOfString:greenKeyDark withString:greenComponentDark]
+                           stringByReplacingOccurrencesOfString:blueKeyDark withString:blueComponentDark]
+                          stringByReplacingOccurrencesOfString:alphaKeyDark withString:alphaComponentDark];
+            
+        } else {
+            // we just make dark mode the same.  It's more code that's generated but it's ultimately the same result.
+            outputLine = [[[[outputLine
+                             stringByReplacingOccurrencesOfString:redKeyDark withString:redComponent]
+                            stringByReplacingOccurrencesOfString:greenKeyDark withString:greenComponent]
+                           stringByReplacingOccurrencesOfString:blueKeyDark withString:blueComponent]
+                          stringByReplacingOccurrencesOfString:alphaKeyDark withString:alphaComponent];
+        }
         
         if (sectionComments) {
             return [sectionComments stringByAppendingString:outputLine];
