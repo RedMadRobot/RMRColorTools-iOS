@@ -1,5 +1,7 @@
 # RMRColorTools-iOS
 
+( https://github.com/horseshoe7/RMRColorTools-iOS )
+
 **RMRHexColorGen** is a command line tool that *parses a human-readable text file* containing Color definitions (names and hex values) and can *generate useful code for your Xcode projects* in one of **4 output flavours**:
 
 1.  An Objective-C category on UIColor
