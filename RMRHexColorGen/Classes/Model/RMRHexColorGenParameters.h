@@ -13,7 +13,8 @@ typedef NS_ENUM(NSInteger, RMRHexColorGenFormat) {
     RMRHexColorGenFormatObjectiveCCategory,
     RMRHexColorGenFormatSwiftExtension,
     RMRHexColorGenFormatSwiftEnum,
-    RMRHexColorGenFormatAssetCatalog
+    RMRHexColorGenFormatAssetCatalog,
+    RMRHexColorGenFormatAndroid
 };
 
 @interface RMRHexColorGenParameters : NSObject

@@ -18,6 +18,7 @@
 		83D118301AB9ECF400D3C7B9 /* RMRStyleSheetReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182A1AB9ECF400D3C7B9 /* RMRStyleSheetReader.m */; };
 		83D118311AB9ECF400D3C7B9 /* RMRHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */; };
 		83D118321AB9ECF400D3C7B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182E1AB9ECF400D3C7B9 /* main.m */; };
+		D803AD89262D9FA50025B525 /* RMRAndroidColorsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D803AD88262D9FA50025B525 /* RMRAndroidColorsBuilder.m */; };
 		D82EB110261E1042005BD378 /* RMRHexColorGenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82EB10F261E1042005BD378 /* RMRHexColorGenTests.m */; };
 		D82EB118261E1229005BD378 /* RMRHexColorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D118281AB9ECF400D3C7B9 /* RMRHexColorParser.m */; };
 		D82EB11C261E1232005BD378 /* RMRHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */; };
@@ -74,6 +75,8 @@
 		83D1182C1AB9ECF400D3C7B9 /* RMRHexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRHexColor.h; sourceTree = "<group>"; };
 		83D1182D1AB9ECF400D3C7B9 /* RMRHexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRHexColor.m; sourceTree = "<group>"; };
 		83D1182E1AB9ECF400D3C7B9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D803AD87262D9FA40025B525 /* RMRAndroidColorsBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMRAndroidColorsBuilder.h; sourceTree = "<group>"; };
+		D803AD88262D9FA50025B525 /* RMRAndroidColorsBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRAndroidColorsBuilder.m; sourceTree = "<group>"; };
 		D82EB10D261E1042005BD378 /* RMRHexColorGenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RMRHexColorGenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D82EB10F261E1042005BD378 /* RMRHexColorGenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRHexColorGenTests.m; sourceTree = "<group>"; };
 		D82EB111261E1042005BD378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 				D8DF6A08221D489400CB128E /* RMRSwiftCodeBuilder.m */,
 				D88CD6872213569300CE1508 /* RMRAssetsCatalogBuilder.h */,
 				D88CD6882213569300CE1508 /* RMRAssetsCatalogBuilder.m */,
+				D803AD87262D9FA40025B525 /* RMRAndroidColorsBuilder.h */,
+				D803AD88262D9FA50025B525 /* RMRAndroidColorsBuilder.m */,
 				D88CD68A221361CB00CE1508 /* RMRStringTools.h */,
 				D88CD68B221361CB00CE1508 /* RMRStringTools.m */,
 				D8DF6A0A221D4C4600CB128E /* Constants.h */,
@@ -432,6 +437,7 @@
 				83C19AD11AC2E75100288BFE /* RMRHexColorGenParameters.m in Sources */,
 				D88CD6892213569300CE1508 /* RMRAssetsCatalogBuilder.m in Sources */,
 				83C19ACE1AC2E19800288BFE /* NSString+RMRHelpers.m in Sources */,
+				D803AD89262D9FA50025B525 /* RMRAndroidColorsBuilder.m in Sources */,
 				830F50161ABAE168004F31CD /* NSColor+Hexadecimal.m in Sources */,
 				83D118301AB9ECF400D3C7B9 /* RMRStyleSheetReader.m in Sources */,
 				83D118311AB9ECF400D3C7B9 /* RMRHexColor.m in Sources */,

@@ -43,6 +43,7 @@ static NSString * const kRMRArgumentValueSwiftExtension     = @"swift-extension"
 static NSString * const kRMRArgumentValueSwiftEnum          = @"swift-enum";
 static NSString * const kRMRArgumentValueCategory           = @"objc";
 static NSString * const kRMRArgumentValueAssetsCatalog      = @"assets";
+static NSString * const kRMRArgumentValueAndroidXML         = @"android";
 
 // Catalog Name
 static NSString * const kRMRArgumentNameShort = @"n";
@@ -73,6 +74,10 @@ static NSString * const kRMRArgumentName      = @"name";
     
     if ([formatString isEqualToString:kRMRArgumentValueAssetsCatalog]) {
         return RMRHexColorGenFormatAssetCatalog;
+    }
+    
+    if ([formatString isEqualToString:kRMRArgumentValueAndroidXML]) {
+        return RMRHexColorGenFormatAndroid;
     }
     
     return defaultFormat;

@@ -15,6 +15,7 @@
 #import "RMRStyleSheetReader.h"
 #import "RMRAssetsCatalogBuilder.h"
 #import "RMRSwiftCodeBuilder.h"
+#import "RMRAndroidColorsBuilder.h"
 
 @interface RMRHexColorGen ()
 
@@ -77,7 +78,13 @@
         RMRSwiftCodeBuilder *codeBuilder = [[RMRSwiftCodeBuilder alloc] initWithParameters:parameters];
         error = [codeBuilder generateSwiftCodeForColors:colors];
         
-    } else {
+    }
+    else if (parameters.outputFormat == RMRHexColorGenFormatAndroid)
+    {
+        RMRAndroidColorsBuilder *codeBuilder = [[RMRAndroidColorsBuilder alloc] initWithParameters:parameters];
+        error = [codeBuilder generateAndroidXMLForColors:colors];
+    }
+    else {
         // objective-C
         RMRObjcCodeBuilder *builder = [[RMRObjcCodeBuilder alloc] initWithParameters:parameters];
         error = [builder generateColorCategoryForColors:colors];
@@ -87,12 +94,13 @@
     if ([self checkError:error]) return EXIT_FAILURE;
 
 
-    if (!parameters.needClr) return EXIT_SUCCESS;
-
-    // GENERATE AN XCODE COLOR TEMPLATE
-    NSColorList *colorList = [[NSColorList alloc] initWithName:colorListName];
-    [colorList fillWithHexColors:colors prefix:parameters.prefix?:@""];
-    [colorList writeToFile:nil];
+    // Not really supported anymore.
+    if (parameters.needClr) {
+        // GENERATE AN XCODE COLOR TEMPLATE
+        NSColorList *colorList = [[NSColorList alloc] initWithName:colorListName];
+        [colorList fillWithHexColors:colors prefix:parameters.prefix?:@""];
+        [colorList writeToFile:nil];
+    }
 
     return EXIT_SUCCESS;
 }
