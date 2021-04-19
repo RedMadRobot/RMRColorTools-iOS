@@ -7,6 +7,8 @@
 3.  A Swift enum with static members, so your colors are grouped.
 4.  (Typical Option) An Assets catalog with Color Sets  (Introduced in Xcode 9), along with an enum which derives named UIColor objects from the assets catalog. 
 
+(5.  In Addition it will also generate an .xml file that can be used by Android projects.   See 'format' below)
+
 It’s very important to have all your project resources organized and consistent, thus you won’t have to spend hours of time changing a single wide-spread color in your app.
 
 The addition of Colors to Assets catalogs in Xcode 9 provided a great solution to the issue of a common color palette being used and reduced the numbers of headaches associated with being completely in sync with the design team, and for the mostpart, you may see this source code as a bit dated and/or obsolete.  We would not entirely disagree.  That said, Named Colors via Assets catalogs are a feature that is only available to you if your deployment target OS is iOS 11 or later.
@@ -19,6 +21,7 @@ RMRColorTools-iOS enables an efficient workflow where:
 - Designers can edit and update the color palettes without programmer support
 - Developers don't need to concern themselves with the actual values of colors.  They just need to know "this element needs that color name", they set it once and it stays updated (assuming you use the new Colors Assets catalogs)
 - You don't need to go fishing through Asset catalogs to find out which of your color assets matches a given HEX value provided by the designer.
+- Designers can specify colors with esoteric names, and developers can create aliases to them for their intended purpose, e.g. primaryTextColor
 
 ## Other Features
 
@@ -29,9 +32,12 @@ Using simple markup (outlined below), a designer can define a color by giving it
 
 Sometimes you need 2 representations for one color, depending on whether the iOS device is in Dark Mode.  This is also possible with `RMRHexColorGen`.  The general syntax below is given in Usage.  
 
+### Android Support
+You can also specify an android output format, and it will generate an .xml file with the color definitions ready to be used in an Android project.
+
 ### Command line tool for Easy Build Automation
 
-Because **RMRHexColorGen** is a command line tool, you can set up a Run Script in your Xcode build that will keep your generated colors up-to-date and your Color Palettes automatically refreshed (via **RMRRefreshColorPanelPlugin**... This plugin simply forces Xcode to refresh its instance of Color Panel after every build).
+Because **RMRHexColorGen** is a command line tool, you can set up a Run Script in your Xcode build that will keep your generated colors up-to-date.
 
 ## Usage
 
@@ -89,12 +95,14 @@ output format: swift-enum; used in the output filename: <name>.swift
 output format: assets;  used in the output filename: <name>.swift and in assets catalog name: <name>.xcassets
                         and in the generated enum in <name>.swift
                         internal enum <name> { ... }
+                        
+output format: android;  used in the output filename: <name>.xml
             
--f <format>  The desired output format.  Valid values for <format> are: objc, swift-enum, swift-extension, assets
+-f <format>  The desired output format.  Valid values for <format> are: objc, swift-enum, swift-extension, assets, android
 
 -p <prefix>  Use <prefix> as the class prefix in the generated code.  Only relevant for format: objc and swift
 
--osx         Generate for the OSX platform (i.e. NSColor instead of UIColor) 
+-osx         Generate for the OSX platform (i.e. NSColor instead of UIColor).  Ignored for Android format. 
 
 -h           Print this help and exit
 ```
